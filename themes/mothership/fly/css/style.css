@@ -1,0 +1,76 @@
+h1{
+  margin:0;
+  padding:0;
+}
+
+/* Header */
+h1#site-name{
+  margin:0;
+  padding:0;
+}
+  #site-name a{
+    text-indent:-1000px;
+    overflow:hidden;    
+    display:block;
+    text-decoration:none;
+  }
+  h1#site-name a{
+    background:url(../images/sitetitle_front.gif) 0 0 no-repeat;
+    width:218px;
+    height:53px;
+  }
+  div#site-name a{
+    margin:0 0 0 2px;
+    background:url(../images/sitetitle_inner.png) 0 0 no-repeat;
+    width:218px;
+    height:53px;
+  }
+.breadcrumb{
+  padding:0;
+  margin:0 0 0 25px;
+  font-size:0.8em;
+  color:#999;
+}
+  .breadcrumb a{
+    color:#999;
+  }
+  .breadcrumb a:hover{
+    text-decoration:none;
+  }
+
+/*  Content top */
+
+/* Node */
+body.page-node .node{
+  margin-top:50px;
+}
+.node{
+  line-height: 1.8em;
+}
+  .node p{
+    margin:1.5em 0;
+  }
+
+.node .node_date{
+  width:68px;
+  overflow:hidden;
+  float:left;
+  margin:0;
+  padding:0;
+}
+
+/* Secondary Content */
+
+#block-menu-secondary-links h3,
+#block-menu-primary-links h3{
+  display:none;
+}
+
+
+
+
+
+/* -----clearfix -----*/
+.clearfix:after {content: "."; display: block; height: 0;  clear: both; visibility: hidden;}
+.clearfix {display:inline-block;} /*ie7 dosnt validate - but fixes the prob ...*/
+.clearfix {display:block;} /*opera & safari */

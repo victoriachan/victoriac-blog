@@ -1,0 +1,77 @@
+/*
+ * LAYOUT STYLES
+ */
+
+body{ 
+  margin:0; 
+  padding:0;
+  background:#fff url(../images/footer_bg.jpg) left bottom repeat-x;
+}
+  #site_wrapper{
+    margin:0 auto;
+    padding:0 10px 0 0;
+    width:960px;
+    background:url(../images/sitebg_inner.jpg) 0 0 no-repeat;
+  }
+  
+#main_wrapper{
+  width:100%;
+}
+  .primary_content{
+    width:70%;
+    float:left;
+  }
+    .header{
+      padding-left:40px;
+    }
+    .content_top{
+    }
+    .content{}
+      .node{
+        width:100%;
+        background:url(../images/nodebox_bg.png) left bottom no-repeat;
+      }
+        .node_content{
+          width:520px;
+          margin-left:95px;
+        }
+    .content_bottom{}
+    
+  .secondary_content{
+    width:30%;
+    float:right;
+  }
+
+#footer{
+  clear:both;
+}
+#closure{
+  
+}
+
+/* Inner Page title */
+h1.title{
+  padding:20px 0 0 94px;
+  margin:0 0 10px 0;
+  width:420px;
+  height:70px;
+}
+        
+/* Admin */
+#content_top{
+  position:relative;
+}
+.krumo-root{
+  color:#000;
+}
+.page-node #admin_tabs_top{ 
+  position:absolute;
+  top:74px;
+  left:240px;
+  z-index:100;
+  font-size:0.8em;
+}
+  #admin_tabs_top .tabs{
+      opacity:0.7;
+      filter:alpha(opacity=70)
+  }
