@@ -26,7 +26,7 @@ h1#site-name{
     height:53px;
   }
 .breadcrumb{
-  padding:0;
+  padding:2px 0 0 0;
   margin:0 0 0 25px;
   font-size:0.8em;
   color:#999;
@@ -34,6 +34,7 @@ h1#site-name{
   .breadcrumb a{
     color:#999;
   }
+  .breadcrumb a.active,
   .breadcrumb a:hover{
     text-decoration:none;
   }
@@ -46,18 +47,95 @@ body.page-node .node{
 }
 .node{
   line-height: 1.8em;
+  padding-bottom:20px;
+  color:#35565F;
 }
   .node p{
     margin:1.5em 0;
   }
+  .node a{
+    color:#13343e;
+    background-color: #e3dbe8;
+    text-decoration:none;
+  }
+  .node a:hover{
+    color:#ff3300;
+    background-color: transparent;
+    text-decoration:underline;
+  }
+  
+.node .terms{
+  clear:both;
+  font-size:0.9em;
+  margin:40px 0;
+  padding:3px 15px 5px 15px;
+  line-height:normal;
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+  .node .terms ul a{
+    background:none;
+    color:#13343E;
+    text-decoration:underline;
+  }
+    .node .terms ul a:hover{
+      color:#ff3300;
+    }
 
+/* Node date */
 .node .node_date{
+  color:#13343e;
   width:68px;
   overflow:hidden;
   float:left;
-  margin:0;
-  padding:0;
+  margin:0 0 0 10px;
+  padding:5px 0;
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.2);  
+  font-family: Arial, Helvetica, "Bitstream Vera Sans", sans-serif;
 }
+  .node .node_date dt{
+    display:none;
+  }
+  .node .node_date dd {
+    margin:0;
+    padding:0;
+  }
+    .node .node_date span{
+      display:block;
+      width:100%;
+      text-align:center;
+    }
+    .node .node_date span.delimiter{
+      display:none;
+    }
+    .node .node_date span.day{
+      font-size:2.3em;
+      line-height:0.9em;
+      font-weight:bold;
+    }
+    .node .node_date span.month{
+      font-size:1.3em;
+      line-height:0.8em;
+      font-weight:bold;
+    }
+    .node .node_date span.year{
+      font-size:0.8em;
+      line-height:1.3em;
+    }
+
+/* Comments */
+
+#comments{
+  clear:both;
+  border:1px dashed #ccc;
+  border-bottom:0;
+  padding:10px 30px;
+  width:560px;
+}
+  #comments .comment{
+    clear:both;
+  }
 
 /* Secondary Content */
 
@@ -65,9 +143,6 @@ body.page-node .node{
 #block-menu-primary-links h3{
   display:none;
 }
-
-
-
 
 
 /* -----clearfix -----*/

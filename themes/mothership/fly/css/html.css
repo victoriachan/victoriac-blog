@@ -74,7 +74,7 @@ pre, code
     }
   h2
   {
-    font-size: 1.5em;
+    font-size: 1.4em;
     line-height: 1.3em;
     margin-top: 0.667em; /* Equivalent to 1em in the page's base font: 1 / 1.5 = 0.667em */
     margin-bottom: 0.667em;
@@ -174,13 +174,15 @@ pre, code
   /* The order of link states are based on Eric Meyer's article:
    * http://meyerweb.com/eric/thoughts/2007/06/11/who-ordered-the-link-states
    */
+  .default_link,
   a{
-		color:#666;
+		color:#ff3300;
   }
 
   a:hover,
   a:focus
   {
+    text-decoration:none;
   }
 
   a:active

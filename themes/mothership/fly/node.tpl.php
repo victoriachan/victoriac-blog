@@ -67,9 +67,10 @@
 
   <?php print $picture; ?>
 
-  <?php if ($submitted): ?>
-    <p class="node_date"><span>posted on </span><?php print $date; ?></p>
+  <?php if ($blog_date): ?>
+      <?php print $blog_date; ?>
   <?php endif; ?>
+  
 
   <?php if (!$page): ?>
     <h2 class="title">
@@ -94,7 +95,9 @@
   <div class="node_content">
     <?php print $content; ?>
   </div>
-
+  
+  <?php print $links; ?>
+  
   <!-- ------ node_bottom ------ -->
   <?php if ($page && $node_bottom): ?>
     <!-- REGION content_bottom -->
@@ -102,10 +105,8 @@
   <?php endif; ?>
 
   <?php if ($terms): ?>
-    <div class="terms"><?php print t(' in ') . $terms; ?></div>
+    <div class="terms"><?php print t('Topics: ') . $terms; ?></div>
   <?php endif; ?>
-
-  <?php print $links; ?>
 
 </div> <!-- /node -->
 

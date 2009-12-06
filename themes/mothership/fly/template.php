@@ -28,6 +28,10 @@ function fly_preprocess_node(&$vars){
   }
   
   // Format nice dates
-  //dsm($vars['node']);
+  $arr_created_date_parts = explode(' ', format_date($vars['node']->created, 'small'));
+  $vars['blog_date']  = '<dl class="node_date"><dt>Posted on:<dt><dd>';
+  $vars['blog_date'] .= '<span class="day">'.$arr_created_date_parts[0].'</span><span class="delimited"> </span>';
+  $vars['blog_date'] .= '<span class="month">'.$arr_created_date_parts[1].'</span><span class="delimited"> </span>';
+  $vars['blog_date'] .= '<span class="year">'.$arr_created_date_parts[2].'</span><dd></dl>';
   
 }

@@ -23,6 +23,7 @@ body{
   }
     .header{
       padding-left:40px;
+      height:90px;
     }
     .content_top{
     }
@@ -32,7 +33,7 @@ body{
         background:url(../images/nodebox_bg.png) left bottom no-repeat;
       }
         .node_content{
-          width:520px;
+          width:500px;
           margin-left:95px;
         }
     .content_bottom{}
@@ -44,6 +45,8 @@ body{
 
 #footer{
   clear:both;
+  padding-top:50px;
+  height:50px;
 }
 #closure{
   
@@ -51,22 +54,19 @@ body{
 
 /* Inner Page title */
 h1.title{
-  padding:20px 0 0 94px;
-  margin:0 0 10px 0;
+  padding:0 0 0 94px;
+  margin:0 0 20px 0;
   width:420px;
-  height:70px;
+  height:65px;
 }
         
 /* Admin */
 #content_top{
   position:relative;
 }
-.krumo-root{
-  color:#000;
-}
 .page-node #admin_tabs_top{ 
   position:absolute;
-  top:74px;
+  top:55px;
   left:240px;
   z-index:100;
   font-size:0.8em;
@@ -74,4 +74,14 @@ h1.title{
   #admin_tabs_top .tabs{
       opacity:0.7;
       filter:alpha(opacity=70)
+  }
+  .page-node #admin_tabs_top .messages{
+    position:absolute;
+    top:10px;
+  }
+  #content .krumo-root{
+    position:absolute;
+    top:174px;
+    left:240px;
+    width:700px;
   }
