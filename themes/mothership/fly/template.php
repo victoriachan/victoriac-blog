@@ -4,28 +4,6 @@
  * @file
  * template file for subtheme, fly
  */
-
-/**
- * Return a themed breadcrumb trail.
- *
- * @param $breadcrumb
- *   An array containing the breadcrumb links.
- * @return
- *   A string containing the breadcrumb output.
- */
-function fly_breadcrumb($breadcrumb) {
-  
-  // Return the breadcrumb with separators.
-  if (!empty($breadcrumb)) {
-    $breadcrumb_separator = ' > ';
-    $trailing_separator = $title = '';
-    $trailing_separator = $breadcrumb_separator;
-    return '<div class="breadcrumb">' . implode($breadcrumb_separator, $breadcrumb) . "$trailing_separator$title</div>";
-  }
-    
-  // Otherwise, return an empty string.
-  return '';
-}
  
 /**
  * Preprocess page template variables.
