@@ -135,6 +135,36 @@ body.page-node .node{
 }
   #comments .comment{
     clear:both;
+    padding:30px 0;
+  }
+  .comment .comment_avatar{
+    float:left;
+    width:50px;
+  }
+    .comment .comment_avatar img{
+      border:1px solid #13343E;
+    }
+  .comment .comment_text{
+    float:left;
+    width:490px;
+    padding-left:20px;
+  }
+  .comment .submitted{
+    font-size:0.9em;
+    line-height:1.1em;
+  }
+  .comment .content{
+    color:#999;
+    line-height:1.8em;
+  }
+  .comment .links li{
+    padding:0;
+    margin:0;
+    line-height:1.1em;
+    font-size:0.9em;
+  }
+  .comment .links .comment_reply{
+    display:none;
   }
 
 /* Secondary Content */

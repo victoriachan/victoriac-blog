@@ -27,22 +27,27 @@
  */
 ?>
 <div class="comment<?php print ($comment->new) ? ' comment-new' : ''; print ' '. $status ?>">
-  <?php print $picture ?>
-
-  <?php if ($title): ?><h3><?php print $title ?></h3><?php endif; ?>
-
-  <div class="submitted">
-    <?php print $submitted ?>
+  
+  <div class="comment_avatar">
+    <?php print $picture ?>
   </div>
+  
+  <div class="comment_text">
+    <?php if ($title): ?><h3><?php print $title ?></h3><?php endif; ?>
 
-  <div class="content">
-    <?php print $content ?>
-    <?php if ($signature): ?>
-    <div class="user-signature clear-block">
-      <?php print $signature ?>
+    <div class="submitted">
+      <?php print $submitted ?>
     </div>
-    <?php endif; ?>
-  </div>
-
-  <?php print $links ?>
+    <?php if($showlinks){ print $links; } ?>
+    
+    <div class="content">
+      <?php print $content ?>
+      <?php if ($signature): ?>
+      <div class="user-signature clear-block">
+        <?php print $signature ?>
+      </div>
+      <?php endif; ?>
+    </div>
+    
+  </div><!-- /comment_text -->
 </div>
