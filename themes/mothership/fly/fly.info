@@ -28,6 +28,7 @@ features[] = secondary_links
 ;--------------------- styles ------------------------------
 stylesheets[all][]    = css/html.css
 stylesheets[all][]    = css/layout.css
+stylesheets[all][]    = css/form.css
 stylesheets[all][]    = css/style.css
 stylesheets[print][]    = css/print.css
 ie stylesheets[ condition ][all][] = css/ie.css

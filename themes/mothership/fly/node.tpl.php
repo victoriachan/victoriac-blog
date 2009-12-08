@@ -96,8 +96,6 @@
     <?php print $content; ?>
   </div>
   
-  <?php print $links; ?>
-  
   <!-- ------ node_bottom ------ -->
   <?php if ($page && $node_bottom): ?>
     <!-- REGION content_bottom -->
@@ -109,4 +107,6 @@
   <?php endif; ?>
 
 </div> <!-- /node -->
+
+<?php print $links; ?>
 
