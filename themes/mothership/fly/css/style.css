@@ -144,14 +144,40 @@ body.page-node .node{
   margin:30px 0 20px 0;
 }
   
+/* Node teaser */  
+.node-teaser{
+  padding-bottom:30px;
+}
+  .node-teaser h2.title{
+    margin-left:95px;
+    margin-bottom:10px;
+    padding-top:10px;
+  }
+    .node-teaser h2.title a{
+      color:#35565F;
+      text-decoration:none;
+    }
+    .node-teaser .node_content p:first-of-type{
+      font-weight:normal;
+    }
+    .node-teaser .terms {
+      margin:10px 0 0 0;
+    }
+    .node-teaser .comments{
+      margin-left:95px;
+    }
+      .node-teaser .comments li{
+        padding-left:0;
+        font-size:0.9em;
+      }
+
 /* Comments */
-ul.links .comment_forbidden{
+body.page-node ul.links .comment_forbidden{
   display:block;
-  height:60px;
-  margin-bottom:10px;
+  height:30px;
+  margin-bottom:20px;
 }
 
-ul.links .comment_forbidden,
 #comments{
   clear:both;
   border:1px dashed #ccc;

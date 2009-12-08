@@ -102,11 +102,18 @@
     <?php print $node_bottom; ?>
   <?php endif; ?>
 
+  <?php if (!$page): ?>
+    <div class="comments">
+    <?php print $links; ?>
+    </div>
+  <?php endif; ?>
+
   <?php if ($terms): ?>
     <div class="terms"><?php print t('Topics: ') . $terms; ?></div>
   <?php endif; ?>
-
+  
 </div> <!-- /node -->
-
-<?php print $links; ?>
+<?php if ($page): ?>
+  <?php print $links; ?>
+<?php endif; ?>
 
