@@ -19,6 +19,11 @@ body
     line-height: 1.3em; /* 14px x 1.286 = 18px */
     letter-spacing: 0.03em;
   }
+html{
+  /* fixes problem with bg image not appearing at bottom on short pages */
+  min-height: 100%; 
+  height: auto;
+}
 body, caption, th, td, input, textarea, select, option, legend, fieldset
 {
   /* The following font family declarations are based on the Microsoft core
