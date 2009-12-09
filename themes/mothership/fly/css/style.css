@@ -46,7 +46,7 @@ body.page-node .node{
   margin-top:50px;
 }
 .node{
-  line-height: 1.8em;
+  line-height: 1.7em;
   padding-bottom:20px;
   color:#35565F;
   min-height:200px;
@@ -54,16 +54,9 @@ body.page-node .node{
   .node p{
     margin:1.5em 0;
   }
-  /* .node a{
-    color:#13343e;
-    background-color: #e3dbe8;
-    text-decoration:none;
+  .node li{
+    margin:1em 0;
   }
-  .node a:hover{
-    color:#ff3300;
-    background-color: transparent;
-    text-decoration:underline;
-  } */
   
 .node .terms{
   clear:both;
