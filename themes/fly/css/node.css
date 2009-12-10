@@ -1,0 +1,83 @@
+/* Node */
+
+body.page-node .node{
+  margin-top:50px;
+}
+.node{
+  line-height: 1.7em;
+  padding-bottom:20px;
+  color:#35565F;
+  min-height:200px;
+}
+  .node p{
+    margin:1.5em 0;
+  }
+  .node li{
+    margin:1em 0;
+  }
+
+/* Node taxonomy */
+  
+.node .terms{
+  clear:both;
+  font-size:0.9em;
+  margin:40px 0;
+  padding:3px 15px 5px 15px;
+  line-height:normal;
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+  .node .terms ul a{
+    background:none;
+    color:#13343E;
+    text-decoration:underline;
+  }
+    .node .terms ul a:hover{
+      color:#ff3300;
+    }
+    
+/* node content */
+
+.node blockquote{
+  margin:0 0 20px -20px;
+  padding:5px 30px 5px 100px;
+  background: rgba(0, 0, 0, 0.1) url(../images/blockquote_left.png) no-repeat 0 0;
+  line-height:1.6em;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  letter-spacing:0;
+}
+
+.node .node_content p:first-of-type{
+  font-weight:bold;
+}
+.node .node_content h3{
+  margin:30px 0 20px 0;
+}
+
+/* Node when displayed as teaser */
+
+.node-teaser{
+  padding-bottom:30px;
+}
+  .node-teaser h2.title{
+    margin-left:95px;
+    margin-bottom:10px;
+    padding-top:10px;
+  }
+    .node-teaser h2.title a{
+      color:#35565F;
+      text-decoration:none;
+    }
+    .node-teaser .node_content p:first-of-type{
+      font-weight:normal;
+    }
+    .node-teaser .terms {
+      margin:10px 0 0 0;
+    }
+    .node-teaser .comments{
+      margin-left:95px;
+    }
+      .node-teaser .comments li{
+        padding-left:0;
+        font-size:0.9em;
+      }

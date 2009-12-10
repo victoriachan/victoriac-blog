@@ -11,7 +11,7 @@ body{
     margin:0 auto;
     padding:0 10px 0 0;
     width:960px;
-    background:url(../images/sitebg_inner.jpg) 0 0 no-repeat;
+    background:url(../images/sitebg.jpg) 0 0 no-repeat;
   }
   
 #main_wrapper{
@@ -48,9 +48,7 @@ body{
   padding-top:60px;
   height:50px;
 }
-  body.page-node #footer{
-    padding-top:40px;
-  }
+
 #closure{
   
 }

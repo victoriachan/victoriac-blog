@@ -61,18 +61,12 @@ pre, code
 /** headings **/
   h1
   {
-    font-size: 2.4em;
+    font-size: 2.5em;
     color:#000;
     font-weight:bold;
     line-height: 0.8em;
-    margin-top: 0;
-    margin-bottom: 0.5em; /* 0.5em is equavalent to 1em in the page's base font.
-                             Remember, a margin specified in ems is relative to
-                             the element's font-size, not to the pages' base
-                             font size. So, for example, if we want a 1em margin
-                             (relative to the base font), we have to divide that
-                             length by the element's font-size:
-                             1em / 2em = 0.5em */
+    margin: 0;
+    padding:0;
   }
     h1 span{
       font-size:0.7em;

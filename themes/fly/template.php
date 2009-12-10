@@ -24,11 +24,12 @@ function fly_preprocess_node(&$vars){
   // Use html title for the title (with span elements denoting unbold text)
   if($vars['page'] && $vars['node']->field_title_html){
     $vars['title'] = $vars['node']->field_title_html[0]['value'];
+    drupal_add_css(path_to_theme() . '/css/comments.css', 'theme');
   }
   
   // Format nice blog calendar style dates
   $arr_created_date_parts = explode(' ', format_date($vars['node']->created, 'small'));
-  $vars['blog_date']  = '<dl class="node_date"><dt>Posted on:<dt><dd>';
+  $vars['blog_date']  = '<dl class="blog_date"><dt>Posted on:<dt><dd>';
   $vars['blog_date'] .= '<span class="week">'.$arr_created_date_parts[0].'</span><span class="delimiter">, </span>';
   $vars['blog_date'] .= '<span class="day">'.$arr_created_date_parts[1].'</span><span class="delimiter"> </span>';
   $vars['blog_date'] .= '<span class="month">'.$arr_created_date_parts[2].' '.$arr_created_date_parts[3].'</span>';
