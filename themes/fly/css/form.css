@@ -1,6 +1,5 @@
-
-form .form-button,
-form .form-submit {
+form input.form-button,
+form input.form-submit {
   	background: #222;
   	border: 0;
   	-moz-border-radius: 15px;
@@ -8,15 +7,16 @@ form .form-submit {
   	-khtml-border-radius: 15px;
   	border-radius: 15px;
   	color: #ffffff;
-  	display: block;
+  	display: inline;
   	letter-spacing: 1px;
-  	margin: auto;
-  	padding: 2px 5px;
+  	width: auto;
+  	margin:0 5px 0 0;
+  	padding: 3px 10px;
   	text-transform: uppercase;
 	}
 	
-	form .form-button:hover,	
-	form .form-submit:hover {
+	form input.form-button:hover,	
+	form input.form-submit:hover {
 		background: #666;
 		cursor: pointer;
 		}

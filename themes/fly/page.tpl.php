@@ -99,9 +99,17 @@
           <!-- REGION right -->
           <?php print $right; ?>
           
-          <?php if ($user->uid): ?>
-            (<?php print l(t('edit'), 'user/' . $user->uid . '/edit');  ?>
-            <?php print l(t('log out'), 'logout');  ?>)
+          <!-- User Account block -->
+          <?php if ($user->uid && $user_avatar): ?>
+          <div id="block-user-loggedin" class="block block-user">
+            <h3><?php print t("Hello, ") . ' <span>' . $user->name  . '</span>'; ?></h3>
+            <?php print $user_avatar; ?>
+            <ul>
+              <li>» <?php print l(t('View your profile'), 'user/' . $user->uid); ?></li>
+              <li>» <?php print l(t('Edit your profile'), 'user/' . $user->uid . '/edit'); ?></li>
+              <li>» <?php print l(t('Log out'), 'logout'); ?></li>
+            </ul>
+          </div>
           <?php endif; //user account ?>
           
           <?php if ($feed_icons): ?>

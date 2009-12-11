@@ -1,22 +1,12 @@
 body
 {
-  font-size: 80%; /* Fixes exaggerated text resizing in IE6 and IE7 */
+  font-size: 80%;
   color:#13343e;
 }
   #site_wrapper
   {
-    /*
-     * To use a 12px font size on the page, delete the 14px declarations.
-     * to use a 14px font size on the page, delete the 12px declarations.
-     */
-
-    /* Use a 12px base font size with a 16px line height */
-    /* font-size: 0.75em; ---16px x .75 = 12px */
-    /*line-height: 1.333em; --- 12px x 1.333 = 16px */
-
-    /* Use a 14px base font size with a 18px line height */
-    font-size: 1em; /* 16px x .875 = 14px */
-    line-height: 1.3em; /* 14px x 1.286 = 18px */
+    font-size: 1em;
+    line-height: 1.3em;
     letter-spacing: 0.03em;
   }
 html{
@@ -52,47 +42,44 @@ body, caption, th, td, input, textarea, select, option, legend, fieldset
 	font-family: Tahoma, Verdana, Arial, Helvetica, "Bitstream Vera Sans", sans-serif;
 }
 
-pre, code
-{
+pre, code {
   font-size: 1.1em; /* Monospace fonts can be hard to read */
   font-family: "Bitstream Vera Sans Mono", "Courier New", monospace;
 }
 
 /** headings **/
-  h1
-  {
-    font-size: 2.5em;
-    color:#000;
-    font-weight:bold;
-    line-height: 0.8em;
-    margin: 0;
-    padding:0;
+h1 {
+  font-size: 2.5em;
+  color:#000;
+  font-weight:bold;
+  line-height: 0.8em;
+  margin: 0;
+  padding:0;
+}
+  h1 span{
+    font-size:0.7em;
+    font-weight:normal;
   }
-    h1 span{
-      font-size:0.7em;
-      font-weight:normal;
-    }
-  h2
-  {
-    font-size: 1.4em;
-    line-height: 1.3em;
-    margin:15px 0;
-  }
+h2 {
+  font-size: 1.4em;
+  line-height: 1.3em;
+  margin:15px 0;
+  font-weight:bold;
+}
 
-  h3
-  {
-    font-size: 1.2em;
-    line-height: 1.3em;
-    margin:15px 0;
-  }
+h3 {
+  font-size: 1.2em;
+  line-height: 1.3em;
+  margin:15px 0;
+  font-weight:normal;
+}
 
-  h4, h5, h6
-  {
-    font-size: 1.1em;
-    line-height: 1.3em;
-    margin-top: 0.909em; /* Equivalent to 1em in the page's base font: 1 / 1.1 = 0.909 */
-    margin-bottom: 0.909em;
-  }
+h4, h5, h6 {
+  font-size: 1.1em;
+  line-height: 1.3em;
+  margin-top: 0.909em; /* Equivalent to 1em in the page's base font: 1 / 1.1 = 0.909 */
+  margin-bottom: 0.909em;
+}
 
 /** block-level elements **/
   p, ul, ol, dl, pre, table, fieldset, blockquote
@@ -103,67 +90,60 @@ pre, code
   
 /** lists **/
   /* standardize list item indentation */
-  ul, ol
-  {
-    margin-left: 0;
-    padding-left: 2em;
-  }
+ul, ol {
+  margin-left: 0;
+  padding-left: 2em;
+}
 
-  .block ul, /* Drupal overrides */
-  .item-list ul
-  {
-    margin: 1em 0;
-    padding: 0 0 0 2em;
-  }
+.block ul, /* Drupal overrides */
+.item-list ul {
+  margin: 1em 0;
+  padding: 0 0 0 2em;
+}
 
-  ul ul, ul ol,
-  ol ol, ol ul,
-  .block ul ul, .block ul ol,
-  .block ol ol, .block ol ul,
-  .item-list ul ul, .item-list ul ol,
-  .item-list ol ol, .item-list ol ul
-  {
-    margin: 0;
-  }
+ul ul, ul ol,
+ol ol, ol ul,
+.block ul ul, .block ul ol,
+.block ol ol, .block ol ul,
+.item-list ul ul, .item-list ul ol,
+.item-list ol ol, .item-list ol ul{
+  margin: 0;
+}
 
-  li
-  {
-    margin: 0;
-    padding: 0;
-  }
+li {
+  margin: 0;
+  padding: 0;
+}
 
-  .item-list ul li /* Drupal override */
-  {
-    margin: 0;
-    padding: 0;
-    list-style: inherit;
-  }
+.item-list ul li /* Drupal override */
+{
+  margin: 0;
+  padding: 0;
+  list-style: inherit;
+}
 
-  ul.menu li, /* Drupal override */
-  li.expanded,
-  li.collapsed,
-  li.leaf
-  {
-    margin: 0;
-    padding: 0;
-  }
+ul.menu li, /* Drupal override */
+li.expanded,
+li.collapsed,
+li.leaf {
+  margin: 0;
+  padding: 0;
+}
 
-  ul          { list-style-type: disc; }
-  ul ul       { list-style-type: circle; }
-  ul ul ul    { list-style-type: square; }
-  ul ul ul ul { list-style-type: circle; }
-  ol          { list-style-type: decimal; }
-  ol ol       { list-style-type: lower-alpha; }
-  ol ol ol    { list-style-type: decimal; }
+ul          { list-style-type: disc; }
+ul ul       { list-style-type: circle; }
+ul ul ul    { list-style-type: square; }
+ul ul ul ul { list-style-type: circle; }
+ol          { list-style-type: decimal; }
+ol ol       { list-style-type: lower-alpha; }
+ol ol ol    { list-style-type: decimal; }
 
-  dt
-  {
+dl { }
+  dt {
     margin: 0;
     padding: 0;
   }
-
-  dd
-  {
+  dd {
     margin: 0 0 0 2em;
     padding: 0;
   }
@@ -172,84 +152,68 @@ pre, code
   /* The order of link states are based on Eric Meyer's article:
    * http://meyerweb.com/eric/thoughts/2007/06/11/who-ordered-the-link-states
    */
-  .default_link,
-  a{
-		color:#ff3300;
-  }
-
+.default_link,
+a {
+	color:#ff3300;
+}
   a:hover,
-  a:focus
-  {
+  a:focus {
     text-decoration:none;
   }
-
-  a:active
-  {
+  a:active {
   }
 
 /** tables **/
   /* Override Drupal default CSS */
-  table
-  {
-    border-collapse: collapse;
-    /* width: 100%; */ /* Prevent cramped-looking tables */
-  }
+table {
+  border-collapse: collapse;
+  /* width: 100%; */ /* Prevent cramped-looking tables */
+}
 
-  th,
-  thead th,
-  tbody th
-  {
-    text-align: left;
-    padding-right: 0;
-    border-bottom: none;
-  }
+th,
+thead th,
+tbody th {
+  text-align: left;
+  padding-right: 0;
+  border-bottom: none;
+}
 
-  tbody
-  {
-    border-top: none;
-  }
+tbody {
+  border-top: none;
+}
 
 /** abbreviations **/
-  abbr
-  {
-    border-bottom: 1px dotted #666;
-    cursor: help;
-    white-space: nowrap;
-  }
+abbr {
+  border-bottom: 1px dotted #666;
+  cursor: help;
+  white-space: nowrap;
+}
 
   /* Date-based "abbreviations" show computer-friendly timestamps which are not
      human-friendly. */
-  abbr.created
-  {
-    border: none;
-    cursor: auto;
-    white-space: normal;
-  }
+abbr.created {
+  border: none;
+  cursor: auto;
+  white-space: normal;
+}
 
-/** images **/
-  img
-  {
-    border: 0;
-  }
+img {
+  border: 0;
+}
 
-/** horizontal rules **/
-  hr
-  {
-    height: 1px;
-    border: 1px solid #666;
-  }
+hr {
+  height: 1px;
+  border: 1px solid #666;
+}
 
-/** forms **/
-  form
-  {
-    margin: 0;
-    padding: 0;
-  }
+form {
+  margin: 0;
+  padding: 0;
+}
 
-  fieldset
-  {
-    margin: 1em 0;
-    padding: 0.5em;
-    border:0;
-  }
+fieldset {
+  margin: 1em 0;
+  padding: 0.5em;
+  border:0;
+}
     

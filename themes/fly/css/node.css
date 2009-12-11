@@ -1,25 +1,26 @@
 /* Node */
 
-body.page-node .node{
+body.page-node .node {
   margin-top:50px;
 }
-.node{
+.node {
   line-height: 1.7em;
   padding-bottom:20px;
   color:#35565F;
   min-height:200px;
 }
-  .node p{
+  .node p {
     margin:1.5em 0;
   }
-  .node li{
+  .node li {
     margin:1em 0;
   }
 
 /* Node taxonomy */
   
-.node .terms{
+.node .terms {
   clear:both;
+  overflow:hidden;
   font-size:0.9em;
   margin:40px 0;
   padding:3px 15px 5px 15px;
@@ -27,18 +28,50 @@ body.page-node .node{
   background-color: #000;
   background-color: rgba(0, 0, 0, 0.2);
 }
-  .node .terms ul a{
+  .node .terms h3{
+    font-size:1em;
+    font-weight:normal;
+    display:inline;
+    margin:0;
+    padding:0;
+    float:left;
+  }
+  .node .terms ul{
+    width:460px;
+    margin-left:10px;
+    float:left;
+  }
+    .node .terms ul li{
+      padding:0 0.3em;
+    }
+  .node .terms a {
     background:none;
     color:#13343E;
     text-decoration:underline;
   }
-    .node .terms ul a:hover{
+    .node .terms a:hover {
       color:#ff3300;
+      text-decoration:none;
     }
     
+.terms .view_all{
+  display:inline;
+  margin:0;
+  padding:0 0 0 1em;
+  float:right;
+  opacity:0.6;
+}
+  .terms .view_all:hover{
+    opacity:1;
+  }
+  .terms .view_all a{
+    text-decoration:none;
+    font-weight:bold; 
+  }
+  
 /* node content */
 
-.node blockquote{
+.node blockquote {
   margin:0 0 20px -20px;
   padding:5px 30px 5px 100px;
   background: rgba(0, 0, 0, 0.1) url(../images/blockquote_left.png) no-repeat 0 0;
@@ -47,37 +80,37 @@ body.page-node .node{
   letter-spacing:0;
 }
 
-.node .node_content p:first-of-type{
+.node .node_content p:first-of-type {
   font-weight:bold;
 }
-.node .node_content h3{
+.node .node_content h3 {
   margin:30px 0 20px 0;
 }
 
 /* Node when displayed as teaser */
 
-.node-teaser{
+.node-teaser {
   padding-bottom:30px;
 }
-  .node-teaser h2.title{
+  .node-teaser h2.title {
     margin-left:95px;
     margin-bottom:10px;
     padding-top:10px;
   }
-    .node-teaser h2.title a{
+    .node-teaser h2.title a {
       color:#35565F;
       text-decoration:none;
     }
-    .node-teaser .node_content p:first-of-type{
+    .node-teaser .node_content p:first-of-type {
       font-weight:normal;
     }
-    .node-teaser .terms {
+    .node-teaser .terms  {
       margin:10px 0 0 0;
     }
-    .node-teaser .comments{
+    .node-teaser .comments {
       margin-left:95px;
     }
-      .node-teaser .comments li{
+      .node-teaser .comments li {
         padding-left:0;
         font-size:0.9em;
       }

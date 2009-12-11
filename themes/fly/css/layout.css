@@ -2,59 +2,59 @@
  * LAYOUT STYLES
  */
  
-body{ 
+body { 
   margin:0; 
   padding:0;
   background:#fff url(../images/footer_bg.jpg) 0 100% repeat-x;
 }
-  #site_wrapper{
+  #site_wrapper {
     margin:0 auto;
     padding:0 10px 0 0;
     width:960px;
     background:url(../images/sitebg.jpg) 0 0 no-repeat;
   }
   
-#main_wrapper{
+#main_wrapper {
   width:100%;
 }
-  .primary_content{
+  .primary_content {
     width:70%;
     float:left;
   }
-    .header{
+    .header {
       padding-left:40px;
       height:90px;
     }
-    .content_top{
+    .content_top {
     }
-    .content{}
-      .node{
+    .content {}
+      .node {
         width:100%;
         background:url(../images/nodebox_bg.png) left bottom no-repeat;
       }
-        .node_content{
+        .node_content {
           width:500px;
           margin-left:95px;
         }
-    .content_bottom{}
+    .content_bottom {}
     
-  .secondary_content{
+  .secondary_content {
     width:30%;
     float:right;
   }
 
-#footer{
+#footer {
   clear:both;
   padding-top:60px;
   height:50px;
 }
 
-#closure{
+#closure {
   
 }
 
 /* Inner Page title */
-h1.title{
+h1.title {
   padding:0 0 0 94px;
   margin:0 0 20px 0;
   width:420px;
@@ -62,25 +62,25 @@ h1.title{
 }
         
 /* Admin */
-#content_top{
+#content_top {
   position:relative;
 }
-.page-node #admin_tabs_top{ 
+.page-node #admin_tabs_top { 
   position:absolute;
   top:55px;
   left:240px;
   z-index:100;
   font-size:0.8em;
 }
-  #admin_tabs_top .tabs{
+  #admin_tabs_top .tabs {
       opacity:0.7;
       filter:alpha(opacity=70)
   }
-  .page-node #admin_tabs_top .messages{
+  .page-node #admin_tabs_top .messages {
     position:absolute;
     top:10px;
   }
-  #content .krumo-root{
+  #content .krumo-root {
     position:absolute;
     top:174px;
     left:240px;

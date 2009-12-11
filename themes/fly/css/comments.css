@@ -1,23 +1,23 @@
 /* Comments */
 
-#footer{
+#footer {
   padding-top:40px;
 }
  
-ul.links .comment_forbidden{
+ul.links .comment_forbidden {
   display:block;
   height:30px;
   margin-bottom:20px;
 }
 
-#comments{
+#comments {
   clear:both;
   border:1px dashed #ccc;
   border-bottom:0;
   padding:10px 30px;
   width:560px;
 }
-  #comments .comment{
+  #comments .comment {
     clear:both;
     padding:20px 0 5px 0;
     margin:1px 0;
@@ -25,43 +25,40 @@ ul.links .comment_forbidden{
     font-size:0.95em;
   }
     #comments .comment:hover,
-    #comments .comment:first-of-type{
+    #comments .comment:first-of-type {
       background-color: rgba(0, 0, 0, 0.1);
       width:590px;
       margin-left:-30px;
       padding-left:30px;
     }
-  .comment .comment_avatar{
+  .comment .comment_avatar {
     float:left;
     width:70px;
     padding-bottom:15px;
   }
-    .comment .comment_avatar img{
-      border:1px solid #13343E;
-    }
-  .comment .comment_text{
+  .comment .comment_text {
     float:left;
     width:440px;
     padding-left:20px;
   }
-  .comment .submitted{
+  .comment .submitted {
     font-size:0.9em;
     line-height:1.1em;
   }
-  .comment .content{
+  .comment .content {
     color:#666;
     line-height:1.6em;
     font-size:1.1em;
     font-family: Georgia, "Times New Roman", Times, serif;
     letter-spacing:0;
   }
-  .comment .links li{
+  .comment .links li {
     padding:0;
     margin:0;
     line-height:1.1em;
     font-size:0.9em;
   }
-  .comment .links .comment_reply{
+  .comment .links .comment_reply {
     display:none;
   }
   
@@ -74,7 +71,7 @@ ul.links .comment_forbidden{
   -khtml-border-radius: 10px;
   overflow:hidden;
 }
-  #comment-form .form-item label{
+  #comment-form .form-item label {
     display:inline;
   }
   #comment-form textarea {
@@ -98,47 +95,40 @@ ul.links .comment_forbidden{
     	background:#fff;
     	color:#333;
     }
-  #comment-form .edit-submit{
-    clear:both;
-    width:50px;
-    float:left;
-    margin-right:5px;
+  #comment-form .edit-submit,
+  #comment-form .edit-preview {
     margin-top:10px;
-  }
-  #comment-form .edit-preview{
-    width:80px;
     float:left;
-    margin-top:10px;
   }
 
-  #comment-form p{
+  #comment-form p {
     margin:0;
     padding:5px 0;
   }  
   #comment-form p a,
-  #comment-form fieldset{
+  #comment-form fieldset {
     font-size:0.9em;
   }
-    #comment-form fieldset a{
+    #comment-form fieldset a {
       font-size:1em;
     }
-    #comment-form .wysiwyg-field-edit-comment{
+    #comment-form .wysiwyg-field-edit-comment {
       color:#666;
       font-size:0.9em;
     }  
 
-.comment-preview{
+.comment-preview {
   padding:10px 0 20px 0;
   margin-bottom:20px;
   border-bottom:1px dashed #666;
   overflow:hidden;
 }
-  .comment-preview .content{
+  .comment-preview .content {
     margin:10px 0;
   }
-#edit-comment-wrapper{
+#edit-comment-wrapper {
   clear:both;
 }
-  #edit-comment-wrapper textarea{
+  #edit-comment-wrapper textarea {
     width:100%;
   }
