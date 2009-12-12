@@ -21,7 +21,7 @@ function _make_blog_date($datefield) {
 // Return a avatar thumb with link
 function _make_avatar_thumb($username, $userpicture) {
   
-  $tmp_link = 'users/'.$username;
+  $tmp_link = 'user/'.$username;
   if($userpicture){
     $tmp_img = theme('imagecache','avatar',$userpicture, $username, $username);
   }else{
