@@ -5,7 +5,7 @@ body.page-node .node {
 }
 .node {
   line-height: 1.7em;
-  padding-bottom:20px;
+  padding-bottom:30px;
   color:#35565F;
   min-height:200px;
 }
@@ -26,14 +26,28 @@ body.page-node .node {
   .field-embedded-image img{
     border:1px solid #222;
   }
-
+  
+/* See also links */  
+.see_also{
+  margin:30px 0;
+  clear:both;
+}
+.see_also ul{
+  margin:0;
+  padding:0 0 0 15px;
+}
+  .see_also li{
+    margin:0;
+    padding:0;
+  }
+  
 /* Node taxonomy */
   
 .node .terms {
   clear:both;
   overflow:hidden;
   font-size:0.9em;
-  margin:40px 0;
+  margin:40px 0 10px 0;
   padding:3px 15px 5px 15px;
   line-height:normal;
   background-color: #000;
@@ -79,19 +93,39 @@ body.page-node .node {
     text-decoration:none;
     font-weight:bold; 
   }
-  
-/* See also links */  
-.see_also{
-  margin:30px 0;
+
+
+/* Custom pager */
+.block-custom-pagers{
+  width:100%;
+  overflow:hidden;
+  clear:both;
 }
-.see_also ul{
-  margin:0;
-  padding:0 0 0 15px;
-}
-  .see_also li{
+  .block-custom-pagers ul{
     margin:0;
     padding:0;
   }
+  .block-custom-pagers li{
+    margin:0;
+    padding:0;
+    list-style-image:none;
+    list-style-type:none;
+  }
+  .block-custom-pagers li.previous{
+    float:left;
+  }
+  .block-custom-pagers li.next{
+    float:right;
+  }
+    .block-custom-pagers li a{
+      font-size:1.2em;
+      font-weight:bold;
+      text-decoration:none;
+      color:rgba(0, 0, 0, 0.2);
+    }
+      .block-custom-pagers li a:hover{
+        color:#222;
+      }
 
 /* node content */
 

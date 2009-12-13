@@ -39,14 +39,15 @@ function _make_avatar_thumb($username, $userpicture) {
 function fly_preprocess(&$vars, $hook) {
   
   if($hook == 'page') {
+    // Add a 'page-node' class if this is a node that is rendered as page
     if (isset($vars['node']) && $vars['node']->type) {
       $vars['body_classes'] = $vars['body_classes']. ' page-node';
     }
   }
   
-  //replace funny kanji characters in section name
+  // Replace funny kanji characters in section name
   $vars['body_classes'] = str_replace('-e6-bc-a2-e5-ad-97-e6-84-9f-e3-81-98', 'kanjikanji', $vars['body_classes']);
- 
+  
 }
 
 function fly_preprocess_page(&$vars) {
@@ -56,7 +57,6 @@ function fly_preprocess_page(&$vars) {
 function fly_preprocess_node(&$vars) {
   
   // Use html title for the title (with span elements denoting unbold text)
-  
   if($vars['page'] && $vars['node']->field_title_html[0]['value']){
     $vars['title'] = $vars['node']->field_title_html[0]['value'];
   }
@@ -69,6 +69,10 @@ function fly_preprocess_node(&$vars) {
   // Format nice blog calendar style dates
   $vars['blog_date'] = _make_blog_date($vars['node']->created);
 
+   // To access regions in nodes
+   $vars['node_top'] = theme('blocks', 'node_top');
+   $vars['node_bottom'] = theme('blocks', 'node_bottom');
+   
 }
 
 /**

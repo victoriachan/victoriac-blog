@@ -1,7 +1,7 @@
 ; $Id: custom_pagers.info,v 1.5 2008/06/17 20:47:05 eaton Exp $
-name = Custom Pagers
+name = Custom Pagers (HACKED)
 core = 6.x
-description = Allows administrators to define custom pagers for navigation in lists of nodes.
+description = Allows administrators to define custom pagers for navigation in lists of nodes. (Hacked to show node titles instead of just 'prev' and 'next')
 
 ; Information added by drupal.org packaging script on 2008-06-18
 version = "6.x-1.10-beta1"

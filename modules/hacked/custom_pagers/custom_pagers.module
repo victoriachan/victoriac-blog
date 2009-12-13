@@ -200,7 +200,7 @@ function custom_pager_build_nav($pager, $node) {
   // data, we'll try to load from the current user's session. We do it
   // that way rather than via cache_set() because of the potential for
   // node_access violations. Each user's node list *could* be different.
-  if (empty($list) && $pager->cache_list) {
+  if (empty($list) && $pager->cache_list) { 
     if ($cache = $_SESSION['custom_pagers'][$pager->pid]) {
       // We should probably set the pager cache lifetime to a configurable
       // value. If any nodes drop through the cracks, users won't see the
@@ -211,7 +211,7 @@ function custom_pager_build_nav($pager, $node) {
         unset($_SESSION['custom_pagers'][$pager->pid]);
       }
       else {
-        $list = explode(',', $_SESSION['custom_pagers'][$pager->pid]['data']);
+        $list = unserialize($_SESSION['custom_pagers'][$pager->pid]['data']);
       }
     }
   }
@@ -246,7 +246,7 @@ function custom_pager_build_nav($pager, $node) {
 
       if (isset($view->result)) {
         foreach($view->result as $result) {
-          $list[] = $result->nid;
+          $list[] = array($result->nid, $result->node_title);
         }
       }
     }
@@ -258,7 +258,7 @@ function custom_pager_build_nav($pager, $node) {
 
   // If we get to this point, we want to cache what we've made.
   if ($pager->cache_list) {
-    $_SESSION['custom_pagers'][$pager->pid]['data'] = implode(',', $list);
+    $_SESSION['custom_pagers'][$pager->pid]['data'] = serialize($list);
     $_SESSION['custom_pagers'][$pager->pid]['timestamp'] = time();
   }
   $pager_cache[$pager->pid] = $list;
@@ -271,7 +271,7 @@ function custom_pager_build_nav($pager, $node) {
 function pager_entries_by_val($value, $list) {
   $list = array_values($list);
   foreach ($list as $k => $v) {
-    if ($v == $value) {
+    if ($v[0] == $value) {
       $key = $k;
     }
   }
@@ -282,7 +282,7 @@ function pager_entries_by_val($value, $list) {
 }
 
 function pager_entries_by_key($key, $list, $increment = 1) {
-  $list = array_values($list);
+  $list = array_values($list); 
   $nav = array(
     'first' => $list[0],
     'prev' => $list[max($key - $increment, 0)],
@@ -307,9 +307,9 @@ function custom_pagers_preprocess_custom_pager(&$vars) {
   $pager = $vars['pager'];
   $nav = $vars['nav_array'];
 
-  $vars['previous'] = !empty($nav['prev']) ? l(t('‹ previous'), 'node/'. $nav['prev']) : '';
+  $vars['previous'] = !empty($nav['prev'][0]) ? l(t('« '.$nav['prev'][1]), 'node/'. $nav['prev'][0]) : '';
   $vars['key'] = t('@count of @count_total', array('@count' => ($nav['current_index'] + 1), '@count_total' => count($nav['full_list'])));
-  $vars['next'] =  !empty($nav['next']) ? l(t('next ›'), 'node/'. $nav['next']) : '';
+  $vars['next'] =  !empty($nav['next'][0]) ? l(t($nav['next'][1].' »'), 'node/'. $nav['next'][0]) : '';
 
   $vars['suggestions'][] = "custom-pager-{$vars['position']}";
   $vars['suggestions'][] = "custom-pager-$node->type";

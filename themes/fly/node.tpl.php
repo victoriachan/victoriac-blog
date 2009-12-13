@@ -112,18 +112,10 @@
     <?php endif; ?>
   </div>
   
-  <?php 
-  /**
-   * node_bottom
-   */
-  if ($page && $node_bottom): ?>
-    <?php print $node_bottom; ?>
-  <?php endif; ?>
-
   <?php if (!$page): ?>
-    <div class="comments">
+  <div class="comments">
     <?php print $links; ?>
-    </div>
+  </div>
   <?php endif; ?>
   
   <?php if ($terms): ?>
@@ -133,6 +125,14 @@
     <p class="view_all">» <?php print l('Browse all topics', 'topics'); ?></p>
   </div>
   <?php endif; ?>
+  
+  <?php 
+  /**
+   * node_bottom
+   */
+  if ($page && $node_bottom): ?>
+    <?php print $node_bottom; ?>
+  <?php endif; ?>  
   
 </div> <!-- /node -->
 

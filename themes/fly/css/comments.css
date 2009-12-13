@@ -15,6 +15,7 @@ ul.links .comment_forbidden {
   border:1px dashed #ccc;
   border-bottom:0;
   padding:10px 30px;
+  margin:10px 0 0 0;
   width:560px;
 }
   #comments .comment {
