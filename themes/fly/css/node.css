@@ -16,6 +16,16 @@ body.page-node .node {
     margin:1em 0;
   }
 
+/* Flickr image */
+.field-embedded-image{
+  width:180px;
+  float:left;
+  margin:0 30px 10px 0;
+}
+  .field-embedded-image img{
+    border:1px solid #222;
+  }
+
 /* Node taxonomy */
   
 .node .terms {

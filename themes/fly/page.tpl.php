@@ -26,18 +26,18 @@
 </head>
 
 <body class="<?php print trim($body_classes); ?>">
-
   <div id="site_wrapper">
     <div id="main_wrapper">
       <?php if (!empty($admin)) print $admin; ?>
-<!-- 
- *** Primary Content ***
- -->
+<?php
+/**
+ * Primary Content
+ */
+ ?>
       <div class="primary_content<?php if (!$right) { print ' primary_content_wide'; } ?>">
         
-        <!-- ----- Header ----- -->
         <div id="header" class="header">
-          <!-- site name (h1 or div) -->
+          <?php // print site name (h1 or div) ?>
           <<?php print $site_name_element; ?> id="site-name">
             <a href="<?php print $base_path; ?>" title="<?php print t('Home'); ?>" rel="home"><?php print $site_name; ?></a>
           </<?php print $site_name_element; ?>>
@@ -49,13 +49,11 @@
             <?php print $breadcrumb; // themename_breadcrumb in template.php ?>
           <?php } ?>
           
-          <!-- REGION header -->
           <?php if ($header): ?>
             <?php print $header; ?>
           <?php endif; ?>
         </div><!-- /.header -->
         
-        <!-- ------ content_top ------ -->
         <div id="content_top" class="content_top">
           <?php if ($title AND (arg(0) != "node")): ?>
             <h1 class="title"><?php print $title; ?></h1>
@@ -75,12 +73,10 @@
           <?php endif; ?>
         </div><!-- /.content_top -->
         
-        <!-- ------ content ------ -->
         <div id="content" class="content">
           <?php print $content; ?>
         </div><!-- /.content -->
         
-        <!-- ------ content_bottom ------ -->
         <?php if ($content_bottom): ?>
           <div id="content_bottom" class="content_bottom">
             <!-- REGION content_bottom -->
@@ -89,18 +85,19 @@
         <?php endif; ?>
         
       </div><!-- /.primary_content -->
-
-
-<!-- 
- *** Secondary Content ***
--->
+      
+<?php
+/**
+ * Secondary Content
+ */
+ ?>
       <?php if ($right): ?>
         <div class="secondary_content">
-          <!-- REGION right -->
+
           <?php print $right; ?>
           
-          <!-- User Account block -->
-          <?php if ($user->uid && $user_avatar): ?>
+          <?php // User Account block
+          if ($user->uid && $user_avatar): ?>
           <div id="block-user-loggedin" class="block block-user">
             <h3><?php print t("Hello, ") . ' <span>' . $user->name  . '</span>'; ?></h3>
             <?php print $user_avatar; ?>
@@ -110,7 +107,7 @@
               <li>» <?php print l(t('Log out'), 'logout'); ?></li>
             </ul>
           </div>
-          <?php endif; //user account ?>
+          <?php endif; ?>
           
           <?php if ($feed_icons): ?>
             <?php print $feed_icons; ?>
@@ -119,24 +116,24 @@
       <?php endif; ?>
       
     </div><!-- /.main_wrapper -->
-
-
-<!-- 
- *** Bottom Content ***
- -->
+    
+<?php
+/**
+ * Bottom Content
+ */
+ ?>
+ 
     <?php if ($footer || $footer_message): ?>
     <div id="footer" class="footer">
       <?php if ($footer_message): ?>
         <div id="footer-message"><?php print $footer_message; ?></div>
       <?php endif; ?>
-      <!-- REGION footer -->
       <?php print $footer; ?>
     </div>
     <?php endif; ?>
     
     <div id="closure" class="closure">
       <?php if ($closure_region): ?>
-        <!-- REGION closure_region -->
         <?php print $closure_region; ?>
       <?php endif; ?>
     </div>

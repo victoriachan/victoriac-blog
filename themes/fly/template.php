@@ -9,11 +9,11 @@
 function _make_blog_date($datefield) {
   
   $arr_created_date_parts = explode(' ', format_date($datefield, 'small'));
-  $ret  = '<dl class="blog_date"><dt>Posted on:<dt><dd>';
+  $ret  = '<p class="blog_date">';
   $ret .= '<span class="week">'.$arr_created_date_parts[0].'</span><span class="delimiter">, </span>';
   $ret .= '<span class="day">'.$arr_created_date_parts[1].'</span><span class="delimiter"> </span>';
   $ret .= '<span class="month">'.$arr_created_date_parts[2].' '.$arr_created_date_parts[3].'</span>';
-  $ret .= '<dd></dl>';
+  $ret .= '</p>';
   
   return $ret;
 }
@@ -56,9 +56,9 @@ function fly_preprocess_page(&$vars) {
 function fly_preprocess_node(&$vars) {
   
   // Use html title for the title (with span elements denoting unbold text)
-  if($vars['page'] && $vars['node']->field_title_html){
+  
+  if($vars['page'] && $vars['node']->field_title_html[0]['value']){
     $vars['title'] = $vars['node']->field_title_html[0]['value'];
-    
   }
   
   // add comment css to page

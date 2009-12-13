@@ -86,9 +86,11 @@
     <?php print $tabs; ?>
   <?php endif; ?>
   
-  <!-- ------ node_top ------ -->
-  <?php if ($page && $node_top): ?>
-    <!-- REGION content_bottom -->
+  <?php 
+  /**
+   * node_top
+   */
+  if ($page && $node_top): ?>
     <?php print $node_top; ?>
   <?php endif; ?>  
   
@@ -96,9 +98,11 @@
     <?php print $content; ?>
   </div>
   
-  <!-- ------ node_bottom ------ -->
-  <?php if ($page && $node_bottom): ?>
-    <!-- REGION content_bottom -->
+  <?php 
+  /**
+   * node_bottom
+   */
+  if ($page && $node_bottom): ?>
     <?php print $node_bottom; ?>
   <?php endif; ?>
 
@@ -117,7 +121,7 @@
   <?php endif; ?>
   
 </div> <!-- /node -->
+
 <?php if ($page): ?>
   <?php print $links; ?>
 <?php endif; ?>
-
