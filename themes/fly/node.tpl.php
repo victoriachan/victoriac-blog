@@ -96,6 +96,20 @@
   
   <div class="node_content">
     <?php print $content; ?>
+    
+    <?php if($page && ($field_internal_link[0]['nid'] || $field_useful_link[0]['nid'])): ?>
+    <div class="see_also">
+      <h3>See also:</h3>
+      <ul>
+       <?php foreach ($field_internal_link as $link): ?>
+           <li class="internal_link"><?php print content_format('field_internal_link', $link) ?></li>
+        <?php endforeach; ?>
+       <?php foreach ($field_useful_link as $link): ?>
+           <li class="external_link"><?php print content_format('field_useful_link', $link) ?></li>
+        <?php endforeach; ?>      
+      </ul>
+    </div>
+    <?php endif; ?>
   </div>
   
   <?php 
@@ -111,7 +125,7 @@
     <?php print $links; ?>
     </div>
   <?php endif; ?>
-
+  
   <?php if ($terms): ?>
   <div class="terms">
     <h3><?php print t('Topics:'); ?></h3> 
