@@ -1,22 +1,43 @@
 form input.form-button,
 form input.form-submit {
-  	background: #222;
-  	border: 0;
-  	-moz-border-radius: 15px;
-  	-webkit-border-radius: 15px;
-  	-khtml-border-radius: 15px;
-  	border-radius: 15px;
-  	color: #ffffff;
-  	display: inline;
-  	letter-spacing: 1px;
-  	width: auto;
-  	margin:0 5px 0 0;
-  	padding: 3px 10px;
-  	text-transform: uppercase;
-	}
-	
-	form input.form-button:hover,	
-	form input.form-submit:hover {
-		background: #666;
-		cursor: pointer;
-		}
+    background: #222;
+    border: 0;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -khtml-border-radius: 15px;
+    border-radius: 15px;
+    color: #ffffff;
+    display: inline;
+    letter-spacing: 1px;
+    width: auto;
+    margin:0 5px 0 0;
+    padding: 3px 10px;
+    text-transform: uppercase;
+  }
+  
+  form input.form-button:hover, 
+  form input.form-submit:hover {
+    background: #666;
+    cursor: pointer;
+    }
+
+/* TinyMCE */
+
+#tinymce {
+  background-image:none;
+  background-color: #f6f6f6;
+  padding: 0 10px;
+  color:#666;
+  font: italic 13px Georgia, "Times New Roman", Times, serif;
+  line-height:1.6em;
+  letter-spacing:0;
+}
+  #tinymce blockquote {
+    border-left:3px solid #b2b2b2;
+    padding:5px 10px;
+    background-color:rgba(0, 0, 0, 0.1);
+    color:#222;
+  }
+  #edit-comment-wrapper{
+    width:518px;
+  }

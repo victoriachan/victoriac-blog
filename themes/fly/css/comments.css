@@ -42,6 +42,14 @@ ul.links .comment_forbidden {
     width:440px;
     padding-left:20px;
   }
+    .comment .comment_text blockquote {
+      border-left:3px solid #b2b2b2;
+      padding:1px 10px;
+      background-color:#333;
+      background-color:rgba(0, 0, 0, 0.1);
+      color:#222;
+      width:456px;
+    }  
   .comment .submitted {
     font-size:0.9em;
     line-height:1.1em;
@@ -53,6 +61,11 @@ ul.links .comment_forbidden {
     font-family: Georgia, "Times New Roman", Times, serif;
     letter-spacing:0;
   }
+    .comment .content p.code, 
+    .comment .content ol.code, 
+    .comment .content ul.code{
+      line-height:normal;
+    }
   .comment .links li {
     padding:0;
     margin:0;
@@ -66,6 +79,7 @@ ul.links .comment_forbidden {
 #comment-form {
   padding:10px 20px 30px 20px;
   margin:20px 0 0 0;
+  background: #ccc;
   background: rgba(100, 100, 100, 0.1);
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
@@ -77,7 +91,6 @@ ul.links .comment_forbidden {
   }
   #comment-form textarea {
     background: #f6f6f6;
-    border: none;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
     -khtml-border-radius: 3px;
@@ -88,14 +101,13 @@ ul.links .comment_forbidden {
     padding: 5px;
     margin:5px 0 0 0;
     width: 510px;
-    height:60px;
     color:#666;
   }
     #comment-form textarea:focus {
     	border:1px solid #666;
     	background:#fff;
     	color:#333;
-    }
+    }  
   #comment-form .edit-submit,
   #comment-form .edit-preview {
     margin-top:10px;

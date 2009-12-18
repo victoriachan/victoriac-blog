@@ -42,10 +42,32 @@ body, caption, th, td, input, textarea, select, option, legend, fieldset
 	font-family: Tahoma, Verdana, Arial, Helvetica, "Bitstream Vera Sans", sans-serif;
 }
 
-pre, code {
-  font-size: 1.1em; /* Monospace fonts can be hard to read */
-  font-family: "Bitstream Vera Sans Mono", "Courier New", monospace;
+.code, pre, code {
+  font-family: "Courier New", Courier, mono;
+  background: #666 url(../images/code_tile_square.png) ;
+  color:#ebebeb;
+  padding:2px 7px;
 }
+  pre code,
+  pre .code,
+  .code code,
+  code .code,
+  .code pre{
+    background: transparent none;
+    line-height:normal;
+  }
+  ol.code {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    background: #666 url(../images/code_tile_ol.png) repeat-y ;
+  }
+    ol.code li {
+      line-height:normal;
+      color:#444;
+      margin: 0.5em 0 0.5em 35px;
+    }
+    ol.code li code{
+      color:#ebebeb;
+    }
 
 /** headings **/
 h1 {
@@ -93,6 +115,7 @@ h4, h5, h6 {
 ul, ol {
   margin-left: 0;
   padding-left: 2em;
+  list-style-position:outside;
 }
 
 .block ul, /* Drupal overrides */
@@ -216,4 +239,15 @@ fieldset {
   padding: 0.5em;
   border:0;
 }
-    
+
+/* TinyMCE classes */
+.strike{
+  text-decoration: line-through;
+}
+p.code, ol.code, ul.code{
+  line-height:normal;
+}
+.highlight{
+  background-color:#D1B5DF;
+  padding:0 5px;
+}
