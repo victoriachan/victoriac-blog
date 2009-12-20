@@ -73,7 +73,7 @@
           <?php endif; ?>
         </div><!-- /.content_top -->
         
-        <div id="content" class="content">
+        <div id="page_content" class="page_content">
           <?php print $content; ?>
         </div><!-- /.content -->
         
@@ -125,10 +125,12 @@
  
     <?php if ($footer || $footer_message): ?>
     <div id="footer" class="footer">
+      <div class="inner">
+      <?php print $footer; ?>
       <?php if ($footer_message): ?>
         <div id="footer-message"><?php print $footer_message; ?></div>
       <?php endif; ?>
-      <?php print $footer; ?>
+      </div>
     </div>
     <?php endif; ?>
     

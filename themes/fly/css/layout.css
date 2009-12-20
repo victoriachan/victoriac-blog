@@ -4,8 +4,9 @@
  
 body { 
   margin:0; 
-  padding:0;
+  padding:0 0 10px 0;
   background:#fff url(../images/footer_bg.jpg) 0 100% repeat-x;
+  border-top:10px solid #000;
 }
   #site_wrapper {
     margin:0 auto;
@@ -20,6 +21,7 @@ body {
   .primary_content {
     width:70%;
     float:left;
+    margin-bottom:20px;
   }
     .header {
       padding-left:40px;
@@ -27,7 +29,8 @@ body {
     }
     .content_top {
     }
-    .content {}
+    .page_content {
+    }
       .node {
         width:100%;
         background:url(../images/nodebox_bg.png) left bottom no-repeat;
@@ -45,10 +48,12 @@ body {
 
 #footer {
   clear:both;
-  padding-top:60px;
-  height:50px;
+  height:110px;
+  overflow:hidden;
 }
-
+  #footer .inner{
+    padding:90px 0 0 0;
+  }
 #closure {
   
 }

@@ -46,8 +46,20 @@ body, caption, th, td, input, textarea, select, option, legend, fieldset
   font-family: "Courier New", Courier, mono;
   background: #666 url(../images/code_tile_square.png) ;
   color:#ebebeb;
-  padding:2px 7px;
+  padding:1px 7px;
+  
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -khtml-border-radius: 5px;
+  border-radius: 5px;
+ 
+  -moz-box-shadow: inset 1px 1px 3px rgba(0,0,0,0.3);
+  -webkit-box-shadow: inset 1px 1px 3px rgba(0,0,0,0.3);
+  box-shadow: inset 1px 1px 3px rgba(0,0,0,0.3);    
 }
+  p.code{
+    padding:3px 7px;
+  }
   pre code,
   pre .code,
   .code code,
@@ -55,6 +67,15 @@ body, caption, th, td, input, textarea, select, option, legend, fieldset
   .code pre{
     background: transparent none;
     line-height:normal;
+    
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    -khtml-border-radius: 0;
+    border-radius: 0;
+     
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;      
   }
   ol.code {
     font-family: Georgia, "Times New Roman", Times, serif;
@@ -248,6 +269,6 @@ p.code, ol.code, ul.code{
   line-height:normal;
 }
 .highlight{
-  background-color:#D1B5DF;
-  padding:0 5px;
+  background-color:#FBED73;
+  padding:0 3px;
 }

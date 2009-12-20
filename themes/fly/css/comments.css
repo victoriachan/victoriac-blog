@@ -1,8 +1,4 @@
 /* Comments */
-
-#footer {
-  padding-top:40px;
-}
  
 ul.links .comment_forbidden {
   display:block;
@@ -20,13 +16,13 @@ ul.links .comment_forbidden {
 }
   #comments .comment {
     clear:both;
-    padding:20px 0 5px 0;
+    padding:30px 0 15px 0;
     margin:1px 0;
     overflow:hidden;
     font-size:0.95em;
   }
-    #comments .comment:hover,
-    #comments .comment:first-of-type {
+    /* #comments .comment:first-of-type, */
+    #comments .comment:hover {
       background-color: rgba(0, 0, 0, 0.1);
       width:590px;
       margin-left:-30px;
@@ -48,7 +44,7 @@ ul.links .comment_forbidden {
       background-color:#333;
       background-color:rgba(0, 0, 0, 0.1);
       color:#222;
-      width:456px;
+      width:440px;
     }  
   .comment .submitted {
     font-size:0.9em;
@@ -59,7 +55,7 @@ ul.links .comment_forbidden {
     line-height:1.6em;
     font-size:1.1em;
     font-family: Georgia, "Times New Roman", Times, serif;
-    letter-spacing:0;
+    letter-spacing:0.01em;
   }
     .comment .content p.code, 
     .comment .content ol.code, 

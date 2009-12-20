@@ -122,7 +122,6 @@
   <div class="terms">
     <h3><?php print t('Topics:'); ?></h3> 
     <?php print $terms; ?>
-    <p class="view_all">» <?php print l('Browse all topics', 'topics'); ?></p>
   </div>
   <?php endif; ?>
   
