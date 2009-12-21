@@ -5,6 +5,7 @@ core        = 6.x
 engine      = phptemplate
 base theme = mothership
 ;--------------------- regions -----------------------------
+regions[top_bar]       = site top bar
 regions[header]         = header  
 regions[content_top]    = content top
 regions[content_bottom] = content bottom

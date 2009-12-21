@@ -26,6 +26,20 @@
 </head>
 
 <body class="<?php print trim($body_classes); ?>">
+  <div id="top_bar"><div class="inner">
+    <?php // User Account block
+      if ($user->uid): ?>
+      <div id="block-user-loggedin" class="block block-user">
+        <h3><?php print t("Hello, ") . ' <span>' . $user->name  . '</span>'; ?></h3>
+        <ul>
+          <li>&nbsp;&nbsp;|&nbsp;&nbsp;<?php print l(t('View your profile'), 'user/' . $user->uid); ?></li>
+          <li>&nbsp;&nbsp;|&nbsp;&nbsp;<?php print l(t('Edit your profile'), 'user/' . $user->uid . '/edit'); ?></li>
+          <li>&nbsp;&nbsp;|&nbsp;&nbsp;<?php print l(t('Log out'), 'logout'); ?></li>
+        </ul>
+      </div>
+    <?php endif; ?>
+    <?php print $top_bar ?>
+  </div></div>
   <div id="site_wrapper">
     <div id="main_wrapper">
       <?php if (!empty($admin)) print $admin; ?>
@@ -93,25 +107,7 @@
  ?>
       <?php if ($right): ?>
         <div class="secondary_content">
-
           <?php print $right; ?>
-          
-          <?php // User Account block
-          if ($user->uid && $user_avatar): ?>
-          <div id="block-user-loggedin" class="block block-user">
-            <h3><?php print t("Hello, ") . ' <span>' . $user->name  . '</span>'; ?></h3>
-            <?php print $user_avatar; ?>
-            <ul>
-              <li>» <?php print l(t('View your profile'), 'user/' . $user->uid); ?></li>
-              <li>» <?php print l(t('Edit your profile'), 'user/' . $user->uid . '/edit'); ?></li>
-              <li>» <?php print l(t('Log out'), 'logout'); ?></li>
-            </ul>
-          </div>
-          <?php endif; ?>
-          
-          <?php if ($feed_icons): ?>
-            <?php print $feed_icons; ?>
-          <?php endif; ?>
         </div><!-- /#secondary_content -->
       <?php endif; ?>
       
