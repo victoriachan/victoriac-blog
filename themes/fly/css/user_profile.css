@@ -29,6 +29,9 @@ body.page-user #admin_tabs_top ul.secondary{
 /** 
  * Profile content
  */
+body.page-user #user-pass,
+body.page-user #user-login,
+body.page-user #user-register,
 body.page-user #tracker,
 body.page-user #user-profile-form,
 body.page-user #notify-user-settings-form,
