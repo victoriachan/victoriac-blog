@@ -43,6 +43,15 @@ function _fly_removetab($label, &$vars) {
   }
 }
 
+function _fly_is_admin() {
+  global $user;
+  if (in_array('administrator', array_values($user->roles))) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 /**
  * Preprocess page templates
  */
@@ -54,9 +63,14 @@ function fly_preprocess(&$vars, $hook) {
     if (isset($vars['node']) && $vars['node']->type) {
       $vars['body_classes'] = $vars['body_classes']. ' page-node';
     }
-        
-    // Remove user 'Notification settings' tab
-    _fly_removetab('Notification settings', $vars);
+
+    // hide all tabs unless a user is viewing their own tab
+    $array_q = explode('/', $_GET['q']);
+    if(($array_q[0] == 'user') && ($array_q[1] != $GLOBALS['user']->uid) && !_fly_is_admin()){
+       //unset($vars['tabs']);
+       //$vars['body_classes'] = $vars['body_classes']. ' view-other-user';
+    }
+          
   }
   
   // Replace funny kanji characters in section name

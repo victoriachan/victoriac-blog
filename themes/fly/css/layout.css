@@ -83,7 +83,7 @@ h1.title {
   position:absolute;
   top:55px;
   left:240px;
-  z-index:100;
+  z-index:1;
   font-size:0.8em;
 }
   .page-node #admin_tabs_top .messages {

@@ -4,20 +4,26 @@ form input.form-text{
   -khtml-border-radius: 3px;
   border-radius: 3px;
   
-  background: #444;
+  background: #ccc;
   border: 0;
-  color:#ccc;
+  color:#333;
   font-family: Georgia, "Times New Roman", Times, serif;
   letter-spacing:0.01em;
   padding:4px 5px;
   font-size:1em;
   
-  -moz-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5) inset;
-  -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5) inset;
-  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5) inset;
+  -moz-box-shadow: inset 1px 1px 3px #888;
+  -webkit-box-shadow: inset 1px 1px 3px #888;
+  box-shadow: inset 1px 1px 3px #888;
 }
   form input.form-text:focus{
-    background: #666;
+    background: #FBED73;
+    -moz-box-shadow: inset 1px 1px 3px #c1ad50;
+    -webkit-box-shadow: inset 1px 1px 3px #c1ad50;
+    box-shadow: inset 1px 1px 3px #c1ad50;
+  }
+  form input.file {
+    visibility:none;
   }
 
 form input.form-button,

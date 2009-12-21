@@ -15,21 +15,27 @@ body.page-user #admin_tabs_top{
   margin-left:80px;
 }
 body.page-user #admin_tabs_top ul.secondary{
-  margin-left:-20px;
-  width:550px;
+  margin:0 0 0 -30px;
+  width:560px;
+  height:25px;
+  padding:5px 0 0 0;
   border-bottom:1px dotted #bbb;
 }
+  body.page-user #admin_tabs_top ul.secondary li{
+    margin:0;
+    padding:0 1em;
+  }
 
 /** 
  * Profile content
  */
 body.page-user #tracker,
 body.page-user #user-profile-form,
+body.page-user #notify-user-settings-form,
 body.page-user .userprofile{
   margin:-3px 0 0 20px;
   padding:30px;
   background-color:#fff;
-  background-color:rgba(255, 255, 255, 0.8);
   overflow:hidden;
   
   -moz-box-shadow: 2px 2px 10px rgba(0,0,0,0.4);
@@ -37,17 +43,19 @@ body.page-user .userprofile{
   box-shadow: 2px 2px 10px rgba(0,0,0,0.4); 
 }
 body.page-user #user-profile-form{
-  margin-top:-36px;
+  margin-top:-34px;
 }
+
+body.view-other-user .userprofile{
+  margin-top:15px;
+}
+
   body.page-user .userprofile .user_picture {
     width:240px;
     float:left;
   }
   body.page-user .userprofile .user_picture img{
     border:1px solid #222;
-    -moz-box-shadow: 2px 2px 10px rgba(0,0,0,0.4);
-    -webkit-box-shadow: 2px 2px 10px rgba(0,0,0,0.4);
-    box-shadow: 2px 2px 10px rgba(0,0,0,0.4);     
   }
 
 body.page-user .userprofile dl{
@@ -92,26 +100,66 @@ body.page-user .userprofile .fieldset_3{
 /** 
  * Form
  */
-body.page-user #user-profile-form legend{
+#user-profile-form label{
+  font-weight:normal;
+}
+#user-profile-form legend{
   font-size:1.4em;
   font-weight:bold;
   line-height:1.3em;
   padding:10px 0;
   margin:0;
 }
-body.page-user #user-profile-form fieldset{
+#user-profile-form fieldset{
   padding:0;
 }
-body.page-user #user-profile-form .form-button{
+#user-profile-form .form-button{
   display:inline;
 }
-  body.page-user #user-profile-form .form-item input{
+  #user-profile-form .form-item input{
     margin:0.5em 0.5em 0.5em 0;
   }
-  body.page-user #user-profile-form .form-description{
+  #user-profile-form .form-description{
     font-size:0.8em;
     color:#666;
   }
+  #user-profile-form .form-item-checkboxes,
+  #user-profile-form .form-item-radios{
+    clear:both;
+    overflow:hidden;
+  }
+  #user-profile-form .form-item-radio {
+    width:auto;
+    display:inline;
+    float:left;
+    padding-right:20px;
+  }
+  #user-profile-form .form-radios,
+  #user-profile-form .form-checkboxes {
+    margin:0;
+  }
+    #user-profile-form .form-item-checkboxes .form-option{
+      font-size:0.9em;
+    }
+    #user-profile-form .form-item-checkbox {
+      margin:0;
+    }
+  
+  #user-profile-form .form-item-radios{
+    margin:0;
+  }  
+  #user-profile-form .form-item-radios label,
+  #user-profile-form .form-item-radios .form-description {
+    display:none;
+  }
+   #user-profile-form .form-item-radios .form-radios label{
+     display:inline;
+   }
+  #user-profile-form .user_picture{
+    float:left;
+    margin-right:30px;
+  }
+
   
 /** 
  * Track
