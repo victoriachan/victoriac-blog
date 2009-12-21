@@ -55,12 +55,7 @@ function fly_preprocess(&$vars, $hook) {
       $vars['body_classes'] = $vars['body_classes']. ' page-node';
     }
         
-    // Remove user 'track' tab for non-admin
-    global $user;
-    if (!in_array('administrator', array_values($user->roles))) {
-      _fly_removetab('Track', $vars);
-    }
-    
+    // Remove user 'Notification settings' tab
     _fly_removetab('Notification settings', $vars);
   }
   
