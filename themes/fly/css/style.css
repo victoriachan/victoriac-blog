@@ -83,6 +83,7 @@ h1#site-name {
     line-height:normal;
     background-color:#444;
     color:#999;
+    padding:3px 5px;
   }
   #top_bar form input.form-submit{
     padding:2px 10px;
@@ -275,4 +276,45 @@ h1#site-name {
   list-style-image:none;
   list-style-type:none;
   text-align:right;
+}
+
+/* Admin tabs */
+#admin_tabs_top ul.primary{
+  border-bottom:0;
+}
+#admin_tabs_top ul.primary li a{
+  font-family: Georgia, "Times New Roman", Times, serif;
+  -moz-border-radius-topleft: 4px;
+  -webkit-border-radius-topleft: 4px;
+  -khtml-border-radius-topleft: 4px;
+  border-radius-topleft: 4px;
+  
+  -moz-border-radius-topright: 4px;
+  -webkit-border-radius-topright: 4px;
+  -khtml-border-radius-topright: 4px;
+  border-radius-topright: 4px;  
+  
+  -moz-box-shadow: -1px -1px 3px rgba(0,0,0,0.1);
+  -webkit-box-shadow: -1px -1px 3px rgba(0,0,0,0.1);
+  box-shadow: -1px -1px 3px rgba(0,0,0,0.1); 
+    
+  border:0;
+  font-size:0.9em;
+  padding:3px 10px 2px 10px;
+  background-color:#333;
+  background-color: rgba(100, 100, 100, 0.8);
+  color:#fff;
+  opacity:0.6;
+  filter:alpha(opacity=60);
+}
+  #admin_tabs_top ul.primary li a.active,
+  #admin_tabs_top ul.primary li a:hover{
+    background-color: rgba(255, 255, 255, 0.8);
+    opacity:1;
+    filter:alpha(opacity=100);
+    color:#000;
+  }
+#admin_tabs_top ul.secondary{
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size:0.9em;
 }

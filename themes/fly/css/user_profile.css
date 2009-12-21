@@ -1,0 +1,125 @@
+/** 
+ * override
+ */
+body.page-user #main_wrapper{
+  background-image:none;
+}
+
+body.page-user h1.title{
+  padding-top:10px;
+  margin-bottom:0;
+  height:43px;
+}
+
+body.page-user #admin_tabs_top{
+  margin-left:80px;
+}
+body.page-user #admin_tabs_top ul.secondary{
+  margin-left:-20px;
+  width:550px;
+  border-bottom:1px dotted #bbb;
+}
+
+/** 
+ * Profile content
+ */
+body.page-user #tracker,
+body.page-user #user-profile-form,
+body.page-user .userprofile{
+  margin:-3px 0 0 20px;
+  padding:30px;
+  background-color:#fff;
+  background-color:rgba(255, 255, 255, 0.8);
+  overflow:hidden;
+  
+  -moz-box-shadow: 2px 2px 10px rgba(0,0,0,0.4);
+  -webkit-box-shadow: 2px 2px 10px rgba(0,0,0,0.4);
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.4); 
+}
+body.page-user #user-profile-form{
+  margin-top:-36px;
+}
+  body.page-user .userprofile .user_picture {
+    width:240px;
+    float:left;
+  }
+  body.page-user .userprofile .user_picture img{
+    border:1px solid #222;
+    -moz-box-shadow: 2px 2px 10px rgba(0,0,0,0.4);
+    -webkit-box-shadow: 2px 2px 10px rgba(0,0,0,0.4);
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.4);     
+  }
+
+body.page-user .userprofile dl{
+  width:100%;
+  clear:both;
+  margin:0;
+  padding:0 0 5px 0;
+}
+  body.page-user .userprofile dl a{
+    text-decoration:none;
+  }
+  body.page-user .userprofile dt {
+    display:inline;
+    padding:0 5px 0 0;
+    margin:0;
+  }
+  body.page-user .userprofile dd {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    display:inline;
+    margin:0;
+    padding:0;
+    border-bottom:1px dotted #666;
+    font-weight:bold;
+  }  
+
+body.page-user .userprofile h2{
+  margin:0 0 1em 0;
+  padding:0;
+}
+
+body.page-user .userprofile .fieldset{
+  margin:0 0 20px 0;
+  width:320px;
+  float:right;
+}
+body.page-user .userprofile .fieldset_3{
+  clear:both;
+  float:left;
+  display:none;
+}
+
+/** 
+ * Form
+ */
+body.page-user #user-profile-form legend{
+  font-size:1.4em;
+  font-weight:bold;
+  line-height:1.3em;
+  padding:10px 0;
+  margin:0;
+}
+body.page-user #user-profile-form fieldset{
+  padding:0;
+}
+body.page-user #user-profile-form .form-button{
+  display:inline;
+}
+  body.page-user #user-profile-form .form-item input{
+    margin:0.5em 0.5em 0.5em 0;
+  }
+  body.page-user #user-profile-form .form-description{
+    font-size:0.8em;
+    color:#666;
+  }
+  
+/** 
+ * Track
+ */
+#tracker tr.even, 
+#tracker tr.odd{
+  background:transparent;
+}
+  #tracker tr td{
+    padding:5px;
+  }
