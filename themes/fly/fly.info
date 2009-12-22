@@ -13,7 +13,6 @@ regions[node_top] = node top
 regions[node_bottom] = node bottom
 regions[right]          = right sidebar
 regions[footer]         = footer
-regions[closure_region] = closure
 
 ;--------------------- features ----------------------------
 features[] = logo

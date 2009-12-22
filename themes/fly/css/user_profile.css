@@ -36,7 +36,7 @@ body.page-user #tracker,
 body.page-user #user-profile-form,
 body.page-user #notify-user-settings-form,
 body.page-user .userprofile{
-  margin:-3px 0 0 20px;
+  margin:-3px 0 20px 20px;
   padding:30px;
   background-color:#fff;
   overflow:hidden;
@@ -77,6 +77,7 @@ body.page-user .userprofile dl{
   }
   body.page-user .userprofile dd {
     font-family: Georgia, "Times New Roman", Times, serif;
+    letter-spacing:0.01em;
     display:inline;
     margin:0;
     padding:0;

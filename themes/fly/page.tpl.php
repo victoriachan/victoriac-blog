@@ -111,8 +111,9 @@
         </div><!-- /#secondary_content -->
       <?php endif; ?>
       
-    </div><!-- /.main_wrapper -->
-    
+    </div><!-- /.main_wrapper -->    
+  </div><!-- /#site_wrapper -->
+  
 <?php
 /**
  * Bottom Content
@@ -128,15 +129,8 @@
       <?php endif; ?>
       </div>
     </div>
-    <?php endif; ?>
-    
-    <div id="closure" class="closure">
-      <?php if ($closure_region): ?>
-        <?php print $closure_region; ?>
-      <?php endif; ?>
-    </div>
-    
-  </div><!-- /#site_wrapper --> 
+    <?php endif; ?>  
+   
   <?php print $closure; ?>
 </body>
 </html>

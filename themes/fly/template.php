@@ -63,14 +63,13 @@ function fly_preprocess(&$vars, $hook) {
     if (isset($vars['node']) && $vars['node']->type) {
       $vars['body_classes'] = $vars['body_classes']. ' page-node';
     }
-
-    // hide all tabs unless a user is viewing their own tab
+    
+    // remove 'Notification settings' tab from user page
     $array_q = explode('/', $_GET['q']);
-    if(($array_q[0] == 'user') && ($array_q[1] != $GLOBALS['user']->uid) && !_fly_is_admin()){
-       //unset($vars['tabs']);
-       //$vars['body_classes'] = $vars['body_classes']. ' view-other-user';
+    if($array_q[0] == 'user'){
+      _fly_removetab('Notification settings', $vars);
     }
-          
+    
   }
   
   // Replace funny kanji characters in section name
@@ -115,4 +114,35 @@ function fly_preprocess_comment(&$vars) {
     $vars['showlinks'] = true;
   }
   
+}
+
+/**
+ * Remove annoying HTML filter input type tips at the Comments form and elsewhere
+ */
+
+function fly_filter_tips($tips, $long = FALSE, $extra = '') {
+  return '';
+}
+function fly_filter_tips_more_info () {
+  return '';
+}
+
+/**
+* function to overwrite links. removes the reply link per node type
+*
+* @param $links
+* @param $attributes
+* @return unknown_type
+*/
+function fly_links($links, $attributes = array('class' => 'links')) {
+  
+  // Link 'Add a comment' link to node page instead of comments reply page
+  if($links['comment_add']['href']){
+    $arr_linkparts = explode('/', $links['comment_add']['href']);
+    $links['comment_add']['href'] = 'node/'.$arr_linkparts[2];
+  }
+  // Don't show 'reply' link for comments
+  unset($links['comment_reply']);
+  
+  return theme_links($links, $attributes);
 }

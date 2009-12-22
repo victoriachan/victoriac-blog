@@ -8,12 +8,18 @@ ul.links .comment_forbidden {
 
 #comments {
   clear:both;
-  border:1px dashed #ccc;
+  background-color:#666;
+  background-color: rgba(100, 100, 100, 0.5);
+  color:#f3f3f3;
+  border:1px solid #999;
   border-bottom:0;
   padding:10px 30px;
-  margin:10px 0 0 0;
+  margin:10px 0 0 5px;
   width:560px;
 }
+  .comment a{
+    color:#f3f3f3;
+  }
   #comments .comment {
     clear:both;
     padding:30px 0 15px 0;
@@ -39,7 +45,7 @@ ul.links .comment_forbidden {
     padding-left:20px;
   }
     .comment .comment_text blockquote {
-      border-left:3px solid #b2b2b2;
+      border-left:3px solid #f3f3f3;
       padding:1px 10px;
       background-color:#333;
       background-color:rgba(0, 0, 0, 0.1);
@@ -51,12 +57,15 @@ ul.links .comment_forbidden {
     line-height:1.1em;
   }
   .comment .content {
-    color:#666;
+    color:#555;
     line-height:1.6em;
     font-size:1.1em;
     font-family: Georgia, "Times New Roman", Times, serif;
     letter-spacing:0.01em;
   }
+    .comment .content a{
+      color:#555;
+    }
     .comment .content p.code, 
     .comment .content ol.code, 
     .comment .content ul.code{
@@ -73,10 +82,9 @@ ul.links .comment_forbidden {
   }
   
 #comment-form {
-  padding:10px 20px 30px 20px;
-  margin:20px 0 0 0;
-  background: #ccc;
-  background: rgba(100, 100, 100, 0.1);
+  padding:10px 20px 20px 20px;
+  margin:20px 0 40px 0;
+  background: #333;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
   -khtml-border-radius: 10px;
@@ -86,13 +94,14 @@ ul.links .comment_forbidden {
     display:inline;
   }
   #comment-form textarea {
-    background: #f6f6f6;
+    background: #ccc;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
     -khtml-border-radius: 3px;
     border-radius: 3px;
     border:1px solid #ccc;
     font: italic 13px Georgia, "Times New Roman", Times, serif;
+    letter-spacing:0.01em;
     outline: none;
     padding: 5px;
     margin:5px 0 0 0;

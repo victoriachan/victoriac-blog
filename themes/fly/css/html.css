@@ -13,6 +13,7 @@ html{
   /* fixes problem with bg image not appearing at bottom on short pages */
   min-height: 100%; 
   height: auto;
+  position:relative;
 }
 body, caption, th, td, input, textarea, select, option, legend, fieldset
 {
@@ -79,6 +80,7 @@ body, caption, th, td, input, textarea, select, option, legend, fieldset
   }
   .page_content ol.code {
     font-family: Georgia, "Times New Roman", Times, serif;
+    letter-spacing:0.01em;
     background: #666 url(../images/code_tile_ol.png) repeat-y ;
   }
     .page_content ol.code li {
