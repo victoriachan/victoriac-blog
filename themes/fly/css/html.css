@@ -43,7 +43,7 @@ body, caption, th, td, input, textarea, select, option, legend, fieldset
 	font-family: Tahoma, Verdana, Arial, Helvetica, "Bitstream Vera Sans", sans-serif;
 }
 
-.page_content .code, .page_content pre, .page_content code {
+.code, .page_content pre, .page_content code {
   font-family: "Courier New", Courier, mono;
   background: #666 url(../images/code_tile_square.png) ;
   color:#ebebeb;
@@ -58,14 +58,14 @@ body, caption, th, td, input, textarea, select, option, legend, fieldset
   -webkit-box-shadow: inset 1px 1px 3px rgba(0,0,0,0.3);
   box-shadow: inset 1px 1px 3px rgba(0,0,0,0.3);    
 }
-  .page_content p.code{
+  p.code{
     padding:3px 7px;
   }
   .page_content pre code,
-  .page_content pre .code,
-  .page_content .code code,
-  .page_content code .code,
-  .page_content .code pre{
+   pre .code,
+   .code code,
+   code .code,
+   .code pre{
     background: transparent none;
     line-height:normal;
     
@@ -78,17 +78,17 @@ body, caption, th, td, input, textarea, select, option, legend, fieldset
     -webkit-box-shadow: none;
     box-shadow: none;      
   }
-  .page_content ol.code {
+   ol.code {
     font-family: Georgia, "Times New Roman", Times, serif;
     letter-spacing:0.01em;
     background: #666 url(../images/code_tile_ol.png) repeat-y ;
   }
-    .page_content ol.code li {
+     ol.code li {
       line-height:normal;
       color:#444;
       margin: 0.5em 0 0.5em 35px;
     }
-    .page_content ol.code li code{
+     ol.code li code{
       color:#ebebeb;
     }
 

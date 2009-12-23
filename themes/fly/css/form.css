@@ -95,3 +95,6 @@ form input.form-submit {
   #edit-comment-wrapper{
     width:518px;
   }
+  #tinymce a{
+    color:#555;
+  }

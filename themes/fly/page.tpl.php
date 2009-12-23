@@ -29,14 +29,19 @@
   <div id="top_bar"><div class="inner">
     <?php // User Account block
       if ($user->uid): ?>
-      <div id="block-user-loggedin" class="block block-user">
         <h3><?php print t("Hello, ") . ' <span>' . $user->name  . '</span>'; ?></h3>
         <ul>
-          <li>&nbsp;&nbsp;|&nbsp;&nbsp;<?php print l(t('View your profile'), 'user/' . $user->uid); ?></li>
+          <li><?php print l(t('View your profile'), 'user/' . $user->uid); ?></li>
           <li>&nbsp;&nbsp;|&nbsp;&nbsp;<?php print l(t('Edit your profile'), 'user/' . $user->uid . '/edit'); ?></li>
           <li>&nbsp;&nbsp;|&nbsp;&nbsp;<?php print l(t('Log out'), 'logout'); ?></li>
         </ul>
-      </div>
+    <?php else: ?>
+        <h3>Hello, You're not logged in.</h3>
+        <ul>
+          <li><?php print l(t('Log in now'), 'user/login'); ?></li>
+          <li>&nbsp;&nbsp;|&nbsp;&nbsp;<?php print l(t('Create new account'), 'user/register'); ?></li>
+          <li>&nbsp;&nbsp;|&nbsp;&nbsp;<?php print l(t('Request for new password'), 'user/password'); ?></li>
+        </ul>
     <?php endif; ?>
     <?php print $top_bar ?>
   </div></div>

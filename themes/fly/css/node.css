@@ -116,7 +116,13 @@ body.page-node .field-embedded-video{
       }
 
 /* node content */
-
+.node h2.title{
+  margin-left:95px;
+}
+  .node h2.title a{
+    text-decoration:none;
+    color:#000;
+  }
 .node blockquote {
   margin:0 0 20px -20px;
   padding:5px 30px 5px 100px;

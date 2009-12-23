@@ -80,16 +80,23 @@ ul.links .comment_forbidden {
   .comment .links .comment_reply {
     display:none;
   }
-  
+
+#comment-confirm-delete,
 #comment-form {
   padding:10px 20px 20px 20px;
   margin:20px 0 40px 0;
   background: #333;
+  color:#ccc;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
   -khtml-border-radius: 10px;
   overflow:hidden;
 }
+  #comment-form .comment {
+    padding:10px;
+    border:1px solid #fff;
+    background-color:#888;
+  }
   #comment-form .form-item label {
     display:inline;
   }
@@ -149,4 +156,15 @@ ul.links .comment_forbidden {
 }
   #edit-comment-wrapper textarea {
     width:100%;
+  }
+
+body.page-comment #comment-confirm-delete,
+body.page-comment #comment-form {
+  background-color:rgba(0,0,0,0.7);
+}
+body.page-comment #main_wrapper{
+ background-image:none;
+}
+  body.page-comment h1.title{
+    height:auto;
   }

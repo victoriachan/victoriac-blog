@@ -32,6 +32,7 @@ stylesheets[all][]    = css/style.css
 stylesheets[all][]    = css/form.css
 stylesheets[all][]    = css/node.css
 stylesheets[all][]    = css/user_profile.css
+stylesheets[all][]    = css/comments.css
 stylesheets[print][]    = css/print.css
 ie stylesheets[ condition ][all][] = css/ie.css
 

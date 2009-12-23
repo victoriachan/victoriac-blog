@@ -38,12 +38,11 @@ h1#site-name {
 /* top bar */
 #top_bar{
   font-family: Georgia, "Times New Roman", Times, serif;
-  letter-spacing:0.01em;
+  letter-spacing:0.02em;
   font-size:0.85em;
   color:#666;
   color:rgba(255,255,255,0.5);
-  padding:0;
-  height:21px;
+  padding:3px 0;
   overflow:hidden;
 }
   #top_bar a{
@@ -66,54 +65,9 @@ h1#site-name {
     font-style:italic;
     font-size:1.1em;
   }
-
-#top_bar form{
-  text-align:left;
-}
-  #top_bar form label,
-  #top_bar form input,
-  #top_bar form .form-item,
-  #top_bar form .form-button{
-    display:inline;
-    width:auto;
-    font-weight:normal;
+  #top_bar ul{
+    float:right;
   }
-  #top_bar form .form-item{
-    padding-right:10px;
-  }
-  #top_bar form input.form-text{
-    line-height:normal;
-    background-color:#444;
-    color:#999;
-    padding:1px 5px;
-    margin:0;
-  }
-  #top_bar form input.form-submit{
-    padding:1px 10px;
-    font-size:0.8em;
-    background: #333; 
-    color:#999; 
-  }
-    #top_bar form input.form-submit:hover{
-      background: #ff3300;
-      color:#fff;
-    }  
-    
-#top_bar form .item-list{
-  float:right;
-  padding-top:3px;
-}
-  #top_bar form .item-list li{
-    padding:0 0 0 10px;
-  }
-  #top_bar form .item-list li.last{
-    border-left:1px solid #666;
-    margin-left:10px;
-  }
-
-#block-user-loggedin{
-  padding:2px 0;
-}
 
 /* blog-style date */
 

@@ -57,7 +57,6 @@ function _fly_is_admin() {
  */
 
 function fly_preprocess(&$vars, $hook) {
-  
   if($hook == 'page') {
     // Add a 'page-node' class if this is a node that is rendered as page
     if (isset($vars['node']) && $vars['node']->type) {
@@ -69,7 +68,6 @@ function fly_preprocess(&$vars, $hook) {
     if($array_q[0] == 'user'){
       _fly_removetab('Notification settings', $vars);
     }
-    
   }
   
   // Replace funny kanji characters in section name
@@ -85,11 +83,6 @@ function fly_preprocess_node(&$vars) {
   // Use html title for the title (with span elements denoting unbold text)
   if($vars['page'] && $vars['node']->field_title_html[0]['value']){
     $vars['title'] = $vars['node']->field_title_html[0]['value'];
-  }
-  
-  // add comment css to page
-  if($vars['page']){
-    drupal_add_css(path_to_theme() . '/css/comments.css', 'theme');
   }
   
   // Format nice blog calendar style dates
