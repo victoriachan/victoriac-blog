@@ -91,7 +91,6 @@ function fly_preprocess_node(&$vars) {
    // To access regions in nodes
    $vars['node_top'] = theme('blocks', 'node_top');
    $vars['node_bottom'] = theme('blocks', 'node_bottom');
-   
 }
 
 /**
