@@ -12,7 +12,6 @@ ul.links .comment_forbidden {
   background-color: rgba(100, 100, 100, 0.5);
   color:#f3f3f3;
   border:1px solid #999;
-  border-bottom:0;
   padding:10px 30px;
   margin:10px 0 0 5px;
   width:560px;
@@ -84,7 +83,7 @@ ul.links .comment_forbidden {
 #comment-confirm-delete,
 #comment-form {
   padding:10px 20px 20px 20px;
-  margin:20px 0 40px 0;
+  margin:20px 0 20px 0;
   background: #333;
   color:#ccc;
   -moz-border-radius: 10px;

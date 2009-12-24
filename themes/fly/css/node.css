@@ -1,7 +1,6 @@
 /* Node */
-
 body.page-node .node {
-  margin-top:40px;
+  margin-top:30px;
 }
 .node {
   line-height: 1.7em;
@@ -131,9 +130,10 @@ body.page-node .field-embedded-video{
   font-family: Georgia, "Times New Roman", Times, serif;
   letter-spacing:0.01em;
 }
-
 .node .node_content p:first-of-type {
   font-weight:bold;
+  margin-top:0;
+  padding-top:10px;
 }
 .node .node_content h3 {
   margin:30px 0 20px 0;

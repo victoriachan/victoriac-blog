@@ -5,11 +5,14 @@ body.page-user #main_wrapper{
   background-image:none;
 }
 
-body.page-user h1.title{
-  padding-top:10px;
-  margin-bottom:0;
-  height:43px;
+body.page-user .page_title{
+  height:50px;
+  margin:0;
 }
+  body.page-user h1.title{
+    top:0;
+    bottom:auto;
+  }
 
 body.page-user #admin_tabs_top{
   margin-left:80px;

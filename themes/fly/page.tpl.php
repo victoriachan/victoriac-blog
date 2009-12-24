@@ -75,7 +75,7 @@
         
         <div id="content_top" class="content_top">
           <?php if ($title AND (arg(0) != "node")): ?>
-            <h1 class="title"><?php print $title; ?></h1>
+            <div class="page_title"><h1 class="title"><?php print $title; ?></h1></div>
           <?php endif; ?>
         
           <?php if ($content_top): ?>

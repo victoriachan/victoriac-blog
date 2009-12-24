@@ -60,7 +60,7 @@
  */
 ?>
 <?php if ($page): ?>
-  <h1 class="title"><?php print $title; ?></h1>
+  <div class="page_title"><h1 class="title"><?php print $title; ?></h1></div>
 <?php endif; ?>
          
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?>">
