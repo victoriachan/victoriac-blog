@@ -68,9 +68,6 @@
             <?php print $breadcrumb; // themename_breadcrumb in template.php ?>
           <?php } ?>
           
-          <?php if ($header): ?>
-            <?php print $header; ?>
-          <?php endif; ?>
         </div><!-- /.header -->
         
         <div id="content_top" class="content_top">
@@ -96,13 +93,6 @@
           <?php print $content; ?>
         </div><!-- /.content -->
         
-        <?php if ($content_bottom): ?>
-          <div id="content_bottom" class="content_bottom">
-            <!-- REGION content_bottom -->
-            <?php print $content_bottom; ?>
-          </div> <!-- /.content_bottom -->
-        <?php endif; ?>
-        
       </div><!-- /.primary_content -->
       
 <?php
@@ -124,6 +114,12 @@
  * Bottom Content
  */
  ?>
+    <?php if ($content_bottom): ?>
+      <div id="content_bottom" class="content_bottom"><div class="inner">
+        <!-- REGION content_bottom -->
+        <?php print $content_bottom; ?>
+      </div></div> <!-- /.content_bottom -->
+    <?php endif; ?> 
  
     <?php if ($footer || $footer_message): ?>
     <div id="footer" class="footer">

@@ -1,42 +1,33 @@
 form input.form-text{
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  -khtml-border-radius: 3px;
-  border-radius: 3px;
-  
-  background: #ccc;
-  border: 0;
+  background: #f4f4f4;
+  border: 1px dashed #ccc;
   color:#333;
   font-family: Georgia, "Times New Roman", Times, serif;
   letter-spacing:0.01em;
   padding:4px 5px;
   font-size:1em;
-  
-  -moz-box-shadow: inset 1px 1px 3px #888;
-  -webkit-box-shadow: inset 1px 1px 3px #888;
-  box-shadow: inset 1px 1px 3px #888;
 }
   form input.form-text:focus{
-    background: #f4f4f4;
+    background: #FFFEEF;
   }
   form input.file {
     visibility:none;
   }
 
 form input.form-button,
-form input.form-submit {
-    background: #000;
-    border: 1px solid #000;
-    border: 1px solid rgba(100, 100, 100, 0.2);
-    
-    -moz-border-radius: 25px;
-    -webkit-border-radius: 25px;
-    -khtml-border-radius: 25px;
-    border-radius: 25px;
-    
-    -moz-box-shadow: 1px 1px 3px rgba(0,0,0,0.3), 0 8px 15px -4px rgba(255, 255, 255, 0.3) inset;
-    -webkit-box-shadow: 1px 1px 3px rgba(0,0,0,0.3), 0 8px 15px -4px rgba(255, 255, 255, 0.3) inset;
-    box-shadow: 1px 1px 3px rgba(0,0,0,0.3), 0 8px 15px -4px rgba(255, 255, 255, 0.3) inset;
+form input.form-submit { 
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -khtml-border-radius: 15px;
+    border-radius: 15px;
+  
+    background-color:#666;
+    padding:5px 20px; 
+    border:1px solid rgba(200,200,200,0.3);
+  
+    -moz-box-shadow: 1px 1px 3px rgba(0,0,0,0.3), 0 8px 15px -4px rgba(255, 255, 255, 0.4) inset;
+    -webkit-box-shadow: 1px 1px 3px rgba(0,0,0,0.3), 0 8px 15px -4px rgba(255, 255, 255, 0.4) inset;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.3), 0 8px 15px -4px rgba(255, 255, 255, 0.4) inset;
 
     color: #fff;
     display: inline;

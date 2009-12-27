@@ -6,7 +6,7 @@ body {
   margin:0; 
   padding:0 0 10px 0;
   background:#f7f7f7;
-  background:url(../images/code_tile.png) 0 0;
+  /* background:url(../images/code_tile.png) 0 0; */
 }
   #top_bar{
     width:100%;
@@ -28,7 +28,6 @@ body {
   width:960px;
   overflow:hidden;
   padding:0 10px 0 0;
-  background:url(../images/page_content_white_bg.png) 12px 150px no-repeat;
 }
   .primary_content {
     width:70%;
@@ -48,13 +47,20 @@ body {
       }
         .node_content {
           width:500px;
-          margin-left:95px;
+          margin-left:70px;
         }
-    .content_bottom {}
     
   .secondary_content {
     width:30%;
     float:right;
+  }
+
+#content_bottom {
+  width:100%;
+}
+  #content_bottom .inner{
+    margin:0 auto;
+    width:970px;
   }
 
 #footer {
@@ -74,7 +80,7 @@ body {
 /* Inner Page title */
 .page_title {
   padding:0 0 0 94px;
-  margin:0 0 30px 0;
+  margin:0 0 5px 0;
   width:420px;
   height:65px;
   position:relative;

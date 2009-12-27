@@ -5,17 +5,27 @@ ul.links .comment_forbidden {
   height:30px;
   margin-bottom:20px;
 }
-
 #comments {
   clear:both;
-  background-color:#666;
-  background-color: rgba(100, 100, 100, 0.5);
+  background-color:#ccc;
+  background-color: rgba(255, 255, 255, 0.4);
   color:#f3f3f3;
-  border:1px solid #999;
   padding:10px 30px;
-  margin:10px 0 0 5px;
-  width:560px;
+  margin:-55px 0 0 25px;
+  width:600px;
+  
+  -moz-box-shadow: 2px -1px 10px rgba(0,0,0,0.2);
+  -webkit-box-shadow: 2px -1px 10px rgba(0,0,0,0.2);
+  box-shadow: 2px -1px 10px rgba(0,0,0,0.2); 
+  
+  -moz-border-radius: 14px;
+  -webkit-border-radius: 14px;
+  -khtml-border-radius: 14px;
+  border-radius: 14px;
 }
+  #comments h2{
+    color:#888;
+  }
   .comment a{
     color:#f3f3f3;
   }
@@ -29,7 +39,7 @@ ul.links .comment_forbidden {
     /* #comments .comment:first-of-type, */
     #comments .comment:hover {
       background-color: rgba(0, 0, 0, 0.1);
-      width:590px;
+      width:630px;
       margin-left:-30px;
       padding-left:30px;
     }
@@ -84,18 +94,23 @@ ul.links .comment_forbidden {
 #comment-form {
   padding:10px 20px 20px 20px;
   margin:20px 0 20px 0;
-  background: #333;
+  background: #555;
   color:#ccc;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
   -khtml-border-radius: 10px;
+  border-radius: 10px; 
   overflow:hidden;
 }
   #comment-form .comment {
     padding:10px;
     border:1px solid #fff;
-    background-color:#888;
+    background-color:#777;
+    color:#ccc;
   }
+    #comment-form .comment .content{
+      color:#333;
+    }
   #comment-form .form-item label {
     display:inline;
   }
@@ -159,10 +174,8 @@ ul.links .comment_forbidden {
 
 body.page-comment #comment-confirm-delete,
 body.page-comment #comment-form {
-  background-color:rgba(0,0,0,0.7);
-}
-body.page-comment #main_wrapper{
- background-image:none;
+  background-color:#666;
+  background-color: rgba(0, 0, 0, 0.4);
 }
   body.page-comment h1.title{
     height:auto;
