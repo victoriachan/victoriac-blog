@@ -1,0 +1,276 @@
+body
+{
+  font-size: 80%;
+  color:#13343e;
+}
+  #site_wrapper
+  {
+    font-size: 1em;
+    line-height: 1.3em;
+    letter-spacing: 0.03em;
+  }
+html{
+  /* fixes problem with bg image not appearing at bottom on short pages */
+  min-height: 100%; 
+  height: auto;
+  position:relative;
+}
+body, caption, th, td, input, textarea, select, option, legend, fieldset
+{
+  /* The following font family declarations are based on the Microsoft core
+   * web fonts which are common fonts available on most computer systems. The
+   * Bitstream Vera fonts are commonly available on Linux systems where the MS
+   * fonts are less common.
+   *
+   * A user's web browser will look at the comma-separated list and will
+   * attempt to use each font in turn until it finds one that is available
+   * on the user's computer. The final "generic" font (sans-serif or serif)
+   * hints at what type of font to use if the web browser doesn't find any
+   * of the fonts in the list.
+
+  font-family: "Times New Roman", Times, Georgia, "Bitstream Vera Serif", serif;
+  font-family: Times, "Times New Roman", Georgia, "Bitstream Vera Serif", serif;
+  font-family: Georgia, "Times New Roman", "Bitstream Vera Serif", serif;
+
+  font-family: Verdana, Tahoma, Arial, Helvetica, "Bitstream Vera Sans", sans-serif;
+  font-family: Tahoma, Verdana, Arial, Helvetica, "Bitstream Vera Sans", sans-serif;
+  font-family: Helvetica, Arial, "Bitstream Vera Sans", sans-serif;
+  font-family: Arial, Helvetica, "Bitstream Vera Sans", sans-serif;
+
+  font-family: "Bitstream Vera Sans Mono", "Courier New", monospace;
+
+   */
+	font-family: Tahoma, Verdana, Arial, Helvetica, "Bitstream Vera Sans", sans-serif;
+}
+
+.code, .page_content pre, .page_content code {
+  font-family: "Courier New", Courier, mono;
+  background: #666 url(../images/code_tile_square.png) ;
+  color:#ebebeb;
+  padding:1px 7px;
+  
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -khtml-border-radius: 5px;
+  border-radius: 5px;
+ 
+  -moz-box-shadow: inset 1px 1px 3px rgba(0,0,0,0.3);
+  -webkit-box-shadow: inset 1px 1px 3px rgba(0,0,0,0.3);
+  box-shadow: inset 1px 1px 3px rgba(0,0,0,0.3);    
+}
+  p.code{
+    padding:3px 7px;
+  }
+  .page_content pre code,
+   pre .code,
+   .code code,
+   code .code,
+   .code pre{
+    background: transparent none;
+    line-height:normal;
+    
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    -khtml-border-radius: 0;
+    border-radius: 0;
+     
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;      
+  }
+   ol.code {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    letter-spacing:0.01em;
+    background: #666 url(../images/code_tile_ol.png) repeat-y ;
+  }
+     ol.code li {
+      line-height:normal;
+      color:#444;
+      margin: 0.5em 0 0.5em 35px;
+    }
+     ol.code li code{
+      color:#ebebeb;
+    }
+
+/** headings **/
+h1 {
+  font-size: 2.5em;
+  color:#000;
+  font-weight:bold;
+  line-height: 0.8em;
+  margin: 0;
+  padding:0;
+}
+  h1 span{
+    font-size:0.7em;
+    font-weight:normal;
+  }
+h2 {
+  font-size: 1.4em;
+  line-height: 1.3em;
+  margin:15px 0;
+  font-weight:bold;
+}
+
+h3 {
+  font-size: 1.2em;
+  line-height: 1.3em;
+  margin:15px 0;
+  font-weight: bold;
+}
+
+h4, h5, h6 {
+  font-size: 1.1em;
+  line-height: 1.3em;
+  margin-top: 0.909em; /* Equivalent to 1em in the page's base font: 1 / 1.1 = 0.909 */
+  margin-bottom: 0.909em;
+}
+
+/** block-level elements **/
+  p, ul, ol, dl, pre, table, fieldset, blockquote
+  {
+    margin: 1em 0;
+    padding:0;
+  }
+  
+/** lists **/
+  /* standardize list item indentation */
+ul, ol {
+  margin-left: 0;
+  padding-left: 2em;
+  list-style-position:outside;
+}
+
+.block ul, /* Drupal overrides */
+.item-list ul {
+  margin: 1em 0;
+  padding: 0 0 0 2em;
+}
+
+ul ul, ul ol,
+ol ol, ol ul,
+.block ul ul, .block ul ol,
+.block ol ol, .block ol ul,
+.item-list ul ul, .item-list ul ol,
+.item-list ol ol, .item-list ol ul{
+  margin: 0;
+}
+
+li {
+  margin: 0;
+  padding: 0;
+}
+
+.item-list ul li /* Drupal override */
+{
+  margin: 0;
+  padding: 0;
+  list-style: inherit;
+}
+
+ul.menu li, /* Drupal override */
+li.expanded,
+li.collapsed,
+li.leaf {
+  margin: 0;
+  padding: 0;
+}
+
+ul          { list-style-type: disc; }
+ul ul       { list-style-type: circle; }
+ul ul ul    { list-style-type: square; }
+ul ul ul ul { list-style-type: circle; }
+ol          { list-style-type: decimal; }
+ol ol       { list-style-type: lower-alpha; }
+ol ol ol    { list-style-type: decimal; }
+
+dl { }
+  dt {
+    margin: 0;
+    padding: 0;
+  }
+  dd {
+    margin: 0 0 0 2em;
+    padding: 0;
+  }
+
+/** links **/
+  /* The order of link states are based on Eric Meyer's article:
+   * http://meyerweb.com/eric/thoughts/2007/06/11/who-ordered-the-link-states
+   */
+.default_link,
+a {
+	color:#ff3300;
+}
+  a:hover,
+  a:focus {
+    text-decoration:none;
+  }
+  a:active {
+  }
+
+/** tables **/
+  /* Override Drupal default CSS */
+table {
+  border-collapse: collapse;
+  /* width: 100%; */ /* Prevent cramped-looking tables */
+}
+
+th,
+thead th,
+tbody th {
+  text-align: left;
+  padding-right: 0;
+  border-bottom: none;
+}
+
+tbody {
+  border-top: none;
+}
+
+/** abbreviations **/
+abbr {
+  border-bottom: 1px dotted #666;
+  cursor: help;
+  white-space: nowrap;
+}
+
+  /* Date-based "abbreviations" show computer-friendly timestamps which are not
+     human-friendly. */
+abbr.created {
+  border: none;
+  cursor: auto;
+  white-space: normal;
+}
+
+img {
+  border: 0;
+}
+
+hr {
+  height: 1px;
+  border: 1px solid #666;
+}
+
+form {
+  margin: 0;
+  padding: 0;
+}
+
+fieldset {
+  margin: 1em 0;
+  padding: 0.5em;
+  border:0;
+}
+
+/* TinyMCE classes */
+.strike{
+  text-decoration: line-through;
+}
+p.code, ol.code, ul.code{
+  line-height:normal;
+}
+.highlight{
+  background-color:#FBED73;
+  padding:0 3px;
+}

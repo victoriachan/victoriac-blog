@@ -1,0 +1,209 @@
+/* Node */
+.node {
+  padding:30px 0 10px 0;
+  width:930px;
+  margin-left:15px;
+  background-color:#fff;
+  line-height: 1.7em;
+  color:#35565F;
+  
+  -moz-box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  -webkit-box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+}
+  .node p {
+    margin:1.5em 0;
+  }
+  .node li {
+    margin:1em 0;
+  }
+
+/* Flickr image */
+.field-embedded-image{
+  width:auto;
+  display:inline;
+  float:left;
+  margin:0 30px 10px 0;
+}
+  .field-embedded-image img{
+    border:1px solid #222;
+  }
+  
+body.page-node .field-embedded-video{
+  margin:0 0 0 -10px;
+}
+  
+/* See also links */  
+.see_also{
+  margin:30px 0;
+  clear:both;
+}
+.see_also ul{
+  margin:0;
+  padding:0 0 0 15px;
+}
+  .see_also li{
+    margin:0;
+    padding:0;
+  }
+  
+/* Node taxonomy */
+  
+.node .terms {
+  clear:both;
+  overflow:hidden;
+  font-size:0.9em;
+  margin:40px 0 10px -10px;
+  padding:3px 15px 5px 15px;
+  line-height:normal;
+  width:920px;
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+  .node .terms h3{
+    font-size:1em;
+    font-weight:normal;
+    display:inline;
+    margin:0;
+    padding:0;
+    float:left;
+  }
+  .node .terms ul{
+    margin-left:10px;
+    float:left;
+  }
+    .node .terms ul li{
+      padding:0 0.3em;
+    }
+  .node .terms a {
+    background:none;
+    color:#13343E;
+    text-decoration:underline;
+  }
+    .node .terms a:hover {
+      color:#ff3300;
+      text-decoration:none;
+    }
+
+
+/* Custom pager */
+.block-custom-pagers{
+  width:960px;
+  margin:0 0 0 -10px;
+  padding:10px 0;
+  overflow:hidden;
+  clear:both;
+}
+  .block-custom-pagers h3{
+    display:none;
+  }
+  .block-custom-pagers ul{
+    margin:0;
+    padding:0;
+  }
+  .block-custom-pagers li{
+    margin:0;
+    padding:0;
+    list-style-image:none;
+    list-style-type:none;
+  }
+  .block-custom-pagers li.previous{
+    float:left;
+  }
+  .block-custom-pagers li.next{
+    float:right;
+  }
+    .block-custom-pagers li a{
+      font-size:1.2em;
+      font-weight:bold;
+      text-decoration:none;
+      
+      -moz-border-radius: 7px;
+      -webkit-border-radius: 7px;
+      -khtml-border-radius: 7px;
+      border-radius: 7px;
+      
+      background-color:rgba(200,200,200,0.3);
+      padding:5px 20px; 
+      border:1px solid rgba(200,200,200,0.3);
+      
+      -moz-box-shadow: 1px 1px 3px rgba(0,0,0,0.3), 0 8px 15px -4px rgba(255, 255, 255, 0.4) inset;
+      -webkit-box-shadow: 1px 1px 3px rgba(0,0,0,0.3), 0 8px 15px -4px rgba(255, 255, 255, 0.4) inset;
+      box-shadow: 1px 1px 3px rgba(0,0,0,0.3), 0 8px 15px -4px rgba(255, 255, 255, 0.4) inset;
+      
+      /* color:rgba(0, 0, 0, 0.5);
+      background-color:#333;
+      background-color:rgba(0,0,0,0.1);
+      padding:3px 10px; */
+      
+    }
+      .block-custom-pagers li a:hover{
+        color:#222;
+      }
+
+/* node content */
+.node h2.title{
+  margin-left:95px;
+}
+  .node h2.title a{
+    text-decoration:none;
+    color:#000;
+  }
+.node blockquote {
+  min-height:30px;
+  margin:0 0 20px -20px;
+  padding:10px 30px 10px 100px;
+  background: rgba(0, 0, 0, 0.1) url(../images/blockquote_left.png) no-repeat 0 0;
+  line-height:1.6em;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  letter-spacing:0.01em;
+}
+.node .node_content p:first-of-type {
+  font-weight:bold;
+  margin-top:0;
+  padding-top:0;
+}
+.node .node_content blockquote p:last-of-type {
+  margin-bottom:0;
+  padding-bottom:0;
+}
+.node .node_content h3 {
+  margin:30px 0 20px 0;
+}
+
+/* Stars */
+.field-stars{
+  height:30px;
+  width:100px;
+}
+
+/* Node when displayed as teaser */
+
+.node-teaser {
+  padding-bottom:30px;
+  margin-bottom:20px;
+  width:640px;
+}
+  .node-teaser h2.title {
+    margin-left:70px;
+    margin-bottom:10px;
+    padding-top:0;
+  }
+    .node-teaser h2.title a {
+      color:#35565F;
+      text-decoration:none;
+    }
+    .node-teaser .node_content p:first-of-type {
+      font-weight:normal;
+    }
+    .node-teaser .terms  {
+      margin:10px 0 0 -10px;
+      width:630px;
+    }
+    .node-teaser .comments {
+      margin-left:70px;
+    }
+      .node-teaser .comments li {
+        padding-left:0;
+        font-size:0.9em;
+      }

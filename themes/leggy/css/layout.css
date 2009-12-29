@@ -1,0 +1,103 @@
+/*
+ * LAYOUT STYLES
+ */
+ 
+body {
+  margin:0; 
+  padding:0 0 10px 0;
+  background:#f7f7f7 url(../images/tile.png) ;
+}
+  #second_body{
+    width:100%;
+    background:url(../images/legs_background1.png) 50% -30px no-repeat;
+  }
+  #top_bar{
+    width:100%;
+    background-color:#000;
+  }
+    #top_bar .inner{
+      margin:0 auto;
+      height:45px;
+      width:950px;
+      overflow:hidden;
+      position:relative;
+    }
+  #site_wrapper {
+    margin:0 auto;
+    padding:0 0 75px 0;
+    width:970px;
+    min-height:515px;
+  }
+  
+#main_wrapper {
+  width:960px;
+  overflow:hidden;
+  padding:0 10px 0 0;
+  background:url(../images/star.png) 0 10px no-repeat;
+}
+  .primary_content {
+    width:70%;
+    float:left;
+    margin-bottom:20px;
+  }
+    .content_top {
+      width:590px;
+      padding:0 0 0 70px;
+      position:relative;
+      overflow:hidden;
+    }
+    .page_content {
+    }
+      .node {
+        width:100%;
+      }
+        .node_content {
+          width:500px;
+          margin-left:70px;
+        }
+    
+  .secondary_content {
+    width:30%;
+    float:right;
+  }
+
+#content_bottom {
+  width:100%;
+}
+  #content_bottom .inner{
+    margin:0 auto;
+    width:970px;
+  }
+
+#footer {
+  z-index:3;
+  width:100%;
+  height:30px;
+  overflow:hidden;
+  position:absolute; 
+  bottom:0;
+  padding-top:110px;
+}
+  #footer .inner{
+    margin:0 auto;
+    width:970px;
+  }
+        
+/* Admin */
+.page-node #admin_tabs_top { 
+  position:absolute;
+  bottom:0;
+  left:300px;
+  z-index:1;
+  font-size:0.8em;
+}
+  .page-node #admin_tabs_top .messages {
+    position:absolute;
+    top:10px;
+  }
+  #content .krumo-root {
+    position:absolute;
+    top:174px;
+    left:240px;
+    width:700px;
+  }
