@@ -59,7 +59,7 @@
 .breadcrumb {
   padding:5px 0;
   margin:0;
-  font-size:0.8em;
+  font-size:0.85em;
   color:#444;
 }
   .breadcrumb a {
@@ -72,15 +72,15 @@
   }
 
 .page_title{
-  margin:25px 0 15px 90px;
-  width:300px;
+  margin:40px 0 25px 90px;
+  width:400px;
   position:relative;
 }
   #content_top .page_title{
     margin-left:10px;
   }
   .page_title h1{
-    text-shadow: -3px -3px 10px rgba(255,255,255,0.8);
+    text-shadow: 1px 0 3px rgba(0,0,0,0.2);
   }
 /* blog-style date */
 
@@ -213,7 +213,7 @@
   display:none;
 }
 #block-menu-primary-links {
-  margin:20px -10px 10px 0;
+  margin:50px -10px 10px 0;
 }
 #block-menu-primary-links ul.menu,
 #block-menu-primary-links .leaf {

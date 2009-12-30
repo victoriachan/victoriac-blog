@@ -8,8 +8,8 @@ ul.links .comment_forbidden {
 #comments {
   clear:both;
   background-color:#ccc;
-  background-color: rgba(255, 255, 255, 0.4);
-  color:#f3f3f3;
+  background-color: rgba(255, 255, 255, 0.6);
+  color:#666;
   padding:10px 30px;
   margin:20px 0 0 25px;
   width:600px;
@@ -24,10 +24,10 @@ ul.links .comment_forbidden {
   border-radius: 14px;
 }
   #comments h2{
-    color:#888;
+    color:#000;
   }
   .comment a{
-    color:#f3f3f3;
+    color:#ff3300;
   }
   #comments .comment {
     clear:both;
@@ -36,7 +36,7 @@ ul.links .comment_forbidden {
     overflow:hidden;
     font-size:0.95em;
   }
-    /* #comments .comment:first-of-type, */
+    /* #comments .comment:nth-of-type(odd), */
     #comments .comment:hover {
       background-color: rgba(0, 0, 0, 0.1);
       width:630px;
@@ -54,7 +54,7 @@ ul.links .comment_forbidden {
     padding-left:20px;
   }
     .comment .comment_text blockquote {
-      border-left:3px solid #f3f3f3;
+      border-left:3px solid #666;
       padding:1px 10px;
       background-color:#333;
       background-color:rgba(0, 0, 0, 0.1);

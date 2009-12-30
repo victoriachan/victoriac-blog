@@ -91,7 +91,7 @@ function leggy_preprocess_node(&$vars) {
  * Preprocess comments
  */
 function leggy_preprocess_comment(&$vars) {
-  
+
   // sets avatar image
    $vars['picture'] = _leggy_make_avatar_thumb($vars['comment']->name, $vars['comment']->picture);
   
