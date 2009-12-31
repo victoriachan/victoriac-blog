@@ -9,7 +9,7 @@ body {
 }
   #second_body{
     width:100%;
-    background:url(../images/legs_background2.png) 50% -30px no-repeat;
+    /* background:url(../images/legs_background2.png) 50% -30px no-repeat; */
   }
   #top_bar{
     width:100%;
