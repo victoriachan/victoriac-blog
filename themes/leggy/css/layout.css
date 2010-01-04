@@ -17,8 +17,9 @@ body {
   }
     #top_bar .inner{
       margin:0 auto;
+      padding:0 10px;
       height:45px;
-      width:950px;
+      width:930px;
       overflow:hidden;
       position:relative;
     }
@@ -80,5 +81,6 @@ body {
 }
   #footer .inner{
     margin:0 auto;
-    width:970px;
+    padding:0 10px;
+    width:930px;
   }

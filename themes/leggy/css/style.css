@@ -270,7 +270,7 @@
 /* Author info in right col */
 #author_info {
   float:right;
-  padding:20px 0 20px 0;
+  padding:20px 10px 20px 0;
   width:260px;
   overflow:hidden;
   font-size:1.2em;
@@ -279,7 +279,7 @@
 }
   #author_info .avatar_thumb {
     float:left;
-    margin-left:10px;
+    margin-left:15px;
     -webkit-transform: rotate(-2deg) ;
     -moz-transform: rotate(-2deg) ;
     transform: rotate(-2deg) ;
