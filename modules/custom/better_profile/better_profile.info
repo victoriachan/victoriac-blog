@@ -1,0 +1,6 @@
+; $Id$
+name = Better Profile
+description = Tweaks to user profile
+package = Victoria Custom
+dependencies[] = profile
+core = 6.x

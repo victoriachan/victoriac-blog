@@ -44,7 +44,6 @@ body {
       width:590px;
       padding:0 0 0 70px;
       position:relative;
-      overflow:hidden;
     }
     .page_content {
     }
@@ -58,6 +57,7 @@ body {
     
   .secondary_content {
     width:30%;
+    margin-bottom:20px;
     float:right;
   }
 
@@ -81,23 +81,4 @@ body {
   #footer .inner{
     margin:0 auto;
     width:970px;
-  }
-        
-/* Admin */
-.page-node #admin_tabs_top { 
-  position:absolute;
-  bottom:0;
-  left:300px;
-  z-index:1;
-  font-size:0.8em;
-}
-  .page-node #admin_tabs_top .messages {
-    position:absolute;
-    top:10px;
-  }
-  #content .krumo-root {
-    position:absolute;
-    top:174px;
-    left:240px;
-    width:700px;
   }

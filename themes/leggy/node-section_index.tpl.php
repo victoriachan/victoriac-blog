@@ -46,30 +46,9 @@
  * @see template_preprocess()
  * @see template_preprocess_node()
  */
- //  dsm($node->links);
-  // foreach ($node->links as $key => $value) {
-  //   print $node->links[$key]['title'];
-  // }
 
-/**
- * dsm(get_defined_vars())
- * dsm($variables['template_files']);
- * dsm($node);
- * dsm($node->content);
- * print $FIELD_NAME_rendered;
- */
-?>       
+?>
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?>">
-
-  <?php print $picture; ?>
-  
-  <?php if ($embedded_video): ?>
-      <?php print $embedded_video; ?>
-  <?php endif; ?>
-  
-  <?php if ($blog_date): ?>
-      <?php print $blog_date; ?>
-  <?php endif; ?>
 
   <?php if (!$page): ?>
     <h2 class="title">
@@ -93,36 +72,9 @@
     <?php print $node_top; ?>
   <?php endif; ?>  
   
-  <div class="node_content">
+  <div class="intro">
     <?php print $content; ?>
-    
-    <?php if($page && ($field_internal_link[0]['nid'] || $field_useful_link[0]['nid'])): ?>
-    <div class="see_also">
-      <h3>See also:</h3>
-      <ul>
-       <?php foreach ($field_internal_link as $link): ?>
-           <li class="internal_link"><?php print content_format('field_internal_link', $link) ?></li>
-        <?php endforeach; ?>
-       <?php foreach ($field_useful_link as $link): ?>
-           <li class="external_link"><?php print content_format('field_useful_link', $link) ?></li>
-        <?php endforeach; ?>      
-      </ul>
-    </div>
-    <?php endif; ?>
   </div>
-  
-  <?php if (!$page): ?>
-  <div class="comments">
-    <?php print $links; ?>
-  </div>
-  <?php endif; ?>
-  
-  <?php if ($terms): ?>
-  <div class="terms">
-    <h3><?php print t('Topics:'); ?></h3> 
-    <?php print $terms; ?>
-  </div>
-  <?php endif; ?>
   
   <?php 
   /**

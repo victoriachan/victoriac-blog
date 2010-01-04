@@ -4,6 +4,7 @@
  * @file
  * template file for subtheme, leggy
  */
+$GLOBALS['site_owner_uid'] = 4;
 
 // Format a date field to nice blog-style date
 function _leggy_make_blog_date($datefield) {
@@ -19,9 +20,13 @@ function _leggy_make_blog_date($datefield) {
 }
 
 // Return a avatar thumb with link
-function _leggy_make_avatar_thumb($username, $userpicture) {
+function _leggy_make_avatar_thumb($username, $userpicture = null) {
   
   $tmp_link = 'user/'.$username;
+  if($username == $GLOBALS['site_author']->name) {
+    $tmp_link = 'about';
+  }
+  
   if($userpicture){
     $tmp_img = theme('imagecache','avatar',$userpicture, $username, $username);
   }else{
@@ -72,19 +77,80 @@ function leggy_preprocess(&$vars, $hook) {
   
   // Replace funny kanji characters in section name
   $vars['body_classes'] = str_replace('-e6-bc-a2-e5-ad-97-e6-84-9f-e3-81-98', 'kanjikanji', $vars['body_classes']);
+
+  // Make victoria thumb available to every page
+  if (!$GLOBALS['site_author']){
+    $GLOBALS['site_author'] = user_load($GLOBALS['site_owner_uid']); // defined at top of this page
+    $GLOBALS['site_author_avatar'] = _leggy_make_avatar_thumb($GLOBALS['site_author']->name, $GLOBALS['site_author']->picture);
+  }
 }
 
 function leggy_preprocess_page(&$vars) {
   $vars['user_avatar'] = _leggy_make_avatar_thumb($vars['user']->name, $vars['user']->picture);
 }
 
-function leggy_preprocess_node(&$vars) {
-  // Format nice blog calendar style dates
-  $vars['blog_date'] = _leggy_make_blog_date($vars['node']->created);
+function leggy_preprocess_node(&$vars) {  
+ // Now define node type-specific variables by calling their own preprocess functions (if they exist)
+  $function = 'leggy_preprocess_node'.'_'. $vars['node']->type;
+  if (function_exists($function)) {
+    $function(&$vars);
+    
+  } else {
+    
+    /**
+     * load usual node stuff
+     */
+    drupal_add_css(path_to_theme() . '/css/node.css', 'theme'); 
+     
+    // Format nice blog calendar style dates
+    $vars['blog_date'] = _leggy_make_blog_date($vars['node']->created);
 
-   // To access regions in nodes
-   $vars['node_top'] = theme('blocks', 'node_top');
-   $vars['node_bottom'] = theme('blocks', 'node_bottom');
+     // embedded video
+     if ($vars['page'] && $vars['node']->field_embedded_video[0]['value']) {
+       $vars['embedded_video'] = views_embed_view('embedded_video','block_1', $vars['node']->nid);
+     }
+
+     // To access regions in nodes
+     $vars['node_top'] = theme('blocks', 'node_top');
+     $vars['node_bottom'] = theme('blocks', 'node_bottom');
+      
+     // Remove Sections from terms
+     foreach ($vars['node']->taxonomy as $key => $value) {
+       if ($value->name == 'Life' || 
+          $value->name == 'Geek' || 
+          $value->name == 'Today' || 
+          $value->name == "漢字感じ") 
+        {
+          unset($vars['node']->taxonomy[$key]);
+        }
+      }
+      $vars['terms'] = theme('links', taxonomy_link('taxonomy terms', $vars['node']));
+   }
+}
+
+function leggy_preprocess_node_section_index(&$vars) {  
+  drupal_add_css(path_to_theme() . '/css/section_index.css', 'theme');
+}
+
+/**
+ * Implementing hook_link_alter for the taxonomy module to remove links from terms
+ */
+ 
+function taxonomy_link_alter(&$links, $node) {
+  foreach ($links as $module => $link) {
+    if (strstr($module, 'taxonomy_term')) {
+      
+      // Remove Section on taxonomy term links
+      foreach ($links as $key => $value) {
+        if ($value['title'] == 'Life' || 
+            $value['title'] == 'Geek' || 
+            $value['title'] == 'Today' || 
+            $value['title'] == "漢字感じ") {
+          unset($links[$key]);
+        }
+      }
+    }
+  }
 }
 
 /**
@@ -94,7 +160,11 @@ function leggy_preprocess_comment(&$vars) {
 
   // sets avatar image
    $vars['picture'] = _leggy_make_avatar_thumb($vars['comment']->name, $vars['comment']->picture);
-  
+   if ($vars['comment']->name == $GLOBALS['site_author']->name) {
+      $vars['is_author_comment'] = true;
+      $vars['submitted'] = 'Submitted by '.l($vars['comment']->name, 'about').' on '.$vars['date'];
+   }
+
   //show links?
   if( user_access('administer comments') || ($vars['comment']->name == $vars['user']->name)){
     $vars['showlinks'] = true;

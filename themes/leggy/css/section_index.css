@@ -1,0 +1,30 @@
+.page_title {
+  margin:15px 0 10px 90px;
+}
+  .page_title h1{
+    font-size:7em;
+  }
+
+.intro {
+  margin:0;
+  padding: 0 0 20px 10px;
+  width:650px;
+  font-size:1.6em;
+  line-height:1.5em;
+}
+  .intro p:first-of-type{
+    margin-top:0;
+    padding-top:0;
+  }
+  .intro p:last-of-type{
+    margin-bottom:0;
+    padding-bottom:0;
+  }
+
+/* Admin devel */
+body #admin_tabs_top{
+  position:absolute;
+  top:0;
+  right:0;
+  z-index:500;
+}

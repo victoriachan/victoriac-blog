@@ -72,8 +72,8 @@
   }
 
 .page_title{
-  margin:40px 0 25px 90px;
-  width:400px;
+  margin:20px 0 30px 90px;
+  width:580px;
   position:relative;
 }
   #content_top .page_title{
@@ -82,6 +82,7 @@
   .page_title h1{
     text-shadow: 1px 0 3px rgba(0,0,0,0.2);
   }
+
 /* blog-style date */
 
 .blog_date {
@@ -179,7 +180,7 @@
     
 /* images */  
 .avatar_thumb{
-
+  line-height:0;
 }
 .avatar_thumb img{
   background:#fff;
@@ -198,6 +199,9 @@
 }
   .avatar_thumb:hover img {
     border:1px solid #666;
+    -moz-box-shadow: 0 0 0 rgba(0,0,0,0.1);
+    -webkit-box-shadow: 0 0 0 rgba(0,0,0,0.1);
+    box-shadow: 0 0 0 rgba(0,0,0,0.1); 
   }
 
 /* Secondary Content */
@@ -263,6 +267,56 @@
       text-shadow: 1px 1px 5px #222;
     }
 
+/* Author info in right col */
+#author_info {
+  float:right;
+  padding:20px 0 20px 0;
+  width:260px;
+  overflow:hidden;
+  font-size:1.2em;
+  line-height:1.5em;
+  text-shadow: 0 0 3px rgba(0,0,0,0.2);
+}
+  #author_info .avatar_thumb {
+    float:left;
+    margin-left:10px;
+    -webkit-transform: rotate(-2deg) ;
+    -moz-transform: rotate(-2deg) ;
+    transform: rotate(-2deg) ;
+    
+    -moz-box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    -webkit-box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);       
+  }
+    #author_info .avatar_thumb:hover{
+      -moz-box-shadow: 0 0 0 rgba(0,0,0,0.2);
+      -webkit-box-shadow: 0 0 0 rgba(0,0,0,0.2);
+      box-shadow: 0 0 0 rgba(0,0,0,0.2);  
+    }
+  #author_info .content_text {
+    width:160px;
+    float:right;
+    margin:0;
+    padding:0;
+    -webkit-transform: rotate(2deg) ;
+    -moz-transform: rotate(2deg) ;
+    transform: rotate(2deg) ;        
+  }
+    #author_info .more_link{
+      padding:0 0 0 100px;
+      font-size:0.8em;
+    }
+      #author_info .more_link a{
+        font-weight:bold;
+        text-shadow: 0 0 1px rgba(0,0,0,0.2);
+        color:#000;
+        text-decoration:none;
+      }
+      #author_info .more_link a:hover{
+        color:#ff3300;
+        text-shadow: 0 0 0 rgba(0,0,0,0.2);
+      }
+
 /* Secondary menu */
 #block-menu-secondary-links{
   clear:both;
@@ -278,6 +332,11 @@
 }
 
 /* Admin tabs */
+body.user-edit-geek-information #admin_tabs_top,
+body.user-edit-personal-information #admin_tabs_top,
+body.user-edit #admin_tabs_top {
+  height:54px;
+}
 #admin_tabs_top .messages{
   padding:5px 10px 5px 20px;
   margin:0 0 10px 0;
@@ -297,6 +356,7 @@
   border-bottom:0;
   margin:0;
   padding:0;
+  height:20px;
 }
 #admin_tabs_top ul.primary li a{
   -moz-border-radius-topleft: 4px;
@@ -317,6 +377,7 @@
   letter-spacing:0.01em;
   border:0;
   font-size:0.9em;
+  line-height:21px;
   padding:3px 10px 2px 10px;
   background-color:#333;
   color:#fff;
@@ -335,4 +396,6 @@
   letter-spacing:0.01em;
   font-size:0.9em;
   height:20px;
+  margin:0;
+  padding:5px 0;
 }

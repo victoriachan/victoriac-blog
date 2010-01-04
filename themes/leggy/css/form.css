@@ -21,7 +21,7 @@ form input.form-submit {
     -khtml-border-radius: 15px;
     border-radius: 15px;
   
-    background-color:#666;
+    background-color:#000;
     padding:5px 20px; 
     border:1px solid rgba(200,200,200,0.3);
   
@@ -69,7 +69,7 @@ form input.form-submit {
 #tinymce {
   border:0;
   background-image:none;
-  background-color: #ccc;
+  background-color: #fff;
   padding: 0 10px;
   color:#666;
   font-family: Georgia, "Times New Roman", Times, serif;
@@ -78,13 +78,13 @@ form input.form-submit {
   line-height:1.6em;
 }
   #tinymce blockquote {
-    border-left:3px solid #f3f3f3;
+    border-left:3px solid #666;
     padding:5px 10px;
     background-color:rgba(0, 0, 0, 0.1);
     color:#222;
   }
   #edit-comment-wrapper{
-    width:518px;
+    width:100%;
   }
   #tinymce a{
     color:#555;

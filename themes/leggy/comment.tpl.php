@@ -26,7 +26,7 @@
  * @see theme_comment()
  */
 ?>
-<div class="comment<?php print ($comment->new) ? ' comment-new' : ''; print ' '. $status ?>">
+<div class="comment<?php print ($comment->new) ? ' comment-new' : ''; print ' '. $status ?><?php if ($is_author_comment){ print ' author_comment'; } ?>">
   
   <div class="comment_avatar">
     <?php print $picture ?>
