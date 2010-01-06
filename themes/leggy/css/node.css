@@ -90,7 +90,7 @@ body.page-node .view-embedded-video {
     }
 
 
-/* Custom pager */
+/* Custom pager module (next/prev posts link at bottom of post) */
 .block-custom-pagers{
   width:670px;
   margin:0 0 0 -10px;
@@ -203,4 +203,5 @@ body.page-node #admin_tabs_top{
   position:absolute;
   top:0;
   right:0;
+  z-index:4;
 }

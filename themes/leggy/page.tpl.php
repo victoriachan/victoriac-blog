@@ -16,9 +16,12 @@
  */
  
  // Display html title if this is a node page
- $html_title = $node->field_title_html[0]['value'];
- $html_title? $page_title = $html_title : $page_title = $title;
- //dsm(get_defined_vars()) 
+ if ( !$page_title ) {
+    $html_title = $node->field_title_html[0]['value'];
+    $html_title? $page_title = $html_title : $page_title = $title;
+ }
+ 
+ //dsm(get_defined_vars());
 ?>
 <?php 
   include("includes/top.inc"); 
@@ -42,8 +45,11 @@
           <?php if ($breadcrumb) { ?>
             <?php print $breadcrumb; // themename_breadcrumb in template.php ?>
           <?php } ?>
-          
-          <div class="page_title"><h1 class="title"><?php print $page_title; ?></h1></div>
+
+          <div class="page_title">
+            <?php if ($page_date): ?><?php print $page_date; ?><?php endif; ?>
+            <h1 class="title"><?php print $page_title; ?></h1>
+          </div>
         
           <?php if ($content_top): ?>
             <!-- REGION content_top -->

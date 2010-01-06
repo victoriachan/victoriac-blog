@@ -87,12 +87,13 @@ function _leggy_tag_cloud($result) {
 /**
  * Take in date in format d-m-Y, and raw date, and returns Today, Yesterday or medium date
  */
-function _leggy_output_ago_date($date_dd_mm_yyyy, $date_raw) {
+function _leggy_output_ago_date($date_raw, $show_date='true') {
   
   /**
    * Show Today, Yesterday or full date
    */
-  $display_date = 'On '.format_date($date_raw, 'medium');
+  $date_dd_mm_yyyy = format_date($date_raw, 'custom', 'd-m-Y');
+  $display_date = 'On '.format_date($date_raw, 'medium') . ',';
   $todays_date = format_date(time(), 'custom', 'd-m-Y');
   $posts_date = $date_dd_mm_yyyy;
   
@@ -104,10 +105,33 @@ function _leggy_output_ago_date($date_dd_mm_yyyy, $date_raw) {
     if ($fullDays <= 1) {
       $display_date = 'Yesterday';
     } else if ($fullDays <= 6) {
-      $display_date = 'On '. format_date($date_raw, 'custom', 'l');
+      $display_date = 'On '. format_date($date_raw, 'custom', 'l') . ',';
+    } else if (!$show_date) {
+      $display_date = '';
     }
   }
   return $display_date;
+}
+
+function _leggy_get_today_title($node, $orig_title, $show_date='true') {
+
+  // Get prefix for today's title eg. 'Today', 'Yesterday'..
+  $prefix = _leggy_output_ago_date($node->created, $show_date);
+  $title = $orig_title;
+
+  // Replace the title with the body or present tense text
+  if (($prefix == 'Today') && $node->field_today[0]['safe']) {
+    $title = $node->field_today[0]['safe'];
+  } elseif ($node->content['body']['#value']) {
+    $title = $node->content['body']['#value'];
+  }
+  
+  if (strlen($prefix)) {
+      return '<span class="prefix">'.$prefix . '</span> <span class="title">' . str_replace('p>', 'span>', $title) . '</span>';
+  } else {
+      return '<span class="title title_no_prefix">' . str_replace('p>', 'span>', $title) . '</span>';
+  }
+  
 }
 
 /**
@@ -128,16 +152,6 @@ function leggy_preprocess(&$vars, $hook) {
     }
   }
   
-  /*// view topics
-  if ($hook == 'views_view__topics') {
-    $vars['body_classes'] .= ' view-topics';
-  }
-  
-  // view section listing
-  if ($hook == 'views_view__section_listing') {
-    $vars['body_classes'] .= ' view-section-listing';
-  }*/
-  
   // Replace funny kanji characters in section name
   $vars['body_classes'] = str_replace('-e6-bc-a2-e5-ad-97-e6-84-9f-e3-81-98', 'kanjikanji', $vars['body_classes']);
 
@@ -150,10 +164,24 @@ function leggy_preprocess(&$vars, $hook) {
 
 function leggy_preprocess_page(&$vars) {
   $vars['user_avatar'] = _leggy_make_avatar_thumb($vars['user']->name, $vars['user']->picture);
+  
+  if ($vars['node']->type == 'today') {
+    $vars['page_title'] = _leggy_get_today_title($vars['node'], $vars['title'], false);
+    $vars['page_date'] = _leggy_make_blog_date($vars['node']->created);
+  }
+  
+  // add date to Today index
+  if ($_GET['q'] == 'today') {
+    $vars['title'] = $vars['title'].'<span class="date"> '.format_date(time(), 'medium').'</span>';
+  }
 }
 
 function leggy_preprocess_node(&$vars) {  
- // Now define node type-specific variables by calling their own preprocess functions (if they exist)
+  // To access regions in nodes
+  $vars['node_top'] = theme('blocks', 'node_top');
+  $vars['node_bottom'] = theme('blocks', 'node_bottom');
+   
+  // Load node type-specific preprocess functions (if they exist)
   $function = 'leggy_preprocess_node'.'_'. $vars['node']->type;
   if (function_exists($function)) {
     $function(&$vars);
@@ -172,10 +200,6 @@ function leggy_preprocess_node(&$vars) {
      if ($vars['page'] && $vars['node']->field_embedded_video[0]['value']) {
        $vars['embedded_video'] = views_embed_view('embedded_video','block_1', $vars['node']->nid);
      }
-
-     // To access regions in nodes
-     $vars['node_top'] = theme('blocks', 'node_top');
-     $vars['node_bottom'] = theme('blocks', 'node_bottom');
       
      // Remove Sections from terms
      foreach ($vars['node']->taxonomy as $key => $value) {
@@ -192,6 +216,18 @@ function leggy_preprocess_node(&$vars) {
 }
 
 function leggy_preprocess_node_today(&$vars) {
+  drupal_add_css(path_to_theme() . '/css/node.css', 'theme');
+  $vars['terms'] = null;
+  
+  if (!$vars['page']) {
+    $vars['blog_date'] = _leggy_make_blog_date($vars['node']->created);
+    $vars['title'] = _leggy_get_today_title($vars['node'], $vars['title']);
+  } else {
+    drupal_add_css(path_to_theme() . '/css/today.css', 'theme');
+  }
+  
+  unset($vars['content']);
+  unset($vars['body']);
 }
 
 function leggy_preprocess_views_view__section_listing(&$vars) {  
@@ -200,16 +236,18 @@ function leggy_preprocess_views_view__section_listing(&$vars) {
 
 function leggy_preprocess_views_view__section_listing__page_4(&$vars) {  
   drupal_add_css(path_to_theme() . '/css/section_index.css', 'theme');
-}
-
-function leggy_preprocess_views_view_fields__section_listing__page_4(&$vars) {
-  // replace 1 comments with 1 comment
-  if ($vars['fields']['comment_count']->content == '1 comments') {
-    $vars['fields']['comment_count']->content = '1 comment';
+  drupal_add_css(path_to_theme() . '/css/today.css', 'theme');
+  
+  // hide attachment for inner pages
+  if ($vars['view']->pager['current_page'] > 0) {
+     unset($vars['attachment_before']);
   }
   
-  // Show nice dates
-  $vars['fields']['created']->content = _leggy_output_ago_date($vars['fields']['created']->content, $vars['fields']['created']->raw);
+  // hide attachment for filtered view
+  if ($vars['view']->args) {
+    unset($vars['attachment_before']);
+  }
+  
 }
 
 function leggy_preprocess_views_view__topics(&$vars) {  

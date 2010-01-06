@@ -46,15 +46,28 @@
  * @see template_preprocess()
  * @see template_preprocess_node()
  */
+ //  dsm($node->links);
+  // foreach ($node->links as $key => $value) {
+  //   print $node->links[$key]['title'];
+  // }
 
+/**
+ * dsm(get_defined_vars())
+ * dsm($variables['template_files']);
+ * dsm($node);
+ * dsm($node->content);
+ * print $FIELD_NAME_rendered;
+ */
 ?>
+
+<?php if (!$page): ?>    
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?>">
 
-  <?php if (!$page): ?>
-    <h2 class="title">
-      <a href="<?php print $node_url; ?>" title="<?php print $title ?>"><?php print $title; ?></a>
-    </h2>
+  <?php if ($blog_date): ?>
+      <?php print $blog_date; ?>
   <?php endif; ?>
+
+  <h2 class="title"><?php print $title; ?></h2>
 
   <?php if ($unpublished): ?>
     <div class="unpublished"><?php print t('Unpublished'); ?></div>
@@ -63,27 +76,15 @@
   <?php if ($tabs): ?>
     <?php print $tabs; ?>
   <?php endif; ?>
-  
-  <?php 
-  /**
-   * node_top
-   */
-  if ($page && $node_top): ?>
-    <?php print $node_top; ?>
-  <?php endif; ?>  
-  
-  <div class="intro">
-    <?php print $content; ?>
+
+  <div class="comments">
+    <?php print $links; ?>
   </div>
-  
-  <?php 
-  /**
-   * node_bottom
-   */ 
-  if ($page && $node_bottom): ?>
-    <?php print $node_bottom; ?>
-  <?php endif; ?>
+
 </div> <!-- /node -->
+<?php else: ?>
+  <?php print $blog_date; ?>
+<?php endif; ?>
 
 <?php if ($page): ?>
   <?php print $links; ?>

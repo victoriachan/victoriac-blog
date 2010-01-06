@@ -380,7 +380,12 @@
 
 /* Pager */
 .pager {
-  padding-bottom:30px;
+  border-top:1px dashed #666;
+  border-top:1px dashed rgba(0,0,0,0.6);
+  padding-top:20px;
+  margin-top:30px;
+  padding-bottom:0;
+  margin-bottom:0;
 }
 .pager li{
   display:inline;
@@ -459,7 +464,7 @@ body.user-edit #admin_tabs_top {
 }
 #admin_tabs_top ul.primary{
   border-bottom:0;
-  margin:0;
+  margin:0 0 0 20px;
   padding:0;
   height:20px;
 }
@@ -501,7 +506,7 @@ body.user-edit #admin_tabs_top {
   letter-spacing:0.01em;
   font-size:0.9em;
   height:20px;
-  margin:0;
+  margin:0 0 0 20px;
   padding:5px 0;
 }
 div.view div.views-admin-links li a {

@@ -24,8 +24,8 @@ ul.links .comment_forbidden {
   border-radius: 14px;
 }
   #comments h2{
-    color:#ccc;
-    color:rgba(0,0,0,0.2);
+    color:#666;
+    color:rgba(0,0,0,0.4);
     font-size:2em;
     padding-bottom:10px;
     margin-bottom:0;
@@ -46,13 +46,13 @@ ul.links .comment_forbidden {
     #comments .author_comment,
     #comments .comment:hover {
       background-color: #dddbd5;
-      background-color: rgba(0, 0, 0, 0.1);
+      background-color: rgba(90, 40, 0, 0.1);
       width:640px;
       margin-left:-30px;
       padding-left:30px;
     }
       #comments .comment:hover {
-        background-color: rgba(90, 40, 0, 0.1);
+        background-color: rgba(0, 0, 0, 0.1);
       }
   .comment .comment_avatar {
     float:left;
