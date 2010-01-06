@@ -57,6 +57,59 @@ function _leggy_is_admin() {
   }
 }
 
+function _leggy_tag_cloud($result) {
+  $terms_output = '';
+  foreach($result as $key => $value) {
+    if ($value->term_node_count_node_count != 0) {
+      
+      $count = $value->term_node_count_node_count;
+      if ($value->term_node_count_node_count > 9) {
+        $count = 10;
+      };
+      
+      $options['attributes']['title'] = $value->term_node_count_node_count . ' post';
+      if ($value->term_node_count_node_count > 1) {
+        $options['attributes']['title'] .= 's';
+      }
+      $options['attributes']['title'] = t($options['attributes']['title'].' containing '. $value->term_data_name);
+      
+      $terms_output .= '<li class="count_'.$count.'">';
+      $terms_output .= l(t($value->term_data_name), 'taxonomy/term/'.$value->tid, $options);
+      $terms_output .= '</li>';
+    }
+  }
+  if (strlen($terms_output)) {
+    $terms_output = '<ul>'.$terms_output.'</ul>';
+  }
+  return $terms_output;
+}
+
+/**
+ * Take in date in format d-m-Y, and raw date, and returns Today, Yesterday or medium date
+ */
+function _leggy_output_ago_date($date_dd_mm_yyyy, $date_raw) {
+  
+  /**
+   * Show Today, Yesterday or full date
+   */
+  $display_date = 'On '.format_date($date_raw, 'medium');
+  $todays_date = format_date(time(), 'custom', 'd-m-Y');
+  $posts_date = $date_dd_mm_yyyy;
+  
+  if ($todays_date == $posts_date) {
+    $display_date = 'Today';
+  } else {
+    $dateDiff = time() - $date_raw;
+    $fullDays = floor($dateDiff/(60*60*24));
+    if ($fullDays <= 1) {
+      $display_date = 'Yesterday';
+    } else if ($fullDays <= 6) {
+      $display_date = 'On '. format_date($date_raw, 'custom', 'l');
+    }
+  }
+  return $display_date;
+}
+
 /**
  * Preprocess page templates
  */
@@ -65,7 +118,7 @@ function leggy_preprocess(&$vars, $hook) {
   if($hook == 'page') {
     // Add a 'page-node' class if this is a node that is rendered as page
     if (isset($vars['node']) && $vars['node']->type) {
-      $vars['body_classes'] = $vars['body_classes']. ' page-node';
+      $vars['body_classes'] .= ' page-node';
     }
     
     // remove 'Notification settings' tab from user page
@@ -74,6 +127,16 @@ function leggy_preprocess(&$vars, $hook) {
       _leggy_removetab('Notification settings', $vars);
     }
   }
+  
+  /*// view topics
+  if ($hook == 'views_view__topics') {
+    $vars['body_classes'] .= ' view-topics';
+  }
+  
+  // view section listing
+  if ($hook == 'views_view__section_listing') {
+    $vars['body_classes'] .= ' view-section-listing';
+  }*/
   
   // Replace funny kanji characters in section name
   $vars['body_classes'] = str_replace('-e6-bc-a2-e5-ad-97-e6-84-9f-e3-81-98', 'kanjikanji', $vars['body_classes']);
@@ -128,9 +191,32 @@ function leggy_preprocess_node(&$vars) {
    }
 }
 
-function leggy_preprocess_node_section_index(&$vars) {  
+function leggy_preprocess_node_today(&$vars) {
+}
+
+function leggy_preprocess_views_view__section_listing(&$vars) {  
   drupal_add_css(path_to_theme() . '/css/section_index.css', 'theme');
 }
+
+function leggy_preprocess_views_view__section_listing__page_4(&$vars) {  
+  drupal_add_css(path_to_theme() . '/css/section_index.css', 'theme');
+}
+
+function leggy_preprocess_views_view_fields__section_listing__page_4(&$vars) {
+  // replace 1 comments with 1 comment
+  if ($vars['fields']['comment_count']->content == '1 comments') {
+    $vars['fields']['comment_count']->content = '1 comment';
+  }
+  
+  // Show nice dates
+  $vars['fields']['created']->content = _leggy_output_ago_date($vars['fields']['created']->content, $vars['fields']['created']->raw);
+}
+
+function leggy_preprocess_views_view__topics(&$vars) {  
+  drupal_add_css(path_to_theme() . '/css/section_index.css', 'theme');
+  $vars['rows'] = _leggy_tag_cloud($vars['view']->result);
+}
+
 
 /**
  * Implementing hook_link_alter for the taxonomy module to remove links from terms

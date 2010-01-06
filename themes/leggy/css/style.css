@@ -57,7 +57,7 @@
 
 /* Header */
 .breadcrumb {
-  padding:5px 0;
+  padding:5px 0 5px 75px;;
   margin:0;
   font-size:0.85em;
   color:#444;
@@ -72,13 +72,11 @@
   }
 
 .page_title{
-  margin:20px 0 30px 90px;
-  width:580px;
+  margin:20px 0 30px 0;
+  padding:0 0 0 70px;
+  width:570px;
   position:relative;
 }
-  #content_top .page_title{
-    margin-left:10px;
-  }
   .page_title h1{
     text-shadow: 1px 0 3px rgba(0,0,0,0.2);
   }
@@ -242,24 +240,24 @@
     text-shadow: 1px 1px 5px #666;
   }
     #block-menu-primary-links .first a{
-      -webkit-transform: rotate(3deg) ;
-      -moz-transform: rotate(3deg) ;
-      transform: rotate(3deg) ;
+      -webkit-transform: rotate(4deg) ;
+      -moz-transform: rotate(4deg) ;
+      transform: rotate(4deg) ;
     }
     #block-menu-primary-links .leaf:nth-of-type(2) a{
-      -webkit-transform: rotate(-1deg) ;
-      -moz-transform: rotate(-1deg) ;
-      transform: rotate(-1deg) ;
-    }
-    #block-menu-primary-links .leaf:nth-of-type(3) a{
       -webkit-transform: rotate(-2deg) ;
       -moz-transform: rotate(-2deg) ;
       transform: rotate(-2deg) ;
     }
+    #block-menu-primary-links .leaf:nth-of-type(3) a{
+      -webkit-transform: rotate(3deg) ;
+      -moz-transform: rotate(3deg) ;
+      transform: rotate(3deg) ;
+    }  
     #block-menu-primary-links .last a{
-      -webkit-transform: rotate(4deg) ;
-      -moz-transform: rotate(4deg) ;
-      transform: rotate(4deg) ;
+      -webkit-transform: rotate(-1deg) ;
+      -moz-transform: rotate(-1deg) ;
+      transform: rotate(-1deg) ;
     }
     #block-menu-primary-links .active-trail a,
     #block-menu-primary-links .leaf a:hover{
@@ -331,6 +329,113 @@
   text-align:right;
 }
 
+/* Search */
+#block-search {
+  clear:both;
+  float:right;
+  width:230px;
+  overflow:hidden;
+  position:relative;
+  border:1px dashed #000;
+  padding:5px 10px;
+  margin:10px 0 15px 0;
+  filter:alpha(opacity=30);
+  opacity:0.3;
+}
+  #block-search:hover {
+    filter:alpha(opacity=100);
+    opacity:1;
+  }
+  #block-search label,
+  #block-search h3 {
+    display: none;
+  }
+  #block-search #edit-search-block-form-1-wrapper {
+    width:130px;
+    float:left;
+    margin:0;
+  }
+    #search-form input.form-text,
+    #block-search #edit-search-block-form-1-wrapper input {
+      width:100%;
+      background-color:#444;
+      background-color:rgba(0,0,0,0.1);
+      color:#000;
+      border:1px solid #999;
+      margin:0;
+    }
+    #search-form input.form-text:focus,
+    #block-search #edit-search-block-form-1-wrapper input:focus {
+      color:#fff;
+      background-color:#888;
+      background-color:rgba(0,0,0,0.3);
+      margin:0;
+    }
+  #block-search .form-button {
+    display:inline;
+    position:absolute;
+    right:7px;
+    bottom:3px;
+  }
+
+/* Pager */
+.pager {
+  padding-bottom:30px;
+}
+.pager li{
+  display:inline;
+  list-style-image:none;
+  list-style-type:none;
+  margin:0;
+  padding:0;
+}
+  .pager .pager-first a,
+  .pager .pager-last a,
+  .pager .pager-next a,
+  .pager .pager-previous a{
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -khtml-border-radius: 15px;
+    border-radius: 15px;
+    
+    background-color:#333;
+    background-color:rgba(0,0,0,0.3);
+    padding: 3px 10px;
+    margin:0;
+
+    color: #fff;
+    display: inline;
+    text-decoration:none;
+    font-size:0.8em;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+    .pager .pager-first a:hover,
+    .pager .pager-last a:hover,
+    .pager .pager-next a:hover,
+    .pager .pager-previous a:hover {
+      background-color:#000;
+    }
+  .pager .pager-item {
+    padding:0;
+    margin:0;
+    font-family: Georgia, "Times New Roman", Times, serif;
+  }
+    .pager .pager-item a{
+      text-decoration:none;
+      background-color:#333;
+      background-color:rgba(0,0,0,0.3);
+      padding:1px 5px 3px 5px;
+      height:20px;
+      color:#fff;
+    }
+      .pager .pager-item a:hover {
+        background-color:#000;
+      }
+    .pager .pager-current {
+      padding:3px;
+    }
+
 /* Admin tabs */
 body.user-edit-geek-information #admin_tabs_top,
 body.user-edit-personal-information #admin_tabs_top,
@@ -399,3 +504,23 @@ body.user-edit #admin_tabs_top {
   margin:0;
   padding:5px 0;
 }
+div.view div.views-admin-links li a {
+  color:#ff3300;
+}
+
+/* Search */
+body.page-search #admin_tabs_top ul.primary {
+  height:auto;
+}
+body.page-search #admin_tabs_top ul.primary li a  {
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -khtml-border-radius: 4px;
+  border-radius: 4px;
+}
+body.page-search #search-form {
+  padding:0 0 0 10px;
+}
+  body.page-search #search-form input.form-text {
+    width:200px;
+  }

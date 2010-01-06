@@ -18,7 +18,7 @@
  // Display html title if this is a node page
  $html_title = $node->field_title_html[0]['value'];
  $html_title? $page_title = $html_title : $page_title = $title;
- //dsm(get_defined_vars())
+ //dsm(get_defined_vars()) 
 ?>
 <?php 
   include("includes/top.inc"); 
