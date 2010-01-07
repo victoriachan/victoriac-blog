@@ -19,6 +19,11 @@
       <a href="<?php print $base_path; ?>" title="<?php print t('Home'); ?>" rel="home"><?php print $site_name; ?></a>
     </<?php print $site_name_element; ?>>
     
+    <?php if ($top_bar): ?>
+      <!-- REGION top_bar -->
+      <?php print $top_bar; ?>
+    <?php endif; ?>    
+    
     <?php // User Account block
       if ($user->uid): ?>
         <ul>

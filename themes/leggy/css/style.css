@@ -529,3 +529,35 @@ body.page-search #search-form {
   body.page-search #search-form input.form-text {
     width:200px;
   }
+  
+/* Locale block in right col */
+#block-locale {
+  position:absolute;
+  right:400px;
+  bottom:2px;
+}
+#block-locale h3{
+  display:inline;
+}
+#block-locale ul {
+  margin:0;
+  padding:0;
+}
+  #block-locale li {
+    display:inline;
+    margin:0 5px 0 0;
+    padding:0;
+    list-style-image:none;
+    list-style-type:none;
+  }
+  #block-locale li a {
+    border:1px solid #444;
+    color:#666;
+    padding:2px 5px 1px 5px;
+  }
+  #block-locale li a:hover,
+  #block-locale li a.active {
+    border:1px solid #fff;
+    color:#fff;
+    font-size:1.1em;
+  }

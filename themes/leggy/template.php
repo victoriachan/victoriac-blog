@@ -6,7 +6,9 @@
  */
 $GLOBALS['site_owner_uid'] = 4;
 
-// Format a date field to nice blog-style date
+/**
+ * Format a date field to nice blog-style date
+ */
 function _leggy_make_blog_date($datefield) {
   
   $arr_created_date_parts = explode(' ', format_date($datefield, 'small'));
@@ -19,7 +21,9 @@ function _leggy_make_blog_date($datefield) {
   return $ret;
 }
 
-// Return a avatar thumb with link
+/**
+ * Return a avatar thumb with link
+ */
 function _leggy_make_avatar_thumb($username, $userpicture = null) {
   
   $tmp_link = 'user/'.$username;
@@ -37,6 +41,9 @@ function _leggy_make_avatar_thumb($username, $userpicture = null) {
   return $ret;
 }
 
+/**
+ * Remove tab
+ */
 function _leggy_removetab($label, &$vars) {
   $tabs = explode("\n", $vars['tabs']);
   $vars['tabs'] = '';
@@ -48,6 +55,9 @@ function _leggy_removetab($label, &$vars) {
   }
 }
 
+/**
+ * Check if current user is admin
+ */
 function _leggy_is_admin() {
   global $user;
   if (in_array('administrator', array_values($user->roles))) {
@@ -57,6 +67,9 @@ function _leggy_is_admin() {
   }
 }
 
+/**
+ * Take in results of term node count, and return output for tag cloud
+ */
 function _leggy_tag_cloud($result) {
   $terms_output = '';
   foreach($result as $key => $value) {
@@ -113,6 +126,9 @@ function _leggy_output_ago_date($date_raw, $show_date='true') {
   return $display_date;
 }
 
+/**
+ * Take in node and original title, and return 'Today xxx' title if applicable
+ */
 function _leggy_get_today_title($node, $orig_title, $show_date='true') {
 
   // Get prefix for today's title eg. 'Today', 'Yesterday'..
@@ -135,6 +151,38 @@ function _leggy_get_today_title($node, $orig_title, $show_date='true') {
 }
 
 /**
+ * takes in node, and return glossary term block, if defined 
+ */
+function _format_glossary_term($node) {
+  if ($node->field_glossary_term[0]) {
+    $all_terms = '';
+    foreach ($node->field_glossary_term as $term) {
+      $thisrow = '<li><dl><dt><span class="term">'.check_plain($term['value']['field_term'][0]['value']).'</span> ';
+      if ($term['value']['field_term_phonetic'][0]['value']) {
+        $thisrow .= ' <span class="phonetic">「'.check_plain($term['value']['field_term_phonetic'][0]['value']).'」</span>';
+      }
+      $thisrow .= ': </dt>';
+      if ($term['value']['field_term_definition'][0]['value']) {
+         $thisrow .= '<dd class="definition">'.check_plain($term['value']['field_term_definition'][0]['value']).'</dd>';
+      }
+      $thisrow .= '</dl></li>';
+      $all_terms .= $thisrow;
+    }
+    
+    if (strlen($all_terms)) {
+      $all_terms = '<ul class="glossary_terms_List">'.$all_terms.'</ul>';
+    }
+    return $all_terms;
+    
+  } else {
+    
+    return '';
+  }
+}
+
+
+/**
+ ***********************************************************************************
  * Preprocess page templates
  */
 
@@ -185,34 +233,55 @@ function leggy_preprocess_node(&$vars) {
   $function = 'leggy_preprocess_node'.'_'. $vars['node']->type;
   if (function_exists($function)) {
     $function(&$vars);
-    
   } else {
-    
-    /**
-     * load usual node stuff
-     */
-    drupal_add_css(path_to_theme() . '/css/node.css', 'theme'); 
-     
-    // Format nice blog calendar style dates
-    $vars['blog_date'] = _leggy_make_blog_date($vars['node']->created);
+  
+  // Load the usual node stuff
+    leggy_preprocess_node_default($vars);
+  }
+}
 
-     // embedded video
-     if ($vars['page'] && $vars['node']->field_embedded_video[0]['value']) {
-       $vars['embedded_video'] = views_embed_view('embedded_video','block_1', $vars['node']->nid);
-     }
-      
-     // Remove Sections from terms
-     foreach ($vars['node']->taxonomy as $key => $value) {
-       if ($value->name == 'Life' || 
-          $value->name == 'Geek' || 
-          $value->name == 'Today' || 
-          $value->name == "漢字感じ") 
-        {
-          unset($vars['node']->taxonomy[$key]);
-        }
-      }
-      $vars['terms'] = theme('links', taxonomy_link('taxonomy terms', $vars['node']));
+function leggy_preprocess_node_default(&$vars) {
+  /**
+   * load usual node stuff
+   */
+  drupal_add_css(path_to_theme() . '/css/node.css', 'theme'); 
+   
+  // Format nice blog calendar style dates
+  $vars['blog_date'] = _leggy_make_blog_date($vars['node']->created);
+
+   // embedded video
+   if ($vars['page'] && $vars['node']->field_embedded_video[0]['value']) {
+     $vars['embedded_video'] = views_embed_view('embedded_video','block_1', $vars['node']->nid);
    }
+   
+   // fullwidth image
+   if ($vars['page'] && $vars['node']->field_fullwidth_image[0]['value']) {
+     $vars['fullwidth_image'] = views_embed_view('embedded_video','block_2', $vars['node']->nid);
+   }
+    
+   // Remove Sections from terms
+   foreach ($vars['node']->taxonomy as $key => $value) {
+     if ($value->name == 'Life' || 
+        $value->name == 'Geek' || 
+        $value->name == 'Today' || 
+        $value->name == "漢字感じ") 
+      {
+        unset($vars['node']->taxonomy[$key]);
+      }
+    }
+    $vars['terms'] = theme('links', taxonomy_link('taxonomy terms', $vars['node']));   
+}
+
+function leggy_preprocess_node_kanjikanji(&$vars) {
+  // usual node stuff
+  leggy_preprocess_node_default($vars);
+
+  // glossary terms
+  if ($vars['page'] && $vars['node']->field_glossary_term[0]['value']) {
+    $vars['glossary_terms'] = _format_glossary_term($vars['node']);
+  }
+  
+  drupal_add_css(path_to_theme() . '/css/kanjikanji.css', 'theme');
 }
 
 function leggy_preprocess_node_today(&$vars) {
@@ -225,7 +294,7 @@ function leggy_preprocess_node_today(&$vars) {
   } else {
     drupal_add_css(path_to_theme() . '/css/today.css', 'theme');
   }
-  
+
   unset($vars['content']);
   unset($vars['body']);
 }
@@ -273,6 +342,9 @@ function taxonomy_link_alter(&$links, $node) {
           unset($links[$key]);
         }
       }
+    } elseif (strstr($module, 'node_translation')) {
+      unset($links['node_translation_ja']);
+      unset($links['node_translation_en']);
     }
   }
 }

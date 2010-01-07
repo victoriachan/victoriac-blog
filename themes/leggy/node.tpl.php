@@ -67,6 +67,10 @@
       <?php print $embedded_video; ?>
   <?php endif; ?>
   
+  <?php if ($fullwidth_image): ?>
+      <?php print $fullwidth_image; ?>
+  <?php endif; ?>
+  
   <?php if ($blog_date): ?>
       <?php print $blog_date; ?>
   <?php endif; ?>
@@ -98,7 +102,7 @@
     
     <?php if($page && ($field_internal_link[0]['nid'] || $field_useful_link[0]['nid'])): ?>
     <div class="see_also">
-      <h3>See also:</h3>
+      <h3><?php print t('See also'); ?></h3>
       <ul>
        <?php foreach ($field_internal_link as $link): ?>
            <li class="internal_link"><?php print content_format('field_internal_link', $link) ?></li>
@@ -107,6 +111,13 @@
            <li class="external_link"><?php print content_format('field_useful_link', $link) ?></li>
         <?php endforeach; ?>      
       </ul>
+    </div>
+    <?php endif; ?>
+    
+    <?php if ($page && $glossary_terms): ?>
+    <div id="glossary_terms" class="glossary_terms">
+      <h3><?php print t('Vocabulary'); ?></h3>
+      <?php print $glossary_terms; ?>
     </div>
     <?php endif; ?>
   </div>

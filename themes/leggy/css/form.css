@@ -48,7 +48,8 @@ form input.form-submit {
   padding:10px 0;
   overflow:hidden;
 }
-#wysiwyg-toggle-edit-comment {
+
+#comment-form #wysiwyg-toggle-edit-comment {
   font-size:0.9em;
   padding:5px 10px;
   background-color:#444;
@@ -61,7 +62,7 @@ form input.form-submit {
   -khtml-border-radius: 4px;
   border-radius: 4px;
 }
-  #wysiwyg-toggle-edit-comment:hover{
+  #comment-form #wysiwyg-toggle-edit-comment:hover{
     background-color:#ff3300;
   }
 

@@ -1,0 +1,47 @@
+#glossary_terms {
+  border-top:1px solid #ccc;
+  border-bottom:1px solid #ccc;
+  background-color:rgba(0,0,0,0.1);
+  padding:10px 30px;
+  width:590px;
+  margin:0 0 20px -70px;
+}
+  #glossary_terms h3 {
+    margin:0;
+    padding:0 0 5px 0;
+  }
+  #glossary_terms ul {
+    margin:0;
+    padding:0;
+  }
+  #glossary_terms li {
+    list-style-image:none;
+    list-style-type:none;
+    padding:3px 0;
+    margin:0;
+  }
+  
+  #glossary_terms dl {
+    margin:0;
+    padding:0;
+  }
+    #glossary_terms dl dd,
+    #glossary_terms dl dt {
+      display:inline;
+      margin:0;
+      padding:0;
+    }
+  #glossary_terms .term {
+    background-color:#999;
+    background-color:rgba(0,0,0,0.3);
+    color:#fff;
+    padding:2px 5px;
+  }
+  #glossary_terms .phonetic {
+    font-size:0.9em;
+  }
+  #glossary_terms .definition {
+    border-bottom: 1px dotted #666;
+    font-size:0.9em;
+    font-family: Georgia, "Times New Roman", Times, serif;
+  }

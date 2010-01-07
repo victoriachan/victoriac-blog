@@ -1,0 +1,44 @@
+<?php
+// $Id$
+
+/**
+ * @file
+ * Implementation of hook_install().
+ * 
+ * Lets CCK take care of this.
+ */
+function bilingual_glossary_install() {
+  drupal_load('module', 'content');
+  content_notify('install', 'bilingual_glossary_term');
+}
+
+/**
+ * Implementation of hook_uninstall().
+ * 
+ * Lets CCK take care of this.
+ */
+function bilingual_glossary_uninstall() {
+  drupal_load('module', 'content');
+  content_notify('uninstall', 'bilingual_glossary_term');
+}
+
+/**
+ * Implementation of hook_enable().
+ * 
+ * Lets CCK take care of this.
+ */
+function bilingual_glossary_enable() {
+  drupal_load('module', 'content');
+  content_notify('enable', 'bilingual_glossary_term');
+}
+
+/**
+ * Implementation of hook_disable().
+ * 
+ * Lets CCK take care of this.
+ */
+function bilingual_glossary_disable() {
+  drupal_load('module', 'content');
+  content_notify('disable', 'bilingual_glossary_term');
+}
+

@@ -22,12 +22,14 @@
   }
 
 /* Flickr image */
+.field-fullwidth-image,
 .field-embedded-image{
   width:auto;
   display:inline;
   float:left;
   margin:0 30px 10px 0;
 }
+  .field-fullwidth-image img,
   .field-embedded-image img{
     border:1px solid #222;
   }

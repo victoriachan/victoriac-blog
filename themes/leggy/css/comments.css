@@ -114,6 +114,10 @@ ul.links .comment_forbidden {
   border-radius: 10px; 
   overflow:hidden;
 }
+  #comment-form a,
+  #comment-form .form-required{
+    color:#000;
+  }
   #comment-form .comment {
     width:652px;
     padding:10px;

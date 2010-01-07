@@ -85,7 +85,3 @@
 <?php else: ?>
   <?php print $blog_date; ?>
 <?php endif; ?>
-
-<?php if ($page): ?>
-  <?php print $links; ?>
-<?php endif; ?>
