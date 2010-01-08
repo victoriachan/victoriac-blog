@@ -9,7 +9,7 @@
     padding:0;
   }
   .attachment .blog_date,
-  .attachment h2.title span.prefix {
+  .attachment h2.title .prefix {
     display:none;
   }
   .attachment .node-teaser h2.title {
@@ -106,7 +106,7 @@ body.page-node .page_title {
     font-size:1.5em;
     margin-bottom:0;
   }
-  .node-teaser h2.title span.prefix {
+  .node-teaser h2.title .prefix {
     font-size:1.2em;
     color:#666;
     color:rgba(0,0,0,0.3);

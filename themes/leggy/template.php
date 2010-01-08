@@ -133,7 +133,7 @@ function _leggy_output_ago_date($date_raw, $show_date='true') {
 /**
  * Take in node and original title, and return 'Today xxx' title if applicable
  */
-function _leggy_get_today_title($node, $orig_title, $show_date='true') {
+function _leggy_get_today_title($node, $orig_title, $link_to_node='false', $show_date='true') {
 
   // Get prefix for today's title eg. 'Today', 'Yesterday'..
   $prefix = _leggy_output_ago_date($node->created, $show_date);
@@ -146,8 +146,15 @@ function _leggy_get_today_title($node, $orig_title, $show_date='true') {
     $title = $node->content['body']['#value'];
   }
   
+  // Optional link in prefix
+  if (strlen($prefix) && $link_to_node) {
+    $prefix = l($prefix, 'node/'.$node->nid, array(html=>true, attributes=>array('class' => 'prefix')));
+  } else {
+    $prefix = '<span class="prefix">'.$prefix . '</span>';
+  }
+  
   if (strlen($prefix)) {
-      return '<span class="prefix">'.$prefix . '</span> <span class="title">' . str_replace('p>', 'span>', $title) . '</span>';
+      return $prefix . ' <span class="title">' . str_replace('p>', 'span>', $title) . '</span>';
   } else {
       return '<span class="title title_no_prefix">' . str_replace('p>', 'span>', $title) . '</span>';
   }
@@ -219,7 +226,7 @@ function leggy_preprocess_page(&$vars) {
   $vars['user_avatar'] = _leggy_make_avatar_thumb($vars['user']->name, $vars['user']->picture);
   
   if ($vars['node']->type == 'today') {
-    $vars['page_title'] = _leggy_get_today_title($vars['node'], $vars['title'], false);
+    $vars['page_title'] = _leggy_get_today_title($vars['node'], $vars['title'], false, false);
     $vars['page_date'] = _leggy_make_blog_date($vars['node']->created);
   }
   
@@ -299,8 +306,8 @@ function leggy_preprocess_node_today(&$vars) {
   $vars['terms'] = null;
   
   if (!$vars['page']) {
-    $vars['blog_date'] = _leggy_make_blog_date($vars['node']->created);
-    $vars['title'] = _leggy_get_today_title($vars['node'], $vars['title']);
+    $vars['blog_date'] = _leggy_make_blog_date($vars['node']->created, 'node/'.$vars['node']->nid);
+    $vars['title'] = _leggy_get_today_title($vars['node'], $vars['title'], true);
   } else {
     drupal_add_css(path_to_theme() . '/css/today.css', 'theme');
   }
@@ -341,13 +348,22 @@ function leggy_preprocess_views_view__topics(&$vars) {
 
 
 /**
- * Implementing hook_link_alter for the taxonomy module to remove links from terms
+ * Implementation of hook_link_alter() for node_link() in node module to always show 'Read More' link.
  */
- 
-function taxonomy_link_alter(&$links, $node) {
+function node_link_alter(&$links, $node) {
   foreach ($links as $module => $link) {
-    if (strstr($module, 'taxonomy_term')) {
-      
+    if (strstr($module, 'comment')) {
+      if ($node->teaser && ($node->type != 'today')) {
+        $links['node_read_more'] = array(
+          'title' => t('Read more »'),
+          'href' => "node/$node->nid",
+          // The title attribute gets escaped when the links are processed, so
+          // there is no need to escape here.
+          'attributes' => array('title' => t('Read the rest of !title.', array('!title' => $node->title)))
+        );
+      }
+    } 
+    else if (strstr($module, 'taxonomy_term')) {
       // Remove Section on taxonomy term links
       foreach ($links as $key => $value) {
         if ($value['title'] == 'Life' || 
@@ -357,12 +373,13 @@ function taxonomy_link_alter(&$links, $node) {
           unset($links[$key]);
         }
       }
-    } elseif (strstr($module, 'node_translation')) {
-      unset($links['node_translation_ja']);
-      unset($links['node_translation_en']);
     }
+    // Don't show language links in Today and other listing
+    unset($links['node_translation_ja']);
+    unset($links['node_translation_en']);
   }
 }
+
 
 /**
  * Preprocess comments

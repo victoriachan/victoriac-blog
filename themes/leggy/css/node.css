@@ -177,6 +177,9 @@ body.page-node .view-embedded-video {
       .node h2.title a:hover{
         color:#ff3300;
       }
+    .node-teaser .node_content {
+      overflow:hidden;
+    }
     .node-teaser .node_content p:first-of-type {
       font-weight:normal;
     }
@@ -188,8 +191,13 @@ body.page-node .view-embedded-video {
       margin-left:70px;
     }
       .node-teaser .comments li {
-        padding-left:0;
+        padding-left:20px;
         font-size:0.9em;
+        background:url(../images/inline_star.png) 0 50% no-repeat;
+      }
+      .node-teaser .comments li.first{
+        padding-left:0;
+        background-image:none;
       }
       
 /* Admin devel */
