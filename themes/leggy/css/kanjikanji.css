@@ -1,10 +1,14 @@
 #glossary_terms {
+  clear:both;
+  padding:20px 0;
+  margin:0 0 0 -70px;
+  width:650px;
+}
+#glossary_terms .inner{
   border-top:1px solid #ccc;
   border-bottom:1px solid #ccc;
   background-color:rgba(0,0,0,0.1);
   padding:10px 30px;
-  width:590px;
-  margin:0 0 20px -70px;
 }
   #glossary_terms h3 {
     margin:0;
@@ -33,7 +37,7 @@
     }
   #glossary_terms .term {
     background-color:#999;
-    background-color:rgba(0,0,0,0.3);
+    background-color:rgba(0,0,0,0.2);
     color:#fff;
     padding:2px 5px;
   }
@@ -45,3 +49,15 @@
     font-size:0.9em;
     font-family: Georgia, "Times New Roman", Times, serif;
   }
+  
+/* field-kanjikanji-english */
+.field-kanjikanji-english {
+  color:#999;
+}
+
+/* embedded image */
+body.page-node .field-embedded-image {
+  float:none;
+  display:block;
+  padding:0 0 20px 0;
+}

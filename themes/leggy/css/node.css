@@ -1,5 +1,6 @@
 /* Node */
 .node {
+  clear:both;
   padding:30px 0 10px 0;
   width:650px;
   margin-left:15px;
@@ -130,14 +131,6 @@ body.page-node .view-embedded-video {
       }
 
 /* node content */
-.node h2.title{
-  margin-left:70px;
-  margin-top:0;
-}
-  .node h2.title a{
-    text-decoration:none;
-    color:#000;
-  }
 .node blockquote {
   min-height:30px;
   margin:0 0 20px -20px;
@@ -173,16 +166,15 @@ body.page-node .view-embedded-video {
   margin-bottom:20px;
   width:640px;
 }
-  .node-teaser h2.title {
-    margin-left:70px;
-    margin-bottom:10px;
+  .node h2.title {
+    margin: 0 0 10px 70px;
     padding-top:0;
   }
-    .node-teaser h2.title a {
+    .node h2.title a {
       color:#35565F;
       text-decoration:none;
     }
-      .node-teaser h2.title a:hover{
+      .node h2.title a:hover{
         color:#ff3300;
       }
     .node-teaser .node_content p:first-of-type {

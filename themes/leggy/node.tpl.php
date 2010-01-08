@@ -115,10 +115,10 @@
     <?php endif; ?>
     
     <?php if ($page && $glossary_terms): ?>
-    <div id="glossary_terms" class="glossary_terms">
+    <div id="glossary_terms" class="glossary_terms"><div class="inner">
       <h3><?php print t('Vocabulary'); ?></h3>
       <?php print $glossary_terms; ?>
-    </div>
+    </div></div>
     <?php endif; ?>
   </div>
   

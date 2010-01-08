@@ -9,14 +9,18 @@ $GLOBALS['site_owner_uid'] = 4;
 /**
  * Format a date field to nice blog-style date
  */
-function _leggy_make_blog_date($datefield) {
-  
+function _leggy_make_blog_date($datefield, $link = null) {
+
   $arr_created_date_parts = explode(' ', format_date($datefield, 'small'));
-  $ret  = '<p class="blog_date">';
   $ret .= '<span class="week">'.$arr_created_date_parts[0].'</span><span class="delimiter">, </span>';
   $ret .= '<span class="day">'.$arr_created_date_parts[1].'</span><span class="delimiter"> </span>';
   $ret .= '<span class="month">'.$arr_created_date_parts[2].' '.$arr_created_date_parts[3].'</span>';
-  $ret .= '</p>';
+
+  if ($link) {
+    $ret = l($ret, $link, array(html=>true, attributes=>array('class' => 'blog_date')));
+  } else {
+    $ret = '<p class="blog_date">' . $ret . '</p>';
+  }
   
   return $ret;
 }
@@ -187,6 +191,7 @@ function _format_glossary_term($node) {
  */
 
 function leggy_preprocess(&$vars, $hook) {
+    
   if($hook == 'page') {
     // Add a 'page-node' class if this is a node that is rendered as page
     if (isset($vars['node']) && $vars['node']->type) {
@@ -228,7 +233,7 @@ function leggy_preprocess_node(&$vars) {
   // To access regions in nodes
   $vars['node_top'] = theme('blocks', 'node_top');
   $vars['node_bottom'] = theme('blocks', 'node_bottom');
-   
+  
   // Load node type-specific preprocess functions (if they exist)
   $function = 'leggy_preprocess_node'.'_'. $vars['node']->type;
   if (function_exists($function)) {
@@ -247,7 +252,12 @@ function leggy_preprocess_node_default(&$vars) {
   drupal_add_css(path_to_theme() . '/css/node.css', 'theme'); 
    
   // Format nice blog calendar style dates
-  $vars['blog_date'] = _leggy_make_blog_date($vars['node']->created);
+  if ($vars['page']) {
+    $vars['blog_date'] = _leggy_make_blog_date($vars['node']->created);
+  } else {
+    $vars['blog_date'] = _leggy_make_blog_date($vars['node']->created, 'node/'.$vars['node']->nid);
+  }
+  
 
    // embedded video
    if ($vars['page'] && $vars['node']->field_embedded_video[0]['value']) {
@@ -298,6 +308,11 @@ function leggy_preprocess_node_today(&$vars) {
   unset($vars['content']);
   unset($vars['body']);
 }
+
+
+/**
+ * Views
+ */
 
 function leggy_preprocess_views_view__section_listing(&$vars) {  
   drupal_add_css(path_to_theme() . '/css/section_index.css', 'theme');

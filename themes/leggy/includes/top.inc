@@ -27,7 +27,7 @@
     <?php // User Account block
       if ($user->uid): ?>
         <ul>
-          <li><?php print l(t('Hi, '.$user->name), 'user/' . $user->uid); ?></li>
+          <li><?php print l(t('Hello,').' '.$user->name, 'user/' . $user->uid); ?></li>
           <li class="divider">★</li>
           <li><?php print l(t('Log out'), 'logout'); ?></li>
         </ul>

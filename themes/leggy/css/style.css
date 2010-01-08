@@ -90,10 +90,16 @@
   float:left;
   margin:0 0 10px 10px;
   padding:5px 0 7px 0;
-  background-color: #000;
+  background-color: #ccc;
   background-color: rgba(0, 0, 0, 0.2);  
   font-family: Arial, Helvetica, "Bitstream Vera Sans", sans-serif;
+  text-decoration:none;
 }
+  a.blog_date:hover {
+    background-color: #decccc;
+    background-color: rgba(90, 0, 0, 0.2); 
+    color:#ff3300;
+  }
   .node .blog_date{
     margin:0 0 10px -15px;
   }
