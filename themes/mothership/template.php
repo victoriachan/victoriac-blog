@@ -105,11 +105,15 @@ function mothership_preprocess(&$vars, $hook) {
     if (theme_get_setting('mothership_cleanup_body_add_last') AND !$vars['is_front']) {
       $body_classes[] = mothership_id_safe('pathlast-' . end($path_requist) );
     }
-
-    if (theme_get_setting('mothership_cleanup_body_pagearg_one') ){  
+ 
+    if (theme_get_setting('mothership_cleanup_body_pagearg_one') ){
       $body_classes[] = mothership_id_safe('page-' . $path_requist['1']);
     }  
     
+// VICTORIA CUSTOM: Add the next path if this is ja.
+    if (theme_get_setting('mothership_cleanup_body_pagearg_one') && ($path_requist['1'] == 'ja')){
+      $body_classes[] = mothership_id_safe('page-' . $path_requist['2']);
+    }
   
     //adds class user-foobar without user id
     if(arg(0) == "user"){
