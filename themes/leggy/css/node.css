@@ -38,6 +38,11 @@
   .field-embedded-image img{
     border:1px solid #222;
   }
+  .field-fullwidth-image-upload-fid,
+  .field-fullwidth-image-embed {
+    padding-top:40px;
+    margin-bottom:-30px;
+  }
   
 /* Review intro */
 .node .node_content .group-review-intro {

@@ -285,6 +285,9 @@ function leggy_preprocess_node_default(&$vars) {
    if ($vars['page'] && $vars['node']->field_fullwidth_image[0]['value']) {
      $vars['fullwidth_image'] = views_embed_view('embedded_video','block_2', $vars['node']->nid);
    }
+   if ($vars['page'] && $vars['node']->field_fullwidth_image_upload[0]['fid']) {
+     $vars['fullwidth_image'] = views_embed_view('embedded_video','block_3', $vars['node']->nid);
+   }
     
    // Remove Sections from terms
    foreach ($vars['node']->taxonomy as $key => $value) {
