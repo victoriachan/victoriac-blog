@@ -133,9 +133,9 @@
 .content_bottom {
   clear:both;
   background-color:#000;
-  background-color:rgba(0,0,0,0.9);
-  border-top:1px solid #666;
-  border-bottom:1px solid #666;
+  background-color:rgba(0,0,0,0.4);
+  border-top:1px solid rgba(0,0,0,0.1);
+  border-bottom:1px solid rgba(0,0,0,0.1);
   padding:30px 0;
   margin:-55px 0 120px 0;
   color:#fff;
@@ -144,6 +144,9 @@
   -webkit-box-shadow: 0 1px 15px -4px rgba(255, 255, 255, 0.2) inset;
   box-shadow:0 1px 15px -4px rgba(255, 255, 255, 0.2) inset;  
 }
+  .content_bottom a{
+    color:#000;
+  }
 
 #footer{
   background:transparent url(../images/footer_bg.png) 0 100% repeat-x;
@@ -421,6 +424,12 @@
     letter-spacing: 1px;
     text-transform: uppercase;
   }
+    body.page-ja .pager .pager-first a,
+    body.page-ja .pager .pager-last a,
+    body.page-ja .pager .pager-next a,
+    body.page-ja .pager .pager-previous a{
+      font-size:0.9em;
+    }
     .pager .pager-first a:hover,
     .pager .pager-last a:hover,
     .pager .pager-next a:hover,
@@ -566,4 +575,21 @@ body.page-search #search-form {
     border:1px solid #fff;
     color:#fff;
     font-size:1.1em;
+  }
+  
+/* lightbox */
+#imageData #bottomNav {
+  margin-top:-40px;
+}
+#bottomNavZoom,
+#bottomNavZoomOut {
+  margin-top:-10px;
+  margin-right:8px;
+  opacity:0.3;
+  filter:alpha(opacity=30)
+}
+  #bottomNavZoom:hover,
+  #bottomNavZoomOut:hover {
+    opacity:0.7;
+    filter:alpha(opacity=70)
   }

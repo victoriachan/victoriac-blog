@@ -133,19 +133,29 @@ function _leggy_output_ago_date($date_raw, $show_date='true') {
 /**
  * Take in node and original title, and return 'Today xxx' title if applicable
  */
-function _leggy_get_today_title($node, $orig_title, $link_to_node='false', $show_date='true') {
+function _leggy_get_today_title($node, $orig_title, $link_to_node='false', $show_as_today=false) {
 
   // Get prefix for today's title eg. 'Today', 'Yesterday'..
-  $prefix = _leggy_output_ago_date($node->created, $show_date);
+  $prefix = _leggy_output_ago_date($node->created);
+  
   $title = $orig_title;
 
   // Replace the title with the body or present tense text
-  if (($prefix == 'Today') && $node->field_today[0]['safe']) {
+  global $language ;
+  $lang_name = $language->language ;
+  if (($lang_name == 'ja') && $node->field_today_japanese[0]['safe']) {
+    $title = $node->field_today_japanese[0]['safe'];
+  } elseif (($prefix == 'Today') && $node->field_today[0]['safe']) {
     $title = $node->field_today[0]['safe'];
-  } elseif ($node->content['body']['#value']) {
-    $title = $node->content['body']['#value'];
+  } elseif ($node->field_today_html[0]['safe']) {
+    $title = $node->field_today_html[0]['safe'];
   }
   
+  // Always prefix with Today
+  if ($show_as_today) {
+    $prefix = 'Today';
+  }
+    
   // Optional link in prefix
   if (strlen($prefix) && $link_to_node) {
     $prefix = l($prefix, 'node/'.$node->nid, array(html=>true, attributes=>array('class' => 'prefix')));
@@ -226,7 +236,7 @@ function leggy_preprocess_page(&$vars) {
   $vars['user_avatar'] = _leggy_make_avatar_thumb($vars['user']->name, $vars['user']->picture);
   
   if ($vars['node']->type == 'today') {
-    $vars['page_title'] = _leggy_get_today_title($vars['node'], $vars['title'], false, false);
+    $vars['page_title'] = _leggy_get_today_title($vars['node'], $vars['title'], false, true);
     $vars['page_date'] = _leggy_make_blog_date($vars['node']->created);
   }
   
@@ -375,8 +385,8 @@ function node_link_alter(&$links, $node) {
       }
     }
     // Don't show language links in Today and other listing
-    unset($links['node_translation_ja']);
-    unset($links['node_translation_en']);
+    //unset($links['node_translation_ja']);
+    //unset($links['node_translation_en']);
   }
 }
 
@@ -430,3 +440,4 @@ function leggy_links($links, $attributes = array('class' => 'links')) {
   
   return theme_links($links, $attributes);
 }
+
