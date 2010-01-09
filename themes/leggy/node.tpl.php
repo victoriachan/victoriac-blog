@@ -62,13 +62,15 @@
 <?php if ($fullwidth_image): ?>
     <?php print $fullwidth_image; ?>
 <?php endif; ?>
+  <?php if ($embedded_video): ?>
+      <?php print $embedded_video; ?>
+  <?php endif; ?>
+
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?>">
 
   <?php print $picture; ?>
   
-  <?php if ($embedded_video): ?>
-      <?php print $embedded_video; ?>
-  <?php endif; ?>
+
   
   <?php if ($blog_date): ?>
       <?php print $blog_date; ?>

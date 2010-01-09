@@ -145,6 +145,8 @@ function _leggy_get_today_title($node, $orig_title, $link_to_node='false', $show
   $lang_name = $language->language ;
   if (($lang_name == 'ja') && $node->field_today_japanese[0]['safe']) {
     $title = $node->field_today_japanese[0]['safe'];
+  } elseif (($lang_name == 'zh-hans') && $node->field_today_chinese[0]['safe']) {
+    $title = $node->field_today_chinese[0]['safe'];
   } elseif (($prefix == 'Today') && $node->field_today[0]['safe']) {
     $title = $node->field_today[0]['safe'];
   } elseif ($node->field_today_html[0]['safe']) {
@@ -208,7 +210,6 @@ function _format_glossary_term($node) {
  */
 
 function leggy_preprocess(&$vars, $hook) {
-    
   if($hook == 'page') {
     // Add a 'page-node' class if this is a node that is rendered as page
     if (isset($vars['node']) && $vars['node']->type) {
@@ -246,7 +247,7 @@ function leggy_preprocess_page(&$vars) {
   }
 }
 
-function leggy_preprocess_node(&$vars) {  
+function leggy_preprocess_node(&$vars) {
   // To access regions in nodes
   $vars['node_top'] = theme('blocks', 'node_top');
   $vars['node_bottom'] = theme('blocks', 'node_bottom');

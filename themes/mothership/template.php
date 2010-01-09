@@ -111,8 +111,10 @@ function mothership_preprocess(&$vars, $hook) {
     }  
     
 // VICTORIA CUSTOM: Add the next path if this is ja.
-    if (theme_get_setting('mothership_cleanup_body_pagearg_one') && ($path_requist['1'] == 'ja')){
-      $body_classes[] = mothership_id_safe('page-' . $path_requist['2']);
+    if (theme_get_setting('mothership_cleanup_body_pagearg_one')){
+      if (($path_requist['1'] == 'ja') OR ($path_requist['1'] == 'zh')) {
+        $body_classes[] = mothership_id_safe('page-' . $path_requist['2']);
+      }
     }
   
     //adds class user-foobar without user id

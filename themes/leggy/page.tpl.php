@@ -76,10 +76,11 @@
  * Secondary Content
  */
  ?>
-      <?php if ($right): ?>
+      <?php if ($right OR $right_bottom): ?>
         <div class="secondary_content">
           <?php print $right; ?>
           <?php include("includes/victoria_info.inc"); ?>
+          <?php print $right_bottom; ?>
         </div><!-- /#secondary_content -->
       <?php endif; ?>
       

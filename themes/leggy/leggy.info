@@ -5,12 +5,13 @@ core        = 6.x
 engine      = phptemplate
 base theme = mothership
 ;--------------------- regions -----------------------------
-regions[top_bar]    = top bar
+regions[top_bar]        = top bar
 regions[content_top]    = content top
 regions[content_bottom] = content bottom
-regions[node_top] = node top
-regions[node_bottom] = node bottom
+regions[node_top]       = node top
+regions[node_bottom]    = node bottom
 regions[right]          = right sidebar
+regions[right_bottom]   = right sidebar bottom
 regions[footer]         = footer
 
 ;--------------------- features ----------------------------

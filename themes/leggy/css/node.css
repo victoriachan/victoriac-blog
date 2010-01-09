@@ -38,11 +38,6 @@
   .field-embedded-image img{
     border:1px solid #222;
   }
-  .field-fullwidth-image-upload-fid,
-  .field-fullwidth-image-embed {
-    padding-top:40px;
-    margin-bottom:-30px;
-  }
   
 /* Review intro */
 .node .node_content .group-review-intro {
@@ -111,9 +106,17 @@
 
 /* Video */
 body.page-node .view-embedded-video {
-  margin:-40px 0 30px 0;
+  padding:0 0 0 15px;
 }
+  body.page-node .field-embedded-video-embed {
+    padding:0 0 10px 0;
+  }
   
+  body.page-node .field-fullwidth-image-upload-fid,
+  body.page-node .field-fullwidth-image-embed {
+    margin-left:-18px;
+  }
+    
 /* See also links */  
 .see_also{
   margin:30px 0;

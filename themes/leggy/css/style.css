@@ -548,7 +548,7 @@ body.page-search #search-form {
 /* Locale block in right col */
 #block-locale {
   position:absolute;
-  right:400px;
+  right:420px;
   bottom:2px;
 }
 #block-locale h3{
