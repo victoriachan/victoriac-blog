@@ -16,7 +16,7 @@
   <div id="top_bar"><div class="inner">
     <?php // print site name (h1 or div) ?>
     <<?php print $site_name_element; ?> id="site-name">
-      <a href="<?php print $base_path; ?>" title="<?php print t('Home'); ?>" rel="home"><?php print $site_name; ?></a>
+      <a href="<?php print $base_path; ?>" title="<?php print t('Home'); ?>" rel="home"><?php print t($site_name); ?></a>
     </<?php print $site_name_element; ?>>
     
     <?php if ($top_bar): ?>
@@ -24,18 +24,18 @@
       <?php print $top_bar; ?>
     <?php endif; ?>    
     
-    <?php // User Account block
+    <div class="home"><a href="<?php print $base_path; ?>" title="<?php print t('Back to home'); ?>" rel="home"><?php print t('Home'); ?></a></div>
+    
+    <ul>
+      <?php // User Account block
       if ($user->uid): ?>
-        <ul>
-          <li><?php print l(t('Hello,').' '.$user->name, 'user/' . $user->uid); ?></li>
-          <li class="divider">★</li>
-          <li><?php print l(t('Log out'), 'logout'); ?></li>
-        </ul>
-    <?php else: ?>
-        <ul>
-          <li><?php print l(t('Tell me who you are'), 'user/register'); ?></li>
-          <li class="divider">★</li>
-          <li><?php print l(t('Log in'), 'user/login'); ?></li>
-        </ul>
-    <?php endif; ?>
+        <li><?php print l(t('Hello,').' '.$user->name, 'user/' . $user->uid); ?></li>
+        <li class="divider">★</li>
+        <li><?php print l(t('Log out'), 'logout'); ?></li>
+      <?php else: ?>
+        <li><?php print l(t('Tell me who you are'), 'user/register'); ?></li>
+        <li class="divider">★</li>
+        <li><?php print l(t('Log in'), 'user/login'); ?></li>
+      <?php endif; ?>
+    </ul>
   </div></div><!-- /#top_bar /.inner -->

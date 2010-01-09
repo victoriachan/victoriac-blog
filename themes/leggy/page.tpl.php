@@ -48,6 +48,7 @@
 
           <div class="page_title">
             <?php if ($page_date): ?><?php print $page_date; ?><?php endif; ?>
+            <?php if ($page_subtitle): ?><p class="subtitle"><span><?php print $page_subtitle; ?></span></p><?php endif; ?>
             <h1 class="title"><?php print $page_title; ?></h1>
           </div>
         

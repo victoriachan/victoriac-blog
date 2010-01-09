@@ -2,24 +2,25 @@
 #site-name {
   margin:0;
   padding:0;
-  float:right;
+  position:absolute;
+  right:0;
   width:243px;
+  z-index:2;
 }
   #top_bar #site-name a {
     text-indent:-1000px;
     overflow:hidden;    
     display:block;
     text-decoration:none;
-    background:url(../images/sitetitle.png) 0 2px no-repeat;
+    background:url(../images/sitetitle2.png) 0 2px no-repeat;
     width:243px;
     height:45px;
   }
     #top_bar #site-name a:hover{
       filter:alpha(opacity=30);
-    	-moz-opacity:0.3;
-    	-khtml-opacity: 0.3;
-    	opacity: 0.3;
-
+      -moz-opacity:0.3;
+      -khtml-opacity: 0.3;
+      opacity: 0.3;
     }
   
 #top_bar{
@@ -45,6 +46,7 @@
     float:left;
     position:absolute;
     bottom:5px;
+    left:60px;
   }    
   #top_bar li {
     display:inline;
@@ -53,23 +55,47 @@
     margin:0 5px 0 0;
     line-height:1em;
   }
+  #top_bar .home {
+    display:block;
+    width:45px;
+    height:46px;
+    float:left;
+  }
+    #top_bar .home a {
+      display:block;
+      width:45px;
+      height:46px;
+      overflow:hidden;
+      text-indent:-1000px;
+      text-decoration:none;
+      line-height:normal;
+      background:url(../images/home.png) 0 0 no-repeat;
+    }
+    #top_bar .home a:hover {
+      filter:alpha(opacity=30);
+      -moz-opacity:0.3;
+      -khtml-opacity: 0.3;
+      opacity: 0.3;
+    }
 
 
 /* Header */
 .breadcrumb {
-  padding:5px 0 5px 75px;;
+  padding:5px 0 5px 70px;;
   margin:0;
   font-size:0.85em;
   color:#444;
 }
   .breadcrumb a {
     color:#444;
-    text-shadow: 0 0 5px rgba(255,255,255,1)
+    text-decoration:none;
   }
   .breadcrumb a.active,
   .breadcrumb a:hover {
     text-decoration:none;
   }
+
+/* H1 and Page title */
 
 .page_title{
   margin:20px 0 30px 0;
@@ -77,6 +103,19 @@
   width:570px;
   position:relative;
 }
+  .page_title .subtitle {
+    margin:-15px 0 15px 2px;
+  }
+    .page_title .subtitle span {
+      padding:1px 3px;
+      /* background-color:rgba(0,0,0,0.2); */
+      color:rgba(0, 0, 0, 0.3);
+      font-size:1.4em;
+      font-weight:bold;
+      font-family: Georgia, "Times New Roman", Times, serif;
+      letter-spacing:0.1;
+      font-style:italic;
+    }
   .page_title h1{
     text-shadow: 1px 0 3px rgba(0,0,0,0.2);
   }
@@ -550,8 +589,9 @@ body.page-search #search-form {
 /* Locale block in right col */
 #block-locale {
   position:absolute;
-  right:420px;
+  right:470px;
   bottom:2px;
+  z-index:1;
 }
 #block-locale h3{
   display:inline;
@@ -576,7 +616,6 @@ body.page-search #search-form {
   #block-locale li a.active {
     border:1px solid #fff;
     color:#fff;
-    font-size:1.1em;
   }
   
 /* lightbox */

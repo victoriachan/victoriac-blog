@@ -203,6 +203,14 @@ function _format_glossary_term($node) {
   }
 }
 
+function _leggy_get_section_name($node) {
+  if (isset($node->node_section)) { //$node->node_section is set here in leggy_preprocess_node_default()
+    return 'in '.$node->node_section;
+  } else if ($node->type == 'kanjikanji') {
+    return ' 漢字感じ:';
+  }
+  return null;
+} 
 
 /**
  ***********************************************************************************
@@ -236,12 +244,17 @@ function leggy_preprocess(&$vars, $hook) {
 function leggy_preprocess_page(&$vars) {
   $vars['user_avatar'] = _leggy_make_avatar_thumb($vars['user']->name, $vars['user']->picture);
   
+  // Assign section name as subtitle
+  $vars['page_subtitle'] = _leggy_get_section_name($vars['node']);  
+  //dsm($vars['node']->type);
+  
+  // Format Today titles
   if ($vars['node']->type == 'today') {
     $vars['page_title'] = _leggy_get_today_title($vars['node'], $vars['title'], false, true);
     $vars['page_date'] = _leggy_make_blog_date($vars['node']->created);
   }
   
-  // add date to Today index
+  // add date to Today index listing page
   if ($_GET['q'] == 'today') {
     $vars['title'] = $vars['title'].'<span class="date"> '.format_date(time(), 'medium').'</span>';
   }
@@ -294,11 +307,10 @@ function leggy_preprocess_node_default(&$vars) {
    // Remove Sections from terms
    foreach ($vars['node']->taxonomy as $key => $value) {
      if ($value->name == 'Life' || 
-        $value->name == 'Geek' || 
-        $value->name == 'Today' || 
-        $value->name == "漢字感じ") 
+        $value->name == 'Geek') 
       {
         unset($vars['node']->taxonomy[$key]);
+        $vars['node']->node_section = $value->name;
       }
     }
     $vars['terms'] = theme('links', taxonomy_link('taxonomy terms', $vars['node']));   
@@ -390,9 +402,7 @@ function node_link_alter(&$links, $node) {
       // Remove Section on taxonomy term links
       foreach ($links as $key => $value) {
         if ($value['title'] == 'Life' || 
-            $value['title'] == 'Geek' || 
-            $value['title'] == 'Today' || 
-            $value['title'] == "漢字感じ") {
+            $value['title'] == 'Geek') {
           unset($links[$key]);
         }
       }
