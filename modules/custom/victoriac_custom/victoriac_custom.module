@@ -1,0 +1,14 @@
+<?php
+// $Id$
+
+/**
+ * Add wrapper around body field
+ * http://capellic.com/blog/theming-the-node-body-field
+ */
+
+function victoriac_custom_nodeapi(&$node, $op, $teaser, $page) {
+  if ($op == 'view') {
+    $node->content['body']['#value'] = "<div class=\"node-body\">" . 
+      $node->content['body']['#value'] . "</div>";
+  }
+}

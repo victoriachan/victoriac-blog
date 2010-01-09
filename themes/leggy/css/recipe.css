@@ -1,0 +1,44 @@
+body.node-type-recipe .node-body {
+  clear:both;
+  overflow:hidden;
+  width:100%;
+  padding-top:1.5em;
+}
+
+.field-ingredient {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  letter-spacing:0.01em;  
+  margin:0 30px 0 0;
+  padding:0;
+  width: 225px;
+  overflow:hidden;
+  float:left;
+}
+  .node .node_content .field-ingredient h3 {
+    margin:0;
+    padding:0 0 1em 0;
+  }
+  .field-ingredient ul {
+    font-style:italic;
+  }
+  .field-ingredient ul {
+    padding-left:0;
+    margin:0;
+    border-top:1px dotted #ccc;
+  }
+  .field-ingredient ul li {
+    padding:0.1em 0;
+    margin:0;
+    list-style-type:none;
+    list-style-image:none;
+    border-bottom:1px dotted #ccc;
+  }
+  
+.field-file-image {
+  float:right;
+  margin:0;
+}
+
+.node .node_content p:first-of-type {
+  clear:both;
+}

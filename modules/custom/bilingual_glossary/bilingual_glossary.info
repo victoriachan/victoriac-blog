@@ -1,7 +1,0 @@
-; $Id$
-name = Bilingual glossary field
-description = (Victoria Custom) CCK bilingual glossary terms field
-dependencies[] = content
-dependencies[] = text
-package = CCK
-core = 6.x

@@ -1,0 +1,6 @@
+; $Id$
+name = VictoriaC custom
+description = Victoria misc custom field
+dependencies[] = content
+package = Victoria Custom
+core = 6.x

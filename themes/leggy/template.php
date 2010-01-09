@@ -248,6 +248,7 @@ function leggy_preprocess_page(&$vars) {
 }
 
 function leggy_preprocess_node(&$vars) {
+  
   // To access regions in nodes
   $vars['node_top'] = theme('blocks', 'node_top');
   $vars['node_bottom'] = theme('blocks', 'node_bottom');
@@ -301,6 +302,14 @@ function leggy_preprocess_node_default(&$vars) {
       }
     }
     $vars['terms'] = theme('links', taxonomy_link('taxonomy terms', $vars['node']));   
+}
+
+function leggy_preprocess_node_recipe(&$vars) {
+  // usual node stuff
+  leggy_preprocess_node_default($vars);
+  if ($vars['page']){
+    drupal_add_css(path_to_theme() . '/css/recipe.css', 'theme');
+  }
 }
 
 function leggy_preprocess_node_kanjikanji(&$vars) {
@@ -444,4 +453,3 @@ function leggy_links($links, $attributes = array('class' => 'links')) {
   
   return theme_links($links, $attributes);
 }
-

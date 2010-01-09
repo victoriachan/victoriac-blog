@@ -1,4 +1,16 @@
 /* Node */
+.node-teaser div.fieldgroup {
+  margin: 0;
+  padding:0 0 1.5em 0;
+}
+  .node div.fieldgroup .content {
+    padding-left:0;
+  }
+  .node-teaser-recipe  div.fieldgroup {
+    padding:0;
+  }
+
+
 .node {
   clear:both;
   padding:30px 0 10px 0;
@@ -39,11 +51,18 @@
     border:1px solid #222;
   }
   
-/* Review intro */
+/* Review */
+.node-teaser-review .node-body,
+body.node-type-review .node-body {
+  clear:both;
+  overflow:hidden;
+  width:100%;
+  padding-top:1.5em;
+}
 .node .node_content .group-review-intro {
   margin:0;
   padding:0 0 1.5em 0;
-  width: 220px;
+  width: 225px;
   overflow:hidden;
   float:left;
   border-top:1px dotted #ccc;
@@ -56,12 +75,6 @@
     font-weight:normal;
     margin:0.5em 0;
   }
-    .node-teaser-review .node_content p:first-of-type,
-    .node-type-review .node .node_content p:first-of-type {
-      font-weight:normal;
-      margin:1.5em 0;
-      clear:both;
-    }
   .group-review-intro .field-stars,
   .node .group-review-intro ul,
   .node .group-review-intro p {
@@ -92,17 +105,12 @@
     font-weight:bold;
     border-bottom:1px dotted #ccc;
   }
-    /* .node-teaser .group-review-intro .field-stars {
-      border:0;
-      padding:0;
-    } */
     .group-review-intro div.fivestar-widget-static {
       height:18px;
       width:100px;
       margin:0.2em 0;
       float:right;
     }
-
 
 /* Video */
 body.page-node .view-embedded-video {
@@ -116,7 +124,22 @@ body.page-node .view-embedded-video {
   body.page-node .field-fullwidth-image-embed {
     margin-left:-18px;
   }
-    
+
+/* Gallery */
+body.page-node .field-file-image-multiple {
+  width:650px;
+  margin:40px 0 20px -70px;
+  overflow:hidden;
+  text-align:center;
+}
+  body.page-node .field-file-image-multiple img {
+    border:3px solid #000;
+  }
+  body.page-node .field-file-image-multiple a:hover img{
+    opacity:0.7;
+    filter:alpha(opacity=70);
+  }  
+  
 /* See also links */  
 .see_also{
   margin:30px 0;
@@ -172,6 +195,9 @@ body.page-node .view-embedded-video {
 
 /* Custom pager module (next/prev posts link at bottom of post) */
 .block-custom-pagers{
+  font-family: Georgia, "Times New Roman", Times, serif;
+  letter-spacing:0.01em;  
+  font-style:italic;
   width:670px;
   margin:0 0 0 -10px;
   padding:10px 0;
@@ -222,10 +248,14 @@ body.page-node .view-embedded-video {
   margin-top:0;
   padding-top:0;
 }
+  .node-teaser-recipe .node_content p:first-of-type {
+    font-weight:normal;
+  }
 .node .node_content blockquote p:last-of-type {
   margin-bottom:0;
   padding-bottom:0;
 }
+
 .node .node_content h3 {
   margin:30px 0 20px 0;
 }
@@ -238,6 +268,7 @@ body.page-node .view-embedded-video {
   width:640px;
 }
   .node h2.title {
+    font-family: Tahoma, Verdana, Arial, Helvetica, "Bitstream Vera Sans", sans-serif;
     margin: 0 0 10px 70px;
     padding-top:0;
   }

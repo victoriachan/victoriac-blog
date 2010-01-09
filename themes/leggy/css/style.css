@@ -301,6 +301,8 @@
       box-shadow: 0 0 0 rgba(0,0,0,0.2);  
     }
   #author_info .content_text {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    letter-spacing:0.01em;  
     width:160px;
     float:right;
     margin:0;
@@ -580,6 +582,8 @@ body.page-search #search-form {
 /* lightbox */
 #imageData #bottomNav {
   margin-top:-40px;
+  width:28%;
+  float:right;
 }
 #bottomNavZoom,
 #bottomNavZoomOut {

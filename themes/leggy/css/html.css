@@ -111,6 +111,7 @@ h2 {
   line-height: 1.3em;
   margin:15px 0;
   font-weight:bold;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 
 h3 {
@@ -118,6 +119,8 @@ h3 {
   line-height: 1.3em;
   margin:15px 0;
   font-weight: bold;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  letter-spacing:0.01em;  
 }
 
 h4, h5, h6 {

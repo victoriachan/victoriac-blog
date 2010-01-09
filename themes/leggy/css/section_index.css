@@ -10,6 +10,8 @@
 }
 
 .intro {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  letter-spacing:0.01em;
   margin:0;
   padding: 0 0 40px 10px;
   width:650px;
