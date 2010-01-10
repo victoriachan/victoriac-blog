@@ -313,9 +313,23 @@ function leggy_preprocess_node_default(&$vars) {
     $vars['terms'] = theme('links', taxonomy_link('taxonomy terms', $vars['node']));   
 }
 
+function leggy_preprocess_node_homepage(&$vars) {
+  drupal_add_css(path_to_theme() . '/css/homepage.css', 'theme');
+  // Show the right language intro (Translation is buggy)
+  global $language ;
+  $lang_name = $language->language;
+  if (($lang_name == 'ja') && $vars['field_intro_ja_rendered']) {
+    $vars['content'] = $vars['field_intro_ja_rendered'];
+  } elseif (($lang_name == 'zh-hans') && $vars['field_intro_zh_rendered']) {
+    $vars['content'] = $vars['field_intro_zh_rendered'];
+  } else {
+    $vars['content'] = $vars['field_intro_en_rendered'];
+  }
+  
+}
+
 function leggy_preprocess_node_page(&$vars) {
   // usual node stuff
-  //leggy_preprocess_node_default($vars);
   drupal_add_css(path_to_theme() . '/css/node.css', 'theme');
   if ($vars['page']){
     drupal_add_css(path_to_theme() . '/css/page.css', 'theme');

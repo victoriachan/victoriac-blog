@@ -18,6 +18,7 @@ body.page-node .node {
   font-size:1.2em;
   text-shadow: 1px 0 1px rgba(0,0,0,0.1);
   font-family: Georgia, "Times New Roman", Times, serif;
+  /* letter-spacing:normal; */
 }
   body.page-node .node .node_content {
     width:100%;

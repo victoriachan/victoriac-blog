@@ -274,15 +274,18 @@ body.page-node .field-file-image-multiple {
 }
   .node h2.title {
     font-family: Tahoma, Verdana, Arial, Helvetica, "Bitstream Vera Sans", sans-serif;
+    letter-spacing:normal;
+    font-size:2em;
     margin: 0 0 10px 70px;
     padding-top:0;
   }
     .node h2.title a {
-      color:#35565F;
+      color:#222;
       text-decoration:none;
     }
       .node h2.title a:hover{
         color:#ff3300;
+        text-shadow: none;
       }
     .node-teaser .node_content {
       overflow:hidden;

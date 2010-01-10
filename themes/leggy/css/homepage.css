@@ -1,0 +1,31 @@
+/* 
+ * Homepage layout
+ */
+#second_body{
+  width:100%;
+  background:url(../images/home_bg.png) 50% 45px no-repeat;
+}
+.secondary_content {
+  float:none;
+}
+.node {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  letter-spacing:0.01em;
+  margin:0;
+  padding: 10px 0 40px 90px;
+  width:450px;
+  font-size:1.6em;
+  line-height:1.5em;
+  color:rgba(0,0,0,0.8);
+  /* color:#35565F;  */ 
+}
+
+
+
+/* Admin devel */
+body.page-node #admin_tabs_top{
+  position:absolute;
+  top:70px;
+  right:0;
+  z-index:4;
+}
