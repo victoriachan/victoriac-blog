@@ -33,7 +33,9 @@
   background-color:rgba(0,0,0,0.1);
   color:rgba(0,0,0,0.3);
 } 
-
+.page_content {
+  padding-left:15px;
+}
 /* node page */
 body.page-node h1 {
   overflow:hidden;

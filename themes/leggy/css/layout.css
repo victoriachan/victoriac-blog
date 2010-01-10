@@ -17,7 +17,7 @@ body {
   }
     #top_bar .inner{
       margin:0 auto;
-      padding:0 10px;
+      padding:0 10px 0 5px;
       height:45px;
       width:930px;
       overflow:hidden;
@@ -63,12 +63,9 @@ body {
   }
 
 #content_bottom {
-  width:100%;
+  margin:0 auto 130px auto;
+  width:970px;
 }
-  #content_bottom .inner{
-    margin:0 auto;
-    width:970px;
-  }
 
 #footer {
   z-index:3;

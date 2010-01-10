@@ -5,27 +5,75 @@
   width:100%;
   background:url(../images/home_bg.png) 50% 45px no-repeat;
 }
-.secondary_content {
-  float:none;
+#top_bar #site-name a,
+#top_bar #site-name a:hover {
+  background:url(../images/sitetitle.png) 0 2px no-repeat;
+  filter:alpha(opacity=100);
+  -moz-opacity:1;
+  -khtml-opacity:1;
+  opacity:1;
 }
+#block-menu-primary-links ul.menu {
+  margin:20px 0 0 0;
+  padding:13px 7px 10px 0;
+  background:url(../images/menu_bg.png) 0 0 no-repeat;
+}
+#block-search:hover {
+  border:1px dashed #888;
+  background-color:rgba(255,255,255,0.7);
+}
+
+/* Intro */
 .node {
   font-family: Georgia, "Times New Roman", Times, serif;
   letter-spacing:0.01em;
   margin:0;
-  padding: 10px 0 40px 90px;
-  width:450px;
-  font-size:1.6em;
-  line-height:1.5em;
+  padding: 20px 0 40px 90px;
+  width:425px;
+  font-size:1.5em;
+  line-height:1.6em;
   color:rgba(0,0,0,0.8);
-  /* color:#35565F;  */ 
 }
+  .node h2 {
+    display:block;
+    background-color:transparent;
+    letter-spacing:normal;
+    font-size:1.7em;
+    font-weight:bold;
+    padding:5px;
+    margin:0;
+    font-style:italic;
+  }
+  .node p {
+    margin-top:0;
+  }
 
-
+/* Menu */
+#block-menu-primary-links .first a{
+  -webkit-transform: rotate(2deg) ;
+  -moz-transform: rotate(2deg) ;
+  transform: rotate(2deg) ;
+}
+#block-menu-primary-links .leaf:nth-of-type(2) a{
+  -webkit-transform: rotate(-1deg) ;
+  -moz-transform: rotate(-1deg) ;
+  transform: rotate(-1deg) ;
+}
+#block-menu-primary-links .leaf:nth-of-type(3) a{
+  -webkit-transform: rotate(3deg) ;
+  -moz-transform: rotate(3deg) ;
+  transform: rotate(3deg) ;
+}  
+#block-menu-primary-links .last a{
+  -webkit-transform: rotate(-1deg) ;
+  -moz-transform: rotate(-1deg) ;
+  transform: rotate(-1deg) ;
+}
 
 /* Admin devel */
 body.page-node #admin_tabs_top{
   position:absolute;
-  top:70px;
+  top:130px;
   right:0;
   z-index:4;
 }

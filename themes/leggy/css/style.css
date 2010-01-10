@@ -180,21 +180,7 @@
 /* Footer */
 .content_bottom {
   clear:both;
-  background-color:#000;
-  background-color:rgba(0,0,0,0.4);
-  border-top:1px solid rgba(0,0,0,0.1);
-  border-bottom:1px solid rgba(0,0,0,0.1);
-  padding:30px 0;
-  margin:-55px 0 120px 0;
-  color:#fff;
-  
-  -moz-box-shadow:  0 1px 15px -4px rgba(255, 255, 255, 0.2) inset, -20px 1px 20px rgba(0,0,0,0.4);
-  -webkit-box-shadow: 0 1px 15px -4px rgba(255, 255, 255, 0.2) inset;
-  box-shadow:0 1px 15px -4px rgba(255, 255, 255, 0.2) inset;  
 }
-  .content_bottom a{
-    color:#000;
-  }
 
 #footer{
   background:transparent url(../images/footer_bg.png) 0 100% repeat-x;
@@ -282,6 +268,18 @@
   list-style-image:none;
   list-style-type:none;
 }
+  #block-menu-primary-links .first {
+    padding-right:4px;
+  }
+  #block-menu-primary-links .leaf:nth-of-type(2) {
+    padding-right:0;
+  }
+  #block-menu-primary-links .leaf:nth-of-type(3) {
+    padding-right:5px;
+  }  
+  #block-menu-primary-links .last {
+    padding-right:1px;
+  }
   #block-menu-primary-links .leaf a {
     display:block;
     width:230px;
@@ -297,25 +295,22 @@
     text-shadow: 1px 1px 5px #666;
   }
     #block-menu-primary-links .first a{
-      -webkit-transform: rotate(4deg) ;
-      -moz-transform: rotate(4deg) ;
-      transform: rotate(4deg) ;
     }
     #block-menu-primary-links .leaf:nth-of-type(2) a{
-      -webkit-transform: rotate(-2deg) ;
-      -moz-transform: rotate(-2deg) ;
-      transform: rotate(-2deg) ;
-    }
-    #block-menu-primary-links .leaf:nth-of-type(3) a{
       -webkit-transform: rotate(3deg) ;
       -moz-transform: rotate(3deg) ;
       transform: rotate(3deg) ;
-    }  
-    #block-menu-primary-links .last a{
+    }
+    #block-menu-primary-links .leaf:nth-of-type(3) a{
       -webkit-transform: rotate(-1deg) ;
       -moz-transform: rotate(-1deg) ;
       transform: rotate(-1deg) ;
-    }
+    }  
+    #block-menu-primary-links .last a{
+      -webkit-transform: rotate(3deg) ;
+      -moz-transform: rotate(3deg) ;
+      transform: rotate(3deg) ;
+    }    
     #block-menu-primary-links .active-trail a,
     #block-menu-primary-links .leaf a:hover{
       background:url(../images/nav_selected.png) 0 0 no-repeat;

@@ -2,11 +2,12 @@
   padding-bottom:40px;
 }
 .page_title {
-  margin:0 0 10px 0;
+  margin:0;
+  padding-top:15px;
 }
 .page_title h1{
   font-size:7em;
-  line-height:normal;
+  line-height:1.3em;
   padding-top:5px;
 }
 
