@@ -12,3 +12,166 @@ function victoriac_custom_nodeapi(&$node, $op, $teaser, $page) {
       $node->content['body']['#value'] . "</div>";
   }
 }
+
+/**
+ * Implementation of hook_block().
+ */
+function victoriac_custom_block($op = 'list', $delta = 0, $edit = array()) {
+
+  switch ($op) {
+    case 'list':
+    
+      $blocks[0]['info'] = t('VictoriaC greeting');
+      $blocks[0]['cache'] = BLOCK_CACHE_PER_USER;      
+    
+      $blocks[1]['info'] = t('VictoriaC greeting 2');
+      $blocks[1]['cache'] = BLOCK_CACHE_PER_PAGE;
+    
+      $blocks[2]['info'] = t('VictoriaC Author info');
+      $blocks[2]['cache'] = BLOCK_CACHE_GLOBAL;
+      
+      $blocks[3]['info'] = t('VictoriaC Breadcrumb');
+      $blocks[3]['cache'] = BLOCK_CACHE_PER_PAGE;      
+    
+      return $blocks;
+      
+    case 'configure':
+    
+      $form = array();
+      if ($delta == 2) {
+        $form['victoriac_custom_block_author_info'] = array(
+          '#type' => 'textarea',
+          '#title' => t('Author info'),
+          '#default_value' =>  variable_get('victoriac_custom_block_author_info', 'Victoria is a web developer working in Oxford, UK. She was born and raised in Singapore.'),
+          '#cols' => 60,
+          '#rows' => 5,
+          '#description' => t('Enter the content here in clean HTML code'),
+        );
+        $form['victoriac_custom_block_author_info_ja'] = array(
+          '#type' => 'textarea',
+          '#title' => t('Author info (Japanese)'),
+          '#default_value' =>  variable_get('victoriac_custom_block_author_info_ja', 'Victoria is a web developer working in Oxford, UK. She was born and raised in Singapore.'),
+          '#cols' => 60,
+          '#rows' => 5,
+          '#description' => t('Enter the Japanese Language content here in clean HTML code'),
+        );
+        $form['victoriac_custom_block_author_info_zh'] = array(
+          '#type' => 'textarea',
+          '#title' => t('Author info (Chinese)'),
+          '#default_value' =>  variable_get('victoriac_custom_block_author_info_zh', 'Victoria is a web developer working in Oxford, UK. She was born and raised in Singapore.'),
+          '#cols' => 60,
+          '#rows' => 5,
+          '#description' => t('Enter the Chinese Language content here in clean HTML code'),
+        );
+        $form['victoriac_custom_block_author_id'] = array(
+          '#type' => 'textfield',
+          '#title' => t('Author uid'),
+          '#default_value' =>  variable_get('victoriac_custom_block_author_id', '4'),
+          '#size' => 5,
+          '#maxlength' => 3,
+          '#description' => t('Enter the numeric uid of the site author'),
+        );
+        $form['victoriac_custom_block_author_link'] = array(
+          '#type' => 'textfield',
+          '#title' => t('Link to author profile'),
+          '#default_value' =>  variable_get('victoriac_custom_block_author_link', 'about'),
+          '#size' => 30,
+          '#maxlength' => 30,
+          '#description' => t("Enter the link for author profile as you would use in l(), eg, 'about'"),
+        );        
+      }
+      return $form;
+      
+    case 'save':
+
+      if ($delta == 2) {
+        // Have Drupal save the string to the database.
+        variable_set('victoriac_custom_block_author_info', $edit['victoriac_custom_block_author_info']);
+        variable_set('victoriac_custom_block_author_info_ja', $edit['victoriac_custom_block_author_info_ja']);
+        variable_set('victoriac_custom_block_author_info_zh', $edit['victoriac_custom_block_author_info_zh']);
+        variable_set('victoriac_custom_block_author_id', $edit['victoriac_custom_block_author_id']);
+        variable_set('victoriac_custom_block_author_link', $edit['victoriac_custom_block_author_link']);
+      }
+      return;
+      
+    case 'view': default:
+    
+      switch ($delta) {
+        case 0:
+          // The subject is displayed at the top of the block. Note that it
+          // should be passed through t() for translation.
+          $block['content'] = victoriac_custom_user_greeting_block_content();
+          break;
+        case 1:
+          $block['content'] = victoriac_custom_user_greeting_block_content();
+          break;
+        case 2:
+          $block['content'] = victoriac_custom_author_info_block_content();
+          break;    
+        case 3:
+          $block['content'] = victoriac_custom_breadcrumb_block_content();
+          break;                
+      }
+      return $block;
+  }
+}
+
+function victoriac_custom_user_greeting_block_content () {
+  global $user;
+  $output = "";
+  if ($user->uid) {
+    $output .= "<li>".l(t('Hello,').' '.$user->name, 'user/' . $user->uid)."</li>";
+    $output .= '<li class="divider">★</li>';
+    $output .= "<li>".l(t('Log out'), 'logout')."</li>";
+  } else {
+    $output .= "<li>".l(t('Tell me who you are'), 'user/register')."</li>";
+    $output .= '<li class="divider">★</li>';
+    $output .= "<li>".l(t('Log in'), 'user/login')."</li>";
+  }
+
+  $output = '<ul>'.$output.'</ul>';
+  return $output;
+}
+
+function victoriac_custom_breadcrumb_block_content () {
+  $breadcrumb = drupal_get_breadcrumb();
+  if ($breadcrumb) {
+    return theme_breadcrumb($breadcrumb);
+  } else {
+    return '';
+  }
+}
+
+function victoriac_custom_author_info_block_content () {
+  
+  // Get content for the active lang
+  
+  global $language ;
+  $lang_name = $language->language ;
+  if ($lang_name == 'ja') {
+    $form_content = variable_get('victoriac_custom_block_author_info_ja','');
+  } elseif ($lang_name == 'zh-hans') {
+    $form_content = variable_get('victoriac_custom_block_author_info_zh','');
+  } else {
+    $form_content = variable_get('victoriac_custom_block_author_info','');
+  }
+
+  // Get site author
+  
+  $uid = variable_get('victoriac_custom_block_author_id','0');
+  $site_author = user_load($uid);
+  if ($site_author) {  
+    // calling function in template.php, not sure how else to do this
+    $GLOBALS['site_author'] = $site_author; // Also set this for the leggy_preprocess_comment() in template.php. Should be moved to module vars.
+    $site_author_avatar = _leggy_make_avatar_thumb($site_author->name, $site_author->picture);  
+    $link_to = variable_get('victoriac_custom_block_author_link','');
+    
+    $output = $site_author_avatar;
+    $output .= '<p class="content_text">'.t($form_content).'</p>';
+    $output .= '<p class="more_link">'.l(t('More about Victoria').' »', $link_to).'</p>';
+    $output = '<div id="author_info">'.$output.'</div>';
+    return $output;
+  } else {
+    return 'Author not found';
+  }
+}

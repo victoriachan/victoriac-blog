@@ -41,10 +41,6 @@
           
           <?php print $site_slogan ?>
           <?php print $mission ?>
-          
-          <?php if ($breadcrumb) { ?>
-            <?php print $breadcrumb; // themename_breadcrumb in template.php ?>
-          <?php } ?>
 
           <div class="page_title">
             <?php if ($page_date): ?><?php print $page_date; ?><?php endif; ?>
@@ -77,11 +73,9 @@
  * Secondary Content
  */
  ?>
-      <?php if ($right OR $right_bottom): ?>
+      <?php if ($right): ?>
         <div class="secondary_content">
           <?php print $right; ?>
-          <?php include("includes/victoria_info.inc"); ?>
-          <?php print $right_bottom; ?>
         </div><!-- /#secondary_content -->
       <?php endif; ?>
       

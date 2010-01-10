@@ -26,7 +26,7 @@
 #top_bar{
   font-family: Georgia, "Times New Roman", Times, serif;
   letter-spacing:0.02em;
-  font-size:0.9em;
+  font-size:0.95em;
   color:#666;
   color:rgba(255,255,255,0.5);
   overflow:hidden;
@@ -80,31 +80,37 @@
 
 
 /* Header */
-.breadcrumb {
-  padding:5px 0 5px 70px;;
-  margin:0;
-  font-size:0.85em;
-  color:#444;
+#top_bar .breadcrumb {
+  position:absolute;
+  width:400px;
+  overflow:hidden;
+  left: 60px;
+  bottom: -2px;
+  color:#666;
+  line-height:normal;
 }
-  .breadcrumb a {
-    color:#444;
+  #top_bar .breadcrumb a {
+    color:#f1f1f1;
     text-decoration:none;
+    font-family: Tahoma, Verdana, Arial, Helvetica, "Bitstream Vera Sans", sans-serif;
+    letter-spacing:0.03em;
+    font-size:0.9em;
   }
-  .breadcrumb a.active,
-  .breadcrumb a:hover {
+  #top_bar .breadcrumb a:hover {
     text-decoration:none;
+    color:#666;
   }
 
 /* H1 and Page title */
 
 .page_title{
-  margin:20px 0 30px 0;
-  padding:0 0 0 70px;
+  margin: 0 0 30px 0;
+  padding:25px 0 0 70px;
   width:570px;
   position:relative;
 }
   .page_title .subtitle {
-    margin:-15px 0 15px 2px;
+    margin:0 0 0 2px;
   }
     .page_title .subtitle span {
       padding:1px 3px;
@@ -117,6 +123,7 @@
       font-style:italic;
     }
   .page_title h1{
+    padding-top:10px;
     text-shadow: 1px 0 3px rgba(0,0,0,0.2);
   }
 

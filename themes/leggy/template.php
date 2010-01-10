@@ -4,7 +4,6 @@
  * @file
  * template file for subtheme, leggy
  */
-$GLOBALS['site_owner_uid'] = 4;
 
 /**
  * Format a date field to nice blog-style date
@@ -233,12 +232,6 @@ function leggy_preprocess(&$vars, $hook) {
   
   // Replace funny kanji characters in section name
   $vars['body_classes'] = str_replace('-e6-bc-a2-e5-ad-97-e6-84-9f-e3-81-98', 'kanjikanji', $vars['body_classes']);
-
-  // Make victoria thumb available to every page
-  if (!$GLOBALS['site_author']){
-    $GLOBALS['site_author'] = user_load($GLOBALS['site_owner_uid']); // defined at top of this page
-    $GLOBALS['site_author_avatar'] = _leggy_make_avatar_thumb($GLOBALS['site_author']->name, $GLOBALS['site_author']->picture);
-  }
 }
 
 function leggy_preprocess_page(&$vars) {

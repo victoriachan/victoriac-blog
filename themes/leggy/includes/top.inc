@@ -25,17 +25,4 @@
     <?php endif; ?>    
     
     <div class="home"><a href="<?php print $base_path; ?>" title="<?php print t('Back to home'); ?>" rel="home"><?php print t('Home'); ?></a></div>
-    
-    <ul>
-      <?php // User Account block
-      if ($user->uid): ?>
-        <li><?php print l(t('Hello,').' '.$user->name, 'user/' . $user->uid); ?></li>
-        <li class="divider">★</li>
-        <li><?php print l(t('Log out'), 'logout'); ?></li>
-      <?php else: ?>
-        <li><?php print l(t('Tell me who you are'), 'user/register'); ?></li>
-        <li class="divider">★</li>
-        <li><?php print l(t('Log in'), 'user/login'); ?></li>
-      <?php endif; ?>
-    </ul>
   </div></div><!-- /#top_bar /.inner -->
