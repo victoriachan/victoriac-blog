@@ -79,9 +79,6 @@ function _leggy_tag_cloud($result) {
     if ($value->term_node_count_node_count != 0) {
       
       $count = $value->term_node_count_node_count;
-      if ($value->term_node_count_node_count > 9) {
-        $count = 10;
-      };
       
       $options['attributes']['title'] = $value->term_node_count_node_count . ' post';
       if ($value->term_node_count_node_count > 1) {
@@ -89,6 +86,10 @@ function _leggy_tag_cloud($result) {
       }
       $options['attributes']['title'] = t($options['attributes']['title'].' containing '. $value->term_data_name);
       
+      // cap the max count at 10
+      if ($count > 10 ) {
+        $count = 'max';
+      }
       $terms_output .= '<li class="count_'.$count.'">';
       $terms_output .= l(t($value->term_data_name), 'taxonomy/term/'.$value->tid, $options);
       $terms_output .= '</li>';
@@ -109,14 +110,14 @@ function _leggy_output_ago_date($date_raw, $show_date='true') {
    * Show Today, Yesterday or full date
    */
   $date_dd_mm_yyyy = format_date($date_raw, 'custom', 'd-m-Y');
-  $display_date = 'On '.format_date($date_raw, 'medium') . ',';
   $todays_date = format_date(time(), 'custom', 'd-m-Y');
+  $display_date = 'On '.format_date($date_raw, 'medium') . ',';
   $posts_date = $date_dd_mm_yyyy;
   
   if ($todays_date == $posts_date) {
     $display_date = 'Today';
   } else {
-    $dateDiff = time() - $date_raw;
+    $dateDiff = strtotime($todays_date) - strtotime($posts_date);
     $fullDays = floor($dateDiff/(60*60*24));
     if ($fullDays <= 1) {
       $display_date = 'Yesterday';
@@ -156,6 +157,9 @@ function _leggy_get_today_title($node, $orig_title, $link_to_node='false', $show
   if ($show_as_today) {
     $prefix = 'Today';
   }
+  
+  // Translate prefix
+  //$prefix = t($prefix);
     
   // Optional link in prefix
   if (strlen($prefix) && $link_to_node) {
@@ -267,7 +271,7 @@ function leggy_preprocess_node(&$vars) {
   
   // Load the usual node stuff
     leggy_preprocess_node_default($vars);
-  }
+  }  
 }
 
 function leggy_preprocess_node_default(&$vars) {
@@ -307,6 +311,15 @@ function leggy_preprocess_node_default(&$vars) {
       }
     }
     $vars['terms'] = theme('links', taxonomy_link('taxonomy terms', $vars['node']));   
+}
+
+function leggy_preprocess_node_page(&$vars) {
+  // usual node stuff
+  //leggy_preprocess_node_default($vars);
+  drupal_add_css(path_to_theme() . '/css/node.css', 'theme');
+  if ($vars['page']){
+    drupal_add_css(path_to_theme() . '/css/page.css', 'theme');
+  }
 }
 
 function leggy_preprocess_node_recipe(&$vars) {
@@ -379,20 +392,14 @@ function leggy_preprocess_views_view__topics(&$vars) {
  * Implementation of hook_link_alter() for node_link() in node module to always show 'Read More' link.
  */
 function node_link_alter(&$links, $node) {
-  foreach ($links as $module => $link) {
-    if (strstr($module, 'comment')) {
-      if ($node->teaser && ($node->type != 'today')) {
-        $links['node_read_more'] = array(
-          'title' => t('Read more »'),
-          'href' => "node/$node->nid",
-          // The title attribute gets escaped when the links are processed, so
-          // there is no need to escape here.
-          'attributes' => array('title' => t('Read the rest of !title.', array('!title' => $node->title)))
-        );
-      }
-    } 
-    else if (strstr($module, 'taxonomy_term')) {
-      // Remove Section on taxonomy term links
+  // Use 'Read more »' instead of 'Read more'
+  if (isset($links['node_read_more'])) {
+    $links['node_read_more']['title'] = t('Read more »');
+  } 
+  
+  // Remove Section on taxonomy term links
+  foreach ($links as $module => $link) {    
+    if (strstr($module, 'taxonomy_term')) {
       foreach ($links as $key => $value) {
         if ($value['title'] == 'Life' || 
             $value['title'] == 'Geek') {
@@ -414,7 +421,8 @@ function leggy_preprocess_comment(&$vars) {
 
   // sets avatar image
    $vars['picture'] = _leggy_make_avatar_thumb($vars['comment']->name, $vars['comment']->picture);
-   if ($vars['comment']->name == $GLOBALS['site_author']->name) {
+   if ($vars['comment']->name == $GLOBALS['site_author']->name) { 
+     //$GLOBALS['site_author'] is set by Victoria Custom module code for Author info block
       $vars['is_author_comment'] = true;
       $vars['submitted'] = 'Submitted by '.l($vars['comment']->name, 'about').' on '.$vars['date'];
    }

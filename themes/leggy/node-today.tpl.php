@@ -76,7 +76,7 @@
   <?php if ($tabs): ?>
     <?php print $tabs; ?>
   <?php endif; ?>
-
+  
   <div class="comments">
     <?php print $links; ?>
   </div>
@@ -84,4 +84,7 @@
 </div> <!-- /node -->
 <?php else: ?>
   <?php print $blog_date; ?>
+  <div class="comments">
+    <?php print $links; ?>
+  </div>  
 <?php endif; ?>

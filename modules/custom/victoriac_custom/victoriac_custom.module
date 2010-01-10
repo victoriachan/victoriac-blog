@@ -7,9 +7,15 @@
  */
 
 function victoriac_custom_nodeapi(&$node, $op, $teaser, $page) {
+  // Add wrapper class to node body field
   if ($op == 'view') {
     $node->content['body']['#value'] = "<div class=\"node-body\">" . 
       $node->content['body']['#value'] . "</div>";
+  }
+  
+  // Always show 'read more'
+  if ($op == 'view' && $teaser && ($node->type != 'today')) {
+    $node->readmore = true;
   }
 }
 
@@ -129,7 +135,7 @@ function victoriac_custom_user_greeting_block_content () {
     $output .= "<li>".l(t('Log in'), 'user/login')."</li>";
   }
 
-  $output = '<ul>'.$output.'</ul>';
+  $output = '<ul class="user_greeting">'.$output.'</ul>';
   return $output;
 }
 

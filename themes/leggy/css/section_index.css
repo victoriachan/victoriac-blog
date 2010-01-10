@@ -57,6 +57,7 @@
     .view-topics li.count_8 { font-size:2.5em; }
     .view-topics li.count_9 { font-size:2.7em; }
     .view-topics li.count_10 { font-size:3em; }
+    .view-topics li.count_max { font-size:3.2em; }
     
     .view-topics li:nth-of-type(11),
     .view-topics li:nth-of-type(2) {

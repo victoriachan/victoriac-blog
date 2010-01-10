@@ -1,0 +1,26 @@
+/* 
+ * CSS for page node-type
+ */
+body.page-node .page_content {
+  padding:10px 0;
+}
+body.page-node .node {
+  background-color:transparent;
+  background-color:rgba(0,0,0,0.1);
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  
+  width:580px;
+  padding:20px 40px;
+  margin:0 15px;
+  color:#444;
+  font-size:1.2em;
+  text-shadow: 1px 0 1px rgba(0,0,0,0.1);
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+  body.page-node .node .node_content {
+    width:100%;
+    padding:0;
+    margin:0;
+  }

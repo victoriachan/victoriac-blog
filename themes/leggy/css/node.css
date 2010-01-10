@@ -1,4 +1,7 @@
 /* Node */
+#main_wrapper {
+  padding-bottom:30px;
+}
 .node-teaser div.fieldgroup {
   margin: 0;
   padding:0 0 1.5em 0;
@@ -26,6 +29,7 @@
 }
   body.page-node .node {
     padding:40px 0 10px 0;
+    margin-bottom:40px;
   }
   .node p {
     margin:1.5em 0;
@@ -33,6 +37,7 @@
   .node li {
     margin:1em 0;
   }
+
 
 /* Flickr image */
 .node-teaser-review .field-embedded-video,
@@ -303,6 +308,9 @@ body.page-node .field-file-image-multiple {
       .node-teaser .comments li.first{
         padding-left:0;
         background-image:none;
+      }
+      .node-teaser .comments li.comment_forbidden {
+        display:inline;
       }
       
 /* Admin devel */

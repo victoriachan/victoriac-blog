@@ -5,6 +5,7 @@ ul.links .comment_forbidden {
   height:30px;
   margin-bottom:20px;
 }
+body.page-node .comment_forbidden,
 #comments {
   clear:both;
   background-color:#ccc;
@@ -23,6 +24,10 @@ ul.links .comment_forbidden {
   -khtml-border-radius: 14px;
   border-radius: 14px;
 }
+  body.page-node .comment_forbidden {
+    padding:20px 30px 10px 30px;
+    margin-bottom:10px;
+  }
   #comments h2{
     color:#666;
     color:rgba(0,0,0,0.4);
