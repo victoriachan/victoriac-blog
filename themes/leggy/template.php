@@ -29,17 +29,18 @@ function _leggy_make_blog_date($datefield, $link = null) {
  */
 function _leggy_make_avatar_thumb($username, $userpicture = null) {
   
-  $tmp_link = 'user/'.$username;
-  if($username == $GLOBALS['site_author']->name) {
-    $tmp_link = 'about';
+  $this_link = 'user/'.$username;
+  $site_author = user_load(variable_get('victoriac_custom_site_author_id','1'));
+  if($username == $site_author->name) {
+    $this_link = 'about';
   }
   
   if($userpicture){
-    $tmp_img = theme('imagecache','avatar',$userpicture, $username, $username);
+    $this_img = theme('imagecache','avatar',$userpicture, $username, $username);
   }else{
-    $tmp_img = theme('image', path_to_theme().'/images/avatar_thumb.png' , $username, $username);
+    $this_img = theme('image', path_to_theme().'/images/avatar_thumb.png' , $username, $username);
   }
-  $ret = l($tmp_img, $tmp_link, array(html=>true, attributes=>array('class' => 'avatar_thumb')));
+  $ret = l($this_img, $this_link, array(html=>true, attributes=>array('class' => 'avatar_thumb')));
   
   return $ret;
 }
@@ -435,8 +436,9 @@ function leggy_preprocess_comment(&$vars) {
 
   // sets avatar image
    $vars['picture'] = _leggy_make_avatar_thumb($vars['comment']->name, $vars['comment']->picture);
-   if ($vars['comment']->name == $GLOBALS['site_author']->name) { 
-     //$GLOBALS['site_author'] is set by Victoria Custom module code for Author info block
+   $site_author = user_load(variable_get('victoriac_custom_site_author_id','1'));
+   if ($vars['comment']->name == $site_author->name) { 
+     //$victoriac_custom_site_author_id is set by Victoria Custom module
       $vars['is_author_comment'] = true;
       $vars['submitted'] = 'Submitted by '.l($vars['comment']->name, 'about').' on '.$vars['date'];
    }

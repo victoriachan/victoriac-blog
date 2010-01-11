@@ -2,10 +2,33 @@
 // $Id$
 
 /**
- * Add wrapper around body field
- * http://capellic.com/blog/theming-the-node-body-field
+ * @file
+ * Some Victoriac quick and dirty site specific customisation
  */
 
+/**
+ * Implementation of hook_menu()
+ */
+function victoriac_custom_menu() {
+  $items['admin/settings/victoriac_custom'] = array(
+      'title' => 'Victoriac Custom settings',
+      'description' => 'Set Victoriac Custom variables.',
+      'page callback' => 'drupal_get_form',
+      'page arguments' => array('victoriac_custom_admin_settings'),
+      'access arguments' => array('administer site configuration'),
+      'type' => MENU_NORMAL_ITEM,
+      'file' => 'victoriac_custom.admin.inc',
+    );
+    
+    return $items;
+}
+
+ /**
+ * Implementation of hook_nodeapi()
+ *
+ * Add wrapper around body field
+ * See http://capellic.com/blog/theming-the-node-body-field
+ */
 function victoriac_custom_nodeapi(&$node, $op, $teaser, $page) {
   // Add wrapper class to node body field
   if ($op == 'view') {
@@ -69,14 +92,6 @@ function victoriac_custom_block($op = 'list', $delta = 0, $edit = array()) {
           '#rows' => 5,
           '#description' => t('Enter the Chinese Language content here in clean HTML code'),
         );
-        $form['victoriac_custom_block_author_id'] = array(
-          '#type' => 'textfield',
-          '#title' => t('Author uid'),
-          '#default_value' =>  variable_get('victoriac_custom_block_author_id', '4'),
-          '#size' => 5,
-          '#maxlength' => 3,
-          '#description' => t('Enter the numeric uid of the site author'),
-        );
         $form['victoriac_custom_block_author_link'] = array(
           '#type' => 'textfield',
           '#title' => t('Link to author profile'),
@@ -95,7 +110,6 @@ function victoriac_custom_block($op = 'list', $delta = 0, $edit = array()) {
         variable_set('victoriac_custom_block_author_info', $edit['victoriac_custom_block_author_info']);
         variable_set('victoriac_custom_block_author_info_ja', $edit['victoriac_custom_block_author_info_ja']);
         variable_set('victoriac_custom_block_author_info_zh', $edit['victoriac_custom_block_author_info_zh']);
-        variable_set('victoriac_custom_block_author_id', $edit['victoriac_custom_block_author_id']);
         variable_set('victoriac_custom_block_author_link', $edit['victoriac_custom_block_author_link']);
       }
       return;
@@ -163,12 +177,9 @@ function victoriac_custom_author_info_block_content () {
   }
 
   // Get site author
-  
-  $uid = variable_get('victoriac_custom_block_author_id','0');
-  $site_author = user_load($uid);
+  $site_author = user_load(variable_get('victoriac_custom_site_author_id','1'));
   if ($site_author) {  
     // calling function in template.php, not sure how else to do this
-    $GLOBALS['site_author'] = $site_author; // Also set this for the leggy_preprocess_comment() in template.php. Should be moved to module vars.
     $site_author_avatar = _leggy_make_avatar_thumb($site_author->name, $site_author->picture);  
     $link_to = variable_get('victoriac_custom_block_author_link','');
     
