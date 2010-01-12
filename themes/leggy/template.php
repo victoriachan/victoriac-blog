@@ -383,7 +383,7 @@ function leggy_preprocess_node_today(&$vars) {
  */
 
 function leggy_preprocess_views_view__section_listing(&$vars) {
-  if (substr($vars['view']->current_display,0,4)  == 'page_') {
+  if (substr($vars['view']->current_display,0,5)  == 'page_') {
     drupal_add_css(path_to_theme() . '/css/section_index.css', 'theme');
   }
 }
