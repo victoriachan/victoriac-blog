@@ -295,6 +295,9 @@
     text-shadow: 1px 1px 5px #666;
   }
     #block-menu-primary-links .first a{
+      -webkit-transform: rotate(-2deg) ;
+      -moz-transform: rotate(-2deg) ;
+      transform: rotate(-2deg) ;
     }
     #block-menu-primary-links .leaf:nth-of-type(2) a{
       -webkit-transform: rotate(3deg) ;

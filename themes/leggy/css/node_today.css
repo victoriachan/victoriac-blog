@@ -71,7 +71,7 @@ body.page-node h1 span {
   }
   
 body.page-node .page_title {
-  margin:20px 0 30px;
+  margin:20px 0 15px 0;
   padding:0 0 0 20px;
   position:relative;
   width:570px;
@@ -83,6 +83,24 @@ body.page-node .page_title {
     -moz-transform: rotate(6deg) ;
     transform: rotate(6deg) ;
   }
+  body.page-node .links {
+    text-align:right;
+    margin:0 0 0 70px;
+    padding:0;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    letter-spacing:0.01em;  
+    font-style:italic;    
+  }
+  
+    body.page-node .links a{
+      font-size:1.2em;
+      font-weight:bold;
+      text-decoration:none;
+      color:rgba(0, 0, 0, 0.5);
+    }
+      body.page-node .links a:hover{
+        color:#222;
+      }    
   
   
 /* node */

@@ -57,19 +57,19 @@ body.node-type-homepage .node-homepage {
 
 /* Menu */
 #block-menu-primary-links .first a{
-  -webkit-transform: rotate(2deg) ;
-  -moz-transform: rotate(2deg) ;
-  transform: rotate(2deg) ;
-}
-#block-menu-primary-links .leaf:nth-of-type(2) a{
   -webkit-transform: rotate(-1deg) ;
   -moz-transform: rotate(-1deg) ;
   transform: rotate(-1deg) ;
 }
-#block-menu-primary-links .leaf:nth-of-type(3) a{
+#block-menu-primary-links .leaf:nth-of-type(2) a{
   -webkit-transform: rotate(3deg) ;
   -moz-transform: rotate(3deg) ;
   transform: rotate(3deg) ;
+}
+#block-menu-primary-links .leaf:nth-of-type(3) a{
+  -webkit-transform: rotate(1deg) ;
+  -moz-transform: rotate(1deg) ;
+  transform: rotate(1deg) ;
 }  
 #block-menu-primary-links .last a{
   -webkit-transform: rotate(-1deg) ;
@@ -191,12 +191,50 @@ body.node-type-homepage .node-homepage {
 /* Row 1 */
 #homepage_row_1 {
   overflow:hidden;
+  width:900px;
+  padding:0 0 0 40px;
 }
+  #homepage_row_1 .block {
+    width:30%;
+    float:left;
+  }
 
 /* Today listing */
-.block-views-section-listing-block-1 {
-  font-size:0.6em;
+#block-views-section-listing-block-1 h3 {
+  font-size:2em;
+  font-style:italic;
 }
+#block-views-section-listing-block-1 ul,
+#block-views-section-listing-block-1 li {
+  list-style-image:none;
+  list-style-type:none;
+  margin:0;
+  padding:0;
+}
+  #block-views-section-listing-block-1 .view-content {
+    overflow:hidden;
+  }
+    #block-views-section-listing-block-1 .view-content .node {
+      font-size:1.1em;
+      font-family: Georgia, "Times New Roman", Times, serif;
+      letter-spacing:0.03em;
+    }
+      #block-views-section-listing-block-1 .view-content .node .prefix {
+        font-size:1.3em;
+        
+        font-weight:bold;
+        text-decoration:none;
+        color:#666;
+        color:rgba(0,0,0,0.3);
+      }
+        #block-views-section-listing-block-1 .view-content .node .prefix:hover {
+          color:#ff3300;
+          text-decoration:none;
+        }
+      #block-views-section-listing-block-1 .view-content .node .title {
+        padding:0 0 0 1em;
+        margin:0;
+      }
 
 /* Admin devel */
 body.page-node #admin_tabs_top{

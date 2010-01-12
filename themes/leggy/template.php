@@ -134,11 +134,10 @@ function _leggy_output_ago_date($date_raw, $show_date='true') {
 /**
  * Take in node and original title, and return 'Today xxx' title if applicable
  */
-function _leggy_get_today_title($node, $orig_title, $link_to_node='false', $show_as_today=false) {
+function _leggy_get_today_title($node, $orig_title, $link_to_node=false, $show_as_today=false, $output_as_dl=false) {
 
   // Get prefix for today's title eg. 'Today', 'Yesterday'..
   $prefix = _leggy_output_ago_date($node->created);
-  
   $title = $orig_title;
 
   // Replace the title with the body or present tense text
@@ -158,19 +157,20 @@ function _leggy_get_today_title($node, $orig_title, $link_to_node='false', $show
   if ($show_as_today) {
     $prefix = 'Today';
   }
-  
-  // Translate prefix
-  //$prefix = t($prefix);
     
   // Optional link in prefix
   if (strlen($prefix) && $link_to_node) {
-    $prefix = l($prefix, 'node/'.$node->nid, array(html=>true, attributes=>array('class' => 'prefix')));
+    $prefix = l($prefix, 'node/'.$node->nid, array(html=>true, attributes=>array('class' => 'prefix' . ($prefix=='Today' ? ' today':''), 'title' => format_date($node->created, 'medium'))));
   } else {
-    $prefix = '<span class="prefix">'.$prefix . '</span>';
+    $prefix = '<span class="prefix'. ($prefix=='Today' ? ' today':'') .'">'.$prefix . '</span>';
   }
   
   if (strlen($prefix)) {
+    if (!$output_as_dl) {
       return $prefix . ' <span class="title">' . str_replace('p>', 'span>', $title) . '</span>';
+    } else {
+      return '<dl><dt>'.$prefix . '</dt><dd class="title">' . str_replace('p>', 'span>', $title) . '</dd></dl>';
+    }
   } else {
       return '<span class="title title_no_prefix">' . str_replace('p>', 'span>', $title) . '</span>';
   }
@@ -362,15 +362,21 @@ function leggy_preprocess_node_kanjikanji(&$vars) {
 
 function leggy_preprocess_node_today(&$vars) {
   if (!$vars['is_front']) {
+    
     drupal_add_css(path_to_theme() . '/css/node.css', 'theme');
     $vars['terms'] = null;
-  }
-  
-  if (!$vars['page']) {
-    $vars['blog_date'] = _leggy_make_blog_date($vars['node']->created, 'node/'.$vars['node']->nid);
-    $vars['title'] = _leggy_get_today_title($vars['node'], $vars['title'], true);
+
+    if (!$vars['page']) {
+      $vars['blog_date'] = _leggy_make_blog_date($vars['node']->created, 'node/'.$vars['node']->nid);
+      $vars['title'] = _leggy_get_today_title($vars['node'], $vars['title'], true);
+    } else {
+      $vars['links'] = theme('links', array('more' => array( 'title' => 'Back to Today »', 'href' => 'today' )));
+      drupal_add_css(path_to_theme() . '/css/node_today.css', 'theme');
+    }
+
   } else {
-    drupal_add_css(path_to_theme() . '/css/node_today.css', 'theme');
+    // for front page
+    $vars['title'] = _leggy_get_today_title($vars['node'], $vars['title'], true, false, true);
   }
 
   unset($vars['content']);

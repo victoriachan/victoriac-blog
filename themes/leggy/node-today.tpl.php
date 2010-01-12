@@ -62,15 +62,12 @@
 
 <?php if (!$page): ?>    
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?>">
-
-  <?php if ($blog_date): ?>
-      <?php print $blog_date; ?>
-  <?php endif; ?>
   
   <?php if (!$is_front): ?>
+    <?php print $blog_date; ?>
     <h2 class="title"><?php print $title; ?></h2>
   <?php else: ?>
-    <h3 class="title"><?php print $title; ?></h3>
+    <?php print $title; ?>
   <?php endif; ?>
   
   <?php if ($unpublished): ?>
