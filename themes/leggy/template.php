@@ -74,7 +74,7 @@ function _leggy_is_admin() {
 /**
  * Take in results of term node count, and return output for tag cloud
  */
-function _leggy_tag_cloud($result) {
+function _leggy_tag_cloud($result, $max_count=10) {
   $terms_output = '';
   foreach($result as $key => $value) {
     if ($value->term_node_count_node_count != 0) {
@@ -88,7 +88,7 @@ function _leggy_tag_cloud($result) {
       $options['attributes']['title'] = t($options['attributes']['title'].' containing '. $value->term_data_name);
       
       // cap the max count at 10
-      if ($count > 10 ) {
+      if ($count > $max_count ) {
         $count = 'max';
       }
       $terms_output .= '<li class="count_'.$count.'">';
@@ -244,8 +244,7 @@ function leggy_preprocess_page(&$vars) {
   
   // Assign section name as subtitle
   $vars['page_subtitle'] = _leggy_get_section_name($vars['node']);  
-  //dsm($vars['node']->type);
-  
+
   // Format Today titles
   if ($vars['node']->type == 'today') {
     $vars['page_title'] = _leggy_get_today_title($vars['node'], $vars['title'], false, true);
@@ -315,7 +314,12 @@ function leggy_preprocess_node_default(&$vars) {
 }
 
 function leggy_preprocess_node_homepage(&$vars) {
-  drupal_add_css(path_to_theme() . '/css/homepage.css', 'theme');
+  drupal_add_css(path_to_theme() . '/css/node_homepage.css', 'theme');
+  
+  // To access regions in nodes
+  $vars['homepage_row_1'] = theme('blocks', 'homepage_row_1');
+  $vars['homepage_row_2'] = theme('blocks', 'homepage_row_2');  
+  
   // Show the right language intro (Translation is buggy)
   global $language ;
   $lang_name = $language->language;
@@ -326,14 +330,13 @@ function leggy_preprocess_node_homepage(&$vars) {
   } else {
     $vars['content'] = $vars['field_intro_en_rendered'];
   }
-  
 }
 
 function leggy_preprocess_node_page(&$vars) {
   // usual node stuff
   drupal_add_css(path_to_theme() . '/css/node.css', 'theme');
   if ($vars['page']){
-    drupal_add_css(path_to_theme() . '/css/page.css', 'theme');
+    drupal_add_css(path_to_theme() . '/css/node_page.css', 'theme');
   }
 }
 
@@ -341,7 +344,7 @@ function leggy_preprocess_node_recipe(&$vars) {
   // usual node stuff
   leggy_preprocess_node_default($vars);
   if ($vars['page']){
-    drupal_add_css(path_to_theme() . '/css/recipe.css', 'theme');
+    drupal_add_css(path_to_theme() . '/css/node_recipe.css', 'theme');
   }
 }
 
@@ -354,18 +357,20 @@ function leggy_preprocess_node_kanjikanji(&$vars) {
     $vars['glossary_terms'] = _format_glossary_term($vars['node']);
   }
   
-  drupal_add_css(path_to_theme() . '/css/kanjikanji.css', 'theme');
+  drupal_add_css(path_to_theme() . '/css/node_kanjikanji.css', 'theme');
 }
 
 function leggy_preprocess_node_today(&$vars) {
-  drupal_add_css(path_to_theme() . '/css/node.css', 'theme');
-  $vars['terms'] = null;
+  if (!$vars['is_front']) {
+    drupal_add_css(path_to_theme() . '/css/node.css', 'theme');
+    $vars['terms'] = null;
+  }
   
   if (!$vars['page']) {
     $vars['blog_date'] = _leggy_make_blog_date($vars['node']->created, 'node/'.$vars['node']->nid);
     $vars['title'] = _leggy_get_today_title($vars['node'], $vars['title'], true);
   } else {
-    drupal_add_css(path_to_theme() . '/css/today.css', 'theme');
+    drupal_add_css(path_to_theme() . '/css/node_today.css', 'theme');
   }
 
   unset($vars['content']);
@@ -377,13 +382,15 @@ function leggy_preprocess_node_today(&$vars) {
  * Views
  */
 
-function leggy_preprocess_views_view__section_listing(&$vars) {  
-  drupal_add_css(path_to_theme() . '/css/section_index.css', 'theme');
+function leggy_preprocess_views_view__section_listing(&$vars) {
+  if (substr($vars['view']->current_display,0,4)  == 'page_') {
+    drupal_add_css(path_to_theme() . '/css/section_index.css', 'theme');
+  }
 }
 
 function leggy_preprocess_views_view__section_listing__page_4(&$vars) {  
   drupal_add_css(path_to_theme() . '/css/section_index.css', 'theme');
-  drupal_add_css(path_to_theme() . '/css/today.css', 'theme');
+  drupal_add_css(path_to_theme() . '/css/node_today.css', 'theme');
   
   // hide attachment for inner pages
   if ($vars['view']->pager['current_page'] > 0) {
@@ -398,7 +405,9 @@ function leggy_preprocess_views_view__section_listing__page_4(&$vars) {
 }
 
 function leggy_preprocess_views_view__topics(&$vars) {  
-  drupal_add_css(path_to_theme() . '/css/section_index.css', 'theme');
+  if ($vars['view']->current_display == 'page_1') {
+    drupal_add_css(path_to_theme() . '/css/section_index.css', 'theme');
+  }
   $vars['rows'] = _leggy_tag_cloud($vars['view']->result);
 }
 

@@ -74,17 +74,10 @@
   <?php if ($tabs): ?>
     <?php print $tabs; ?>
   <?php endif; ?>
-  
-  <?php 
-  /**
-   * node_top
-   */
-  if ($page && $node_top): ?>
-    <?php print $node_top; ?>
-  <?php endif; ?>  
-  
-  <?php print $content; ?>
 
+
+  <?php print $content; ?>
+  
   <?php 
   /**
    * node_bottom
@@ -93,6 +86,18 @@
     <?php print $node_bottom; ?>
   <?php endif; ?>
 </div> <!-- /node -->
+
+<?php if ($page && $homepage_row_1): ?>
+<div id="homepage_row_1">  
+  <?php print $homepage_row_1; ?>
+</div>
+<?php endif; ?>
+
+<?php if ($page && $homepage_row_2): ?>
+<div id="homepage_row_2">  
+  <?php print $homepage_row_2; ?>
+</div>
+<?php endif; ?>
 
 <?php if ($page): ?>
   <?php print $links; ?>

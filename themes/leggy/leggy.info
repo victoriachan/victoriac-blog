@@ -7,9 +7,11 @@ base theme = mothership
 ;--------------------- regions -----------------------------
 regions[top_bar]        = top bar
 regions[content_top]    = content top
-regions[content_bottom] = content bottom
 regions[node_top]       = node top
 regions[node_bottom]    = node bottom
+regions[homepage_row_1] = homepage row 1
+regions[homepage_row_2] = homepage row 2
+regions[content_bottom] = content bottom
 regions[right]          = right sidebar
 regions[footer]         = footer
 
@@ -33,6 +35,9 @@ stylesheets[all][]    = css/user_profile.css
 stylesheets[all][]    = css/comments.css
 stylesheets[print][]    = css/print.css
 ie stylesheets[ condition ][all][] = css/ie.css
+
+;--------------------- javascript ------------------------------
+scripts[] = javascript/site.js
 
 ; Information added by drupal.org packaging script on 2009-11-16
 version = "6.x-1.1"

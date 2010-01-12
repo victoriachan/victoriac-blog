@@ -66,9 +66,13 @@
   <?php if ($blog_date): ?>
       <?php print $blog_date; ?>
   <?php endif; ?>
-
-  <h2 class="title"><?php print $title; ?></h2>
-
+  
+  <?php if (!$is_front): ?>
+    <h2 class="title"><?php print $title; ?></h2>
+  <?php else: ?>
+    <h3 class="title"><?php print $title; ?></h3>
+  <?php endif; ?>
+  
   <?php if ($unpublished): ?>
     <div class="unpublished"><?php print t('Unpublished'); ?></div>
   <?php endif; ?>
@@ -77,9 +81,11 @@
     <?php print $tabs; ?>
   <?php endif; ?>
   
+  <?php if (!$is_front): ?>
   <div class="comments">
     <?php print $links; ?>
   </div>
+  <?php endif; ?>
 
 </div> <!-- /node -->
 <?php else: ?>
