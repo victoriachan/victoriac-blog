@@ -94,8 +94,10 @@ body, caption, th, td, input, textarea, select, option, legend, fieldset
 
 /** headings **/
 h1 {
-  font-family: Helvetica, Arial, "Bitstream Vera Sans", sans-serif;
-  font-size: 3.5em;
+  /* font-family: Helvetica, Arial, "Bitstream Vera Sans", sans-serif;  */
+  font-family: Georgia, "Times New Roman", Times, serif; 
+  font-style:italic;
+  font-size: 3.7em;
   color:#000;
   font-weight:bold;
   line-height: 0.8em;

@@ -2,7 +2,7 @@
 .attachment {
   margin:-15px 0 0 0;
   padding: 0 0 25px 10px;
-  width:650px;
+  width:640px;
 }
   .attachment p {
     margin:0;
@@ -19,23 +19,30 @@
   }
     .attachment .node-teaser h2.title span.title {
       font-size:1em;
+      font-weight:normal;
+      font-style:normal;
     }
   .attachment .node-teaser .comments {
     margin-left:0;
     font-size:1.2em;
   }
 
-/* View page title */
-.page_title h1.title .date {
+/* View Page title */
+body.view-today .page_title h1.title{
+  font-family: Tahoma, Verdana, Arial, Helvetica, "Bitstream Vera Sans", sans-serif;
+  font-style:normal; 
+}
+body.view-today .page_title h1.title .date {
   font-size:0.2em;
   line-height:normal;
   padding:3px 5px 2px 2px;
   background-color:rgba(0,0,0,0.1);
   color:rgba(0,0,0,0.3);
 } 
-.page_content {
+body.view-today .page_content {
   padding-left:15px;
 }
+
 /* node page */
 body.page-node h1 {
   overflow:hidden;
@@ -52,6 +59,9 @@ body.page-node h1 span {
     color:rgba(0,0,0,0.3);
     font-weight:bold;
     text-shadow:none;
+    font-family: Tahoma, Verdana, Arial, Helvetica, "Bitstream Vera Sans", sans-serif;
+    font-style:normal;
+    letter-spacing:-0.03em;
   }
   body.page-node h1 span.title {
     font-size:0.7em;
@@ -128,12 +138,14 @@ body.page-node .page_title {
     color:#666;
     color:rgba(0,0,0,0.3);
   }
+    body.view-today .node-teaser-today h2.title .prefix{
+      font-family: Tahoma, Verdana, Arial, Helvetica, "Bitstream Vera Sans", sans-serif;
+    }  
   .node-teaser-today h2.title span.title {
     font-size:0.9em;
     letter-spacing:0.03em;
     display:block;
     font-style:italic;
-    font-family: Georgia, "Times New Roman", Times, serif;
   }
     .node-teaser-today h2.title span.title a{
       color:#222;

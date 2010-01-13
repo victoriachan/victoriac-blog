@@ -254,6 +254,7 @@ function leggy_preprocess_page(&$vars) {
   // add date to Today index listing page
   if ($_GET['q'] == 'today') {
     $vars['title'] = $vars['title'].'<span class="date"> '.format_date(time(), 'medium').'</span>';
+    $vars['body_classes'] .= ' view-today';
   }
 }
 

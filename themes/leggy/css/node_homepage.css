@@ -216,12 +216,11 @@ body.node-type-homepage .node-homepage {
   }
     #block-views-section-listing-block-1 .view-content .node {
       font-size:1.1em;
-      font-family: Georgia, "Times New Roman", Times, serif;
-      letter-spacing:0.03em;
     }
       #block-views-section-listing-block-1 .view-content .node .prefix {
         font-size:1.3em;
-        
+        font-family: Tahoma, Verdana, Arial, Helvetica, "Bitstream Vera Sans", sans-serif;
+        letter-spacing:0.03em;
         font-weight:bold;
         text-decoration:none;
         color:#666;
@@ -234,6 +233,9 @@ body.node-type-homepage .node-homepage {
       #block-views-section-listing-block-1 .view-content .node .title {
         padding:0 0 0 1em;
         margin:0;
+        font-style:italic;
+        font-family: Georgia, "Times New Roman", Times, serif;
+        letter-spacing:0.03em;        
       }
 
 /* Admin devel */

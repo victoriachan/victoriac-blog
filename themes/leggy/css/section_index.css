@@ -10,6 +10,10 @@
   line-height:1.3em;
   padding-top:5px;
 }
+  body.page-kanjikanji .page_title h1 {
+    font-family: Tahoma, Verdana, Arial, Helvetica, "Bitstream Vera Sans", sans-serif;
+    font-style:normal;
+  }
 
 .intro {
   font-family: Georgia, "Times New Roman", Times, serif;

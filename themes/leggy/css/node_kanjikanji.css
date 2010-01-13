@@ -1,6 +1,15 @@
 .page_title h1 {
   padding-left:10px;
 }
+body.page-node .page_title h1.title{
+  font-family: Tahoma, Verdana, Arial, Helvetica, "Bitstream Vera Sans", sans-serif;
+  font-style:normal; 
+  padding-top:10px;
+}
+    body.page-node .page_title .subtitle span {
+      font-size:1.3em;
+      font-style:italic;
+    }
 
 .node-teaser-kanjikanji h2.title {
   font-family:Georgia,"Times New Roman",Times,serif;
