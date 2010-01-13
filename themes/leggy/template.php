@@ -214,6 +214,17 @@ function _leggy_get_section_name($node) {
     return ' 漢字感じ:';
   }
   return null;
+}
+
+function _leggy_remove_css($filepath, $styles) {
+  $arr_styles = explode("\n",$styles);
+  foreach ($arr_styles as $rownum => $css_string) {
+    if (strstr($css_string, $filepath)) {
+      unset($arr_styles[$rownum]);
+    }
+  }
+  $arr_styles = array_values($arr_styles);
+  return implode("\n",array_values($arr_styles));
 } 
 
 /**
@@ -255,6 +266,11 @@ function leggy_preprocess_page(&$vars) {
   if ($_GET['q'] == 'today') {
     $vars['title'] = $vars['title'].'<span class="date"> '.format_date(time(), 'medium').'</span>';
     $vars['body_classes'] .= ' view-today';
+  }
+  
+  // Remove node.css if this is homepage
+  if ($vars['is_front']) {
+    $vars['styles'] = _leggy_remove_css(path_to_theme().'/css/node.css', $vars['styles']);
   }
 }
 

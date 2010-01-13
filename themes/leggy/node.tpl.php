@@ -69,9 +69,7 @@
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?>">
 
   <?php print $picture; ?>
-  
 
-  
   <?php if ($blog_date): ?>
       <?php print $blog_date; ?>
   <?php endif; ?>
