@@ -160,9 +160,9 @@ function _leggy_get_today_title($node, $orig_title, $link_to_node=false, $show_a
     
   // Optional link in prefix
   if (strlen($prefix) && $link_to_node) {
-    $prefix = l($prefix, 'node/'.$node->nid, array(html=>true, attributes=>array('class' => 'prefix' . ($prefix=='Today' ? ' today':''), 'title' => format_date($node->created, 'medium'))));
+    $prefix = l($prefix, 'node/'.$node->nid, array(html=>true, attributes=>array('class' => 'prefix' . ($prefix=='Today' ? ' prefix-today':''), 'title' => format_date($node->created, 'medium'))));
   } else {
-    $prefix = '<span class="prefix'. ($prefix=='Today' ? ' today':'') .'">'.$prefix . '</span>';
+    $prefix = '<span class="prefix'. ($prefix=='Today' ? ' prefix-today':'') .'">'.$prefix . '</span>';
   }
   
   if (strlen($prefix)) {

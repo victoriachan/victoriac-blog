@@ -203,7 +203,17 @@ body.node-type-homepage .node-homepage {
 #block-views-section-listing-block-1 h3 {
   font-size:2em;
   font-style:italic;
+  margin-bottom:0;
+  padding:0;
 }
+  #block-views-section-listing-block-1 h3 a{
+    text-decoration:none;
+    color:#444;
+  }
+    #block-views-section-listing-block-1 h3 a:hover {
+      color:#ff3300;
+      text-decoration:none;
+    }
 #block-views-section-listing-block-1 ul,
 #block-views-section-listing-block-1 li {
   list-style-image:none;
@@ -217,8 +227,12 @@ body.node-type-homepage .node-homepage {
     #block-views-section-listing-block-1 .view-content .node {
       font-size:1.1em;
     }
+      #block-views-section-listing-block-1 .view-content .node dl {
+        margin:0.5em 0;
+        padding:0;
+      }
       #block-views-section-listing-block-1 .view-content .node .prefix {
-        font-size:1.3em;
+        font-size:1.2em;
         font-family: Tahoma, Verdana, Arial, Helvetica, "Bitstream Vera Sans", sans-serif;
         letter-spacing:0.03em;
         font-weight:bold;

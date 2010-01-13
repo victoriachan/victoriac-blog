@@ -20,7 +20,6 @@
     .attachment .node-teaser h2.title span.title {
       font-size:1em;
       font-weight:normal;
-      font-style:normal;
     }
   .attachment .node-teaser .comments {
     margin-left:0;
@@ -146,6 +145,7 @@ body.page-node .page_title {
     letter-spacing:0.03em;
     display:block;
     font-style:italic;
+    font-weight:normal;
   }
     .node-teaser-today h2.title span.title a{
       color:#222;
