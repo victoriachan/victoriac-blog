@@ -10,11 +10,26 @@
  */
 function _leggy_make_blog_date($datefield, $link = null) {
 
-  $arr_created_date_parts = explode(' ', format_date($datefield, 'small'));
+  $arr_created_date_parts = explode(' ', format_date($datefield, 'custom', 'D d M'));
   $ret .= '<span class="week">'.$arr_created_date_parts[0].'</span><span class="delimiter">, </span>';
   $ret .= '<span class="day">'.$arr_created_date_parts[1].'</span><span class="delimiter"> </span>';
   $ret .= '<span class="month">'.$arr_created_date_parts[2].' '.$arr_created_date_parts[3].'</span>';
 
+  if ($link) {
+    $ret = l($ret, $link, array(html=>true, attributes=>array('class' => 'blog_date')));
+  } else {
+    $ret = '<p class="blog_date">' . $ret . '</p>';
+  }
+  
+  return $ret;
+}
+
+function _leggy_make_day_count($datefield, $link = null) {
+
+  $arr_created_date_parts = explode(' ', format_date($datefield, 'custom', 'z Y'));
+  $ret = '<span class="label">Day</span><span class="delimiter"> </span><span class="count">'.$arr_created_date_parts[0].'</span>';
+  $ret .= '<span class="total">in 365</span>';
+  
   if ($link) {
     $ret = l($ret, $link, array(html=>true, attributes=>array('class' => 'blog_date')));
   } else {
@@ -112,7 +127,7 @@ function _leggy_output_ago_date($date_raw, $show_date='true') {
    */
   $date_dd_mm_yyyy = format_date($date_raw, 'custom', 'd-m-Y');
   $todays_date = format_date(time(), 'custom', 'd-m-Y');
-  $display_date = 'On '.format_date($date_raw, 'medium') . ',';
+  $display_date = format_date($date_raw, 'custom', 'l, jS M Y');
   $posts_date = $date_dd_mm_yyyy;
   
   if ($todays_date == $posts_date) {
@@ -122,10 +137,10 @@ function _leggy_output_ago_date($date_raw, $show_date='true') {
     $fullDays = floor($dateDiff/(60*60*24));
     if ($fullDays <= 1) {
       $display_date = 'Yesterday';
-    } else if ($fullDays <= 6) {
-      $display_date = 'On '. format_date($date_raw, 'custom', 'l') . ',';
-    } else if (!$show_date) {
-      $display_date = '';
+   //} else if ($fullDays <= 6) {
+   //  $display_date = 'On '. format_date($date_raw, 'custom', 'l') . ',';
+   //} else if (!$show_date) {
+   //  $display_date = '';
     }
   }
   return $display_date;
@@ -160,7 +175,7 @@ function _leggy_get_today_title($node, $orig_title, $link_to_node=false, $show_a
     
   // Optional link in prefix
   if (strlen($prefix) && $link_to_node) {
-    $prefix = l($prefix, 'node/'.$node->nid, array(html=>true, attributes=>array('class' => 'prefix' . ($prefix=='Today' ? ' prefix-today':''), 'title' => format_date($node->created, 'medium'))));
+    $prefix = l($prefix, 'node/'.$node->nid, array(html=>true, attributes=>array('class' => 'prefix' . ($prefix=='Today' ? ' prefix-today':''), 'title' => format_date($node->created, 'long'))));
   } else {
     $prefix = '<span class="prefix'. ($prefix=='Today' ? ' prefix-today':'') .'">'.$prefix . '</span>';
   }
@@ -264,7 +279,7 @@ function leggy_preprocess_page(&$vars) {
   
   // add date to Today index listing page
   if ($_GET['q'] == 'today') {
-    $vars['title'] = $vars['title'].'<span class="date"> '.format_date(time(), 'medium').'</span>';
+    $vars['title'] = $vars['title'].'<span class="date"> '.format_date(time(), 'custom', 'l, jS M Y').'</span>';
     $vars['body_classes'] .= ' view-today';
   }
   
@@ -384,7 +399,7 @@ function leggy_preprocess_node_today(&$vars) {
     $vars['terms'] = null;
 
     if (!$vars['page']) {
-      $vars['blog_date'] = _leggy_make_blog_date($vars['node']->created, 'node/'.$vars['node']->nid);
+      $vars['blog_date'] = _leggy_make_day_count($vars['node']->created, 'node/'.$vars['node']->nid);
       $vars['title'] = _leggy_get_today_title($vars['node'], $vars['title'], true);
     } else {
       $vars['links'] = theme('links', array('more' => array( 'title' => 'Back to Today »', 'href' => 'today' )));
