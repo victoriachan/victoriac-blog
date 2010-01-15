@@ -88,13 +88,13 @@
 </div> <!-- /node -->
 
 <?php if ($page && $homepage_row_1): ?>
-<div id="homepage_row_1">  
+<div id="homepage_row_1" class="homepage_row">  
   <?php print $homepage_row_1; ?>
 </div>
 <?php endif; ?>
 
 <?php if ($page && $homepage_row_2): ?>
-<div id="homepage_row_2">  
+<div id="homepage_row_2" class="homepage_row">  
   <?php print $homepage_row_2; ?>
 </div>
 <?php endif; ?>

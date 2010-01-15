@@ -188,13 +188,14 @@ body.node-type-homepage .node-homepage {
       background-color:#000;
     }
 
-/* Row 1 */
+/* Rows */
+#homepage_row_2, 
 #homepage_row_1 {
   overflow:hidden;
   width:900px;
   padding:0 0 0 40px;
 }
-  #homepage_row_1 .block {
+  .homepage_row .block {
     width:30%;
     float:left;
   }
