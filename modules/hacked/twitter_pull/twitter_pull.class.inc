@@ -61,13 +61,20 @@ class twitter_puller {
   function get_items() {
     
     $prefix = substr($this->twitkey, 0, 1);   
+    
     if ($prefix == "@") {
       $url = 'http://twitter.com/statuses/user_timeline.json?screen_name=';
       $key = substr($this->twitkey,1);  // remove @
-    }
-    else {
-      $url = 'http://search.twitter.com/search.json?q=';  
-      $key = $this->twitkey;   
+    } else {
+      // VictoriaC custom hack to show search for @victoriachan
+      $twoprefix = substr($this->twitkey, 0, 2);
+      if ($twoprefix == "#@") {
+        $url = 'http://search.twitter.com/search.json?q='; 
+        $key = substr($this->twitkey,1);  // remove #
+      } else {
+        $url = 'http://search.twitter.com/search.json?q=';  
+        $key = $this->twitkey;
+      }
     }
     
     $url = $url . urlencode($key);

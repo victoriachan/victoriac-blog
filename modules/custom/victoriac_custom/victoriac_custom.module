@@ -9,6 +9,7 @@
 /**
  * Implementation of hook_menu()
  */
+
 function victoriac_custom_menu() {
   $items['admin/settings/victoriac_custom'] = array(
       'title' => 'Victoriac Custom settings',
@@ -60,8 +61,17 @@ function victoriac_custom_block($op = 'list', $delta = 0, $edit = array()) {
       $blocks[2]['cache'] = BLOCK_CACHE_GLOBAL;
       
       $blocks[3]['info'] = t('VictoriaC Breadcrumb');
-      $blocks[3]['cache'] = BLOCK_CACHE_PER_PAGE;      
-    
+      $blocks[3]['cache'] = BLOCK_CACHE_PER_PAGE;
+      
+      $blocks[4]['info'] = t('VictoriaC Twitter block (1)');
+      $blocks[4]['cache'] = BLOCK_CACHE_GLOBAL;
+
+      $blocks[5]['info'] = t('VictoriaC Twitter block (2)');
+      $blocks[5]['cache'] = BLOCK_CACHE_GLOBAL;
+      
+      $blocks[6]['info'] = t('VictoriaC Other Twitter block');
+      $blocks[6]['cache'] = BLOCK_CACHE_GLOBAL;
+          
       return $blocks;
       
     case 'configure':
@@ -100,6 +110,56 @@ function victoriac_custom_block($op = 'list', $delta = 0, $edit = array()) {
           '#maxlength' => 30,
           '#description' => t("Enter the link for author profile as you would use in l(), eg, 'about'"),
         );        
+      } elseif ($delta == 4) {
+        $form['victoriac_custom_block_twitter_title'] = array(
+          '#type' => 'textfield',
+          '#title' => t('Twitter block title'),
+          '#default_value' =>  variable_get('victoriac_custom_block_twitter_title', 'On Twitter...'),
+          '#size' => 30,
+          '#maxlength' => 100,
+          '#description' => t("Enter the Twitter block title"),
+        );
+        $form['victoriac_custom_block_twitter_username'] = array(
+          '#type' => 'textfield',
+          '#title' => t('Twitter username'),
+          '#default_value' =>  variable_get('victoriac_custom_block_twitter_username', '@victoriachan'),
+          '#size' => 20,
+          '#maxlength' => 50,
+          '#description' => t("Enter the Twitter username, eg. @victoriachan"),
+        );
+        $form['victoriac_custom_block_twitter_num_items'] = array(
+          '#type' => 'textfield',
+          '#title' => t('Number of tweets to pull'),
+          '#default_value' =>  variable_get('twitter_pull_num_items', 5),
+          '#size' => 5,
+          '#maxlength' => 5,
+          '#description' => t("Enter the maximum number of tweets to show"),
+        );
+        $form['victoriac_custom_block_twitter_cache_length'] = array(
+          '#type' => 'textfield',
+          '#title' => t('Minutes to cache'),
+          '#default_value' =>  variable_get('twitter_pull_cache_length', 20),
+          '#size' => 10,
+          '#maxlength' => 20,
+          '#description' => t("Enter amount of time to cache tweets (in minutes)"),
+        );
+        $form['victoriac_custom_block_twitter_empty_message'] = array(
+          '#type' => 'textarea',
+          '#title' => t('Empty text'),
+          '#default_value' =>  variable_get('twitter_pull_empty_message', 'No tweets found'),
+          '#cols' => 60,
+          '#rows' => 2,
+          '#description' => t("Enter text to show when empty"),
+        );
+      } elseif ($delta == 6) {
+        $form['victoriac_custom_block_twitter_title_2'] = array(
+          '#type' => 'textfield',
+          '#title' => t('Twitter block title'),
+          '#default_value' =>  variable_get('victoriac_custom_block_twitter_title_2', 'On Twitter...'),
+          '#size' => 30,
+          '#maxlength' => 100,
+          '#description' => t("Enter the Twitter block title"),
+        );    
       }
       return $form;
       
@@ -111,6 +171,14 @@ function victoriac_custom_block($op = 'list', $delta = 0, $edit = array()) {
         variable_set('victoriac_custom_block_author_info_ja', $edit['victoriac_custom_block_author_info_ja']);
         variable_set('victoriac_custom_block_author_info_zh', $edit['victoriac_custom_block_author_info_zh']);
         variable_set('victoriac_custom_block_author_link', $edit['victoriac_custom_block_author_link']);
+      } elseif ($delta == 4) {
+        variable_set('victoriac_custom_block_twitter_title', $edit['victoriac_custom_block_twitter_title']);
+        variable_set('victoriac_custom_block_twitter_username', $edit['victoriac_custom_block_twitter_username']);
+        variable_set('twitter_pull_num_items', $edit['victoriac_custom_block_twitter_num_items']);
+        variable_set('twitter_pull_cache_length', $edit['victoriac_custom_block_twitter_cache_length']);
+        variable_set('twitter_pull_empty_message', $edit['victoriac_custom_block_twitter_empty_message']);
+      } elseif ($delta == 6) {
+        variable_set('victoriac_custom_block_twitter_title_2', $edit['victoriac_custom_block_twitter_title_2']);
       }
       return;
       
@@ -127,10 +195,19 @@ function victoriac_custom_block($op = 'list', $delta = 0, $edit = array()) {
           break;
         case 2:
           $block['content'] = victoriac_custom_author_info_block_content();
-          break;    
+          break;
         case 3:
           $block['content'] = victoriac_custom_breadcrumb_block_content();
-          break;                
+          break; 
+        case 4:
+          $block['content'] = victoriac_custom_twitter_block_content();
+          break;
+        case 5:
+          $block['content'] = victoriac_custom_twitter_block_content();
+          break; 
+        case 6:
+          $block['content'] = victoriac_custom_twitter_others_block_content();
+          break;                                 
       }
       return $block;
   }
@@ -191,4 +268,18 @@ function victoriac_custom_author_info_block_content () {
   } else {
     return 'Author not found';
   }
+}
+
+function victoriac_custom_twitter_block_content () {
+  module_load_include('module', 'twitter_pull', 'twitter_pull');
+  $twitter_username = variable_get('victoriac_custom_block_twitter_username','');
+  $twitter_block_title = variable_get('victoriac_custom_block_twitter_title','');
+  return twitter_pull_render($twitter_username, $twitter_block_title);
+}
+
+function victoriac_custom_twitter_others_block_content () {
+  module_load_include('module', 'twitter_pull', 'twitter_pull');
+  $twitter_username = variable_get('victoriac_custom_block_twitter_username','');
+  $twitter_block_title = variable_get('victoriac_custom_block_twitter_title_2','');
+  return twitter_pull_render('#'.$twitter_username, $twitter_block_title, 5);
 }

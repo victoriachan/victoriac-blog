@@ -2,5 +2,6 @@
 name = VictoriaC custom
 description = Victoria misc custom stuff such as custom block and minor tweaks
 dependencies[] = content
+dependencies[] = twitter_pull
 package = Victoria Custom
 core = 6.x
