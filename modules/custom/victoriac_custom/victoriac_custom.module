@@ -64,13 +64,13 @@ function victoriac_custom_block($op = 'list', $delta = 0, $edit = array()) {
       $blocks[3]['cache'] = BLOCK_CACHE_PER_PAGE;
       
       $blocks[4]['info'] = t('VictoriaC Twitter block (1)');
-      $blocks[4]['cache'] = BLOCK_CACHE_GLOBAL;
+      $blocks[4]['cache'] = BLOCK_NO_CACHE;
 
       $blocks[5]['info'] = t('VictoriaC Twitter block (2)');
-      $blocks[5]['cache'] = BLOCK_CACHE_GLOBAL;
+      $blocks[5]['cache'] = BLOCK_NO_CACHE;
       
       $blocks[6]['info'] = t('VictoriaC Other Twitter block');
-      $blocks[6]['cache'] = BLOCK_CACHE_GLOBAL;
+      $blocks[6]['cache'] = BLOCK_NO_CACHE;
           
       return $blocks;
       
@@ -137,11 +137,11 @@ function victoriac_custom_block($op = 'list', $delta = 0, $edit = array()) {
         );
         $form['victoriac_custom_block_twitter_cache_length'] = array(
           '#type' => 'textfield',
-          '#title' => t('Minutes to cache'),
+          '#title' => t('Duration to cache'),
           '#default_value' =>  variable_get('twitter_pull_cache_length', 20),
           '#size' => 10,
           '#maxlength' => 20,
-          '#description' => t("Enter amount of time to cache tweets (in minutes)"),
+          '#description' => t("Enter duration to cache tweets in minutes (eg. 20 = 20mins)"),
         );
         $form['victoriac_custom_block_twitter_empty_message'] = array(
           '#type' => 'textarea',

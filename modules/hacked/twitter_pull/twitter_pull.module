@@ -62,7 +62,8 @@ function twitter_pull_render ($twitkey, $title = NULL, $num_items = NULL, $theme
   
   $tweets = array();
   
-  if (!empty($cache) && !empty($cache->data)) {
+  // Victoriac Custom: Fixes cache problem. Expiry time doesn't seem to automatically get rid of cache. Cron problem?
+  if (!empty($cache) && !empty($cache->data) && (time()-$cache->expire < 0)) {
     $tweets =  $cache->data;
   }
   else {
@@ -75,7 +76,13 @@ function twitter_pull_render ($twitkey, $title = NULL, $num_items = NULL, $theme
       
     } catch (Exception $e) {
       watchdog('Twitter Pull', $e->getMessage(), array(), WATCHDOG_WARNING);
-      return twitter_pull_empty_message();
+      if (!empty($cache) && !empty($cache->data)) {
+        // Victoriac Custom: return cached tweets if Twitter has failed
+        $tweets =  $cache->data;
+      } else {
+        // If no cached tweets, show empty message
+        return twitter_pull_empty_message();
+      }
     }
     
     if (!empty($tweets) && is_array($tweets)) {
