@@ -81,16 +81,19 @@ body.page-node h1 span {
   
 body.page-node .page_title {
   margin:20px 0 15px 0;
-  padding:0 0 0 20px;
+  padding:0 0 0 75px;
   position:relative;
   width:570px;
 }
   body.page-node .page_title .blog_date {
-    margin-top:20px;
-    margin-right:15px;
+   /*  margin-top:50px;
+    margin-right:15px; */
     -webkit-transform: rotate(6deg) ;
     -moz-transform: rotate(6deg) ;
     transform: rotate(6deg) ;
+    position:absolute;
+    bottom:-20px;;
+    left:-10px;
   }
   body.page-node .links {
     text-align:right;

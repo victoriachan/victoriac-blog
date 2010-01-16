@@ -10,10 +10,11 @@
  */
 function _leggy_make_blog_date($datefield, $link = null) {
 
-  $arr_created_date_parts = explode(' ', format_date($datefield, 'custom', 'D d M'));
-  $ret .= '<span class="week">'.$arr_created_date_parts[0].'</span><span class="delimiter">, </span>';
-  $ret .= '<span class="day">'.$arr_created_date_parts[1].'</span><span class="delimiter"> </span>';
-  $ret .= '<span class="month">'.$arr_created_date_parts[2].' '.$arr_created_date_parts[3].'</span>';
+  $arr_created_date_parts = explode('-', format_date($datefield, 'custom', 'D-d-F-Y'));
+  $ret .= '<span class="month">'.$arr_created_date_parts[2].'</span><span class="delimiter"> - </span>';
+  $ret .= '<span class="day">'.$arr_created_date_parts[1].'</span><span class="delimiter">, </span>';
+  $ret .= '<span class="week">'.$arr_created_date_parts[0].', '.$arr_created_date_parts[3].'</span>';
+  
 
   if ($link) {
     $ret = l($ret, $link, array(html=>true, attributes=>array('class' => 'blog_date')));
@@ -27,8 +28,8 @@ function _leggy_make_blog_date($datefield, $link = null) {
 function _leggy_make_day_count($datefield, $link = null) {
 
   $arr_created_date_parts = explode(' ', format_date($datefield, 'custom', 'z Y'));
-  $ret = '<span class="label">Day</span><span class="delimiter"> </span><span class="count">'.$arr_created_date_parts[0].'</span>';
-  $ret .= '<span class="total">in 365</span>';
+  $ret = '<span class="label">Day</span><span class="delimiter"> </span><span class="count">'.($arr_created_date_parts[0]+1).'</span>';
+  $ret .= '<span class="total">of 365</span>';
   
   if ($link) {
     $ret = l($ret, $link, array(html=>true, attributes=>array('class' => 'blog_date')));
@@ -127,7 +128,7 @@ function _leggy_output_ago_date($date_raw, $show_date='true') {
    */
   $date_dd_mm_yyyy = format_date($date_raw, 'custom', 'd-m-Y');
   $todays_date = format_date(time(), 'custom', 'd-m-Y');
-  $display_date = format_date($date_raw, 'custom', 'l, jS M Y');
+  $display_date = format_date($date_raw, 'custom', 'l, jS F');
   $posts_date = $date_dd_mm_yyyy;
   
   if ($todays_date == $posts_date) {
@@ -242,6 +243,15 @@ function _leggy_remove_css($filepath, $styles) {
   return implode("\n",array_values($arr_styles));
 } 
 
+function _get_page_head_title($vars) {
+  $head_title = variable_get('site_name', 'Drupal'). ' |';
+  if ($vars['page_subtitle']) {
+    $head_title .= ' '. $vars['page_subtitle'] . ': ';
+  }
+  $head_title .= ' '. $vars['title'];
+  return $head_title;
+} 
+
 /**
  ***********************************************************************************
  * Preprocess page templates
@@ -266,15 +276,15 @@ function leggy_preprocess(&$vars, $hook) {
 }
 
 function leggy_preprocess_page(&$vars) {
-  $vars['user_avatar'] = _leggy_make_avatar_thumb($vars['user']->name, $vars['user']->picture);
-  
-  // Assign section name as subtitle
-  $vars['page_subtitle'] = _leggy_get_section_name($vars['node']);  
 
+  // Assign section name as subtitle
+  $vars['page_subtitle'] = _leggy_get_section_name($vars['node']);
+  
   // Format Today titles
   if ($vars['node']->type == 'today') {
     $vars['page_title'] = _leggy_get_today_title($vars['node'], $vars['title'], false, true);
-    $vars['page_date'] = _leggy_make_blog_date($vars['node']->created);
+    $vars['page_date'] = format_date($vars['node']->created, 'custom', 'l, jS M Y');
+    $vars['title'] = 'Today: '. format_date($vars['node']->created, 'custom', 'l, jS M Y');
   }
   
   // add date to Today index listing page
@@ -287,6 +297,10 @@ function leggy_preprocess_page(&$vars) {
   if ($vars['is_front']) {
     $vars['styles'] = _leggy_remove_css(path_to_theme().'/css/node.css', $vars['styles']);
   }
+  
+  // Title
+  $vars['head_title'] = _get_page_head_title($vars);
+  
 }
 
 function leggy_preprocess_node(&$vars) {
@@ -399,7 +413,7 @@ function leggy_preprocess_node_today(&$vars) {
     $vars['terms'] = null;
 
     if (!$vars['page']) {
-      $vars['blog_date'] = _leggy_make_day_count($vars['node']->created, 'node/'.$vars['node']->nid);
+      $vars['blog_date'] = _leggy_make_blog_date($vars['node']->created, 'node/'.$vars['node']->nid);
       $vars['title'] = _leggy_get_today_title($vars['node'], $vars['title'], true);
     } else {
       $vars['links'] = theme('links', array('more' => array( 'title' => 'Back to Today »', 'href' => 'today' )));

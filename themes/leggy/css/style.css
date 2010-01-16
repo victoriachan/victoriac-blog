@@ -134,7 +134,7 @@
   overflow:hidden;
   float:left;
   margin:0 0 10px 10px;
-  padding:5px 0 7px 0;
+  padding:0 0 7px 0;
   background-color: #ccc;
   background-color: rgba(0, 0, 0, 0.2);  
   font-family: Arial, Helvetica, "Bitstream Vera Sans", sans-serif;
@@ -144,7 +144,8 @@
   a.blog_date:hover {
     background-color: #decccc;
     background-color: rgba(90, 0, 0, 0.2); 
-    color:#ff3300;
+    color:#3f3733;
+    color:rgba(0, 0, 0, 0.7);
   }
   .node .blog_date{
     margin:0 0 10px -15px;
@@ -183,10 +184,14 @@
   }
   .blog_date span.total,
   .blog_date span.month {
+    padding:0.1em 0;
+    margin-bottom:5px;
     font-size:1em;
-    line-height:0.9em;
+    line-height:normal;
     font-weight:bold;
     letter-spacing:-1px;
+    background-color:#b7b7b7;
+    background-color:rgba(0,0,0,0.1);
   }
 
 /* Footer */
