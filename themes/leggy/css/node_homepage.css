@@ -15,6 +15,9 @@
   -khtml-opacity:1;
   opacity:1;
 }
+#site_wrapper {
+  padding:0;
+}
 
 /* Right Col */
 
@@ -41,7 +44,7 @@ body.node-type-homepage .node-homepage {
   line-height:1.6em;
   color:rgba(0,0,0,0.8);
 }
-  body.node-type-homepage .node-homepage h2 {
+  body.node-type-homepage .node-homepage h3 {
     display:block;
     background-color:transparent;
     letter-spacing:normal;
@@ -193,15 +196,15 @@ body.node-type-homepage .node-homepage {
 #homepage_row_2, 
 #homepage_row_1 {
   overflow:hidden;
-  width:960px;
+  width:920px;
   padding:30px 0;
-  margin:0;
-  border-bottom:2px dashed rgba(0,0,0,0.2);
+  margin:0 0 0 20px;
+  border-bottom:2px dashed rgba(0,0,0,0.4);
 }
   .homepage_row .block {
     width:27%;
-    margin-left:5%;
-    margin-right:1%;
+    margin-left:3%;
+    margin-right:3%;
     float:left;
   }
   .homepage_row h3 {
@@ -214,10 +217,10 @@ body.node-type-homepage .node-homepage {
   }
     .homepage_row h3 a {
       text-decoration:none;
-      color:rgba(0,0,0,0.4);
+      color:#ff3300;
     }
     .homepage_row h3 a:hover {
-      color:#ff3300;
+      color:rgba(0,0,0,0.4);
     }
     
   .homepage_row .field-teaser-summary-value {
@@ -441,16 +444,11 @@ body.node-type-homepage .node-homepage {
     padding-top:0;
   }
 
-/* Twitter */
-#block-victoriac-custom-4 {
-}
-
-  
 
 /* Admin devel */
 body.page-node #admin_tabs_top{
+  padding-left:90px;
   position:absolute;
-  top:130px;
-  right:0;
+  top:70px;
   z-index:4;
 }

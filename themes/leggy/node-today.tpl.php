@@ -87,7 +87,7 @@
 </div> <!-- /node -->
 <?php else: ?>
   <?php print $blog_date; ?>
-  <div class="comments">
-    <?php print $links; ?>
-  </div>  
+  <?php print $more_links; ?>
+  <?php print $links; ?> 
+  <?php print $content; ?>
 <?php endif; ?>

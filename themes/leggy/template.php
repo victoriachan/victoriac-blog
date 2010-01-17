@@ -44,7 +44,9 @@ function _leggy_make_day_count($datefield, $link = null) {
  * Return a avatar thumb with link
  */
 function _leggy_make_avatar_thumb($username, $userpicture = null) {
-  
+  if (! strlen($username)) {
+    $username = anonymous_numpty;
+  }
   $this_link = 'user/'.$username;
   $site_author = user_load(variable_get('victoriac_custom_site_author_id','1'));
   if($username == $site_author->name) {
@@ -359,6 +361,11 @@ function leggy_preprocess_node_default(&$vars) {
     $vars['terms'] = theme('links', taxonomy_link('taxonomy terms', $vars['node']));   
 }
 
+function leggy_preprocess_node_webform(&$vars) {
+  drupal_add_css(path_to_theme() . '/css/node.css', 'theme');
+  drupal_add_css(path_to_theme() . '/css/node_webform.css', 'theme');
+}
+
 function leggy_preprocess_node_homepage(&$vars) {
   drupal_add_css(path_to_theme() . '/css/node_homepage.css', 'theme');
   
@@ -416,7 +423,7 @@ function leggy_preprocess_node_today(&$vars) {
       $vars['blog_date'] = _leggy_make_blog_date($vars['node']->created, 'node/'.$vars['node']->nid);
       $vars['title'] = _leggy_get_today_title($vars['node'], $vars['title'], true);
     } else {
-      $vars['links'] = theme('links', array('more' => array( 'title' => 'Back to Today »', 'href' => 'today' )));
+      $vars['more_links'] = theme('links', array('more' => array( 'title' => 'Back to Today »', 'href' => 'today' )));
       drupal_add_css(path_to_theme() . '/css/node_today.css', 'theme');
     }
 

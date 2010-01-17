@@ -6,13 +6,12 @@ body.page-node .page_content {
 }
 body.page-node .node {
   background-color:transparent;
-  background-color:rgba(0,0,0,0.1);
   -moz-box-shadow: none;
   -webkit-box-shadow: none;
   box-shadow: none;
   
   width:580px;
-  padding:20px 40px;
+  padding:0 40px 20px 40px;
   margin:0 15px;
   color:#444;
   font-size:1.2em;

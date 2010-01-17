@@ -104,16 +104,17 @@ body.page-node .page_title {
     bottom:-20px;;
     left:-10px;
   }
-  body.page-node .links {
+  body.page-node li.more {
     text-align:right;
-    margin:0 0 0 70px;
+    float:right;
+    margin:0 0 20px 70px;
     padding:0;
     font-family: Georgia, "Times New Roman", Times, serif;
     letter-spacing:0.01em;  
     font-style:italic;    
   }
   
-    body.page-node .links a{
+    body.page-node li.more a{
       font-size:1.2em;
       font-weight:bold;
       text-decoration:none;
@@ -130,9 +131,8 @@ body.page-node .page_title {
   -moz-box-shadow: 0 0 0 transparent;
   -webkit-box-shadow: 0 0 0 transparent;
   box-shadow: 0 0 0 transparent;
-  padding:10px 0;
+  padding:20px 0;
   margin-bottom:0;
-  padding-bottom:10px;
 }
   .node-teaser-today .comments {
     text-align:left;
