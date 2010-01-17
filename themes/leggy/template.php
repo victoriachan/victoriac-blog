@@ -283,7 +283,7 @@ function leggy_preprocess_page(&$vars) {
   // Format Today titles
   if ($vars['node']->type == 'today') {
     $vars['page_title'] = _leggy_get_today_title($vars['node'], $vars['title'], false, true);
-    $vars['page_date'] = format_date($vars['node']->created, 'custom', 'l, jS M Y');
+    $vars['page_date'] = '<p class="date">'.format_date($vars['node']->created, 'custom', 'l, jS M Y').':</p>';
     $vars['title'] = 'Today: '. format_date($vars['node']->created, 'custom', 'l, jS M Y');
   }
   
@@ -462,7 +462,6 @@ function leggy_preprocess_views_view__topics(&$vars) {
   }
   $vars['rows'] = _leggy_tag_cloud($vars['view']->result);
 }
-
 
 /**
  * Implementation of hook_link_alter() for node_link() in node module to always show 'Read More' link.

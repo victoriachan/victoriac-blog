@@ -30,10 +30,11 @@
     <ul class="tweets-pulled-listing">
     <?php foreach ($tweets as $tweet):  ?>
       <li>
+        <p class="tweet-body">
         <span class="tweet-author"><?php print l($tweet->username, 'http://twitter.com/' . $tweet->username); ?></span>      
         <span class="tweet-text"><?php print twitter_pull_add_links($tweet->text); ?></span>
-        <div class="tweet-time"><?php print l(format_interval(time() - $tweet->timestamp) . ' ' . t('ago'), 'http://twitter.com/' . $tweet->username . '/status/' . $tweet->id);?></div>   
-        <div class="tweet-divider"></div>  
+        </p>
+        <p class="tweet-time"><?php print l(format_interval(time() - $tweet->timestamp) . ' ' . t('ago') . ' from Twitter »', 'http://twitter.com/' . $tweet->username . '/status/' . $tweet->id);?></p>
       </li>
     <?php endforeach; ?>
     </ul>

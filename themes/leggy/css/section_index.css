@@ -24,14 +24,33 @@
   font-size:1.6em;
   line-height:1.5em;
 }
-  .intro p:first-of-type{
+  .intro p:first-of-type {
     margin-top:0;
     padding-top:0;
   }
-  .intro p:last-of-type{
+  .intro p:last-of-type {
     margin-bottom:0;
     padding-bottom:0;
   }
+  .intro dl {
+    margin:0;
+    padding:0;
+    font-size:0.8em;
+    line-height:normal;
+    color:rgba(0,0,0,0.5);
+  }
+    .intro dl:last-of-type {
+      margin-bottom:10px;
+    }
+    .intro dl dt {
+      font-weight:bold;
+    }
+    .intro dl dt,
+    .intro dl dd {
+      margin:0;
+      padding:0;
+      display:inline;
+    }
 
 /* Topics tag cloud */
 .view-topics {

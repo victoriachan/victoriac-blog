@@ -184,15 +184,20 @@
   }
   .blog_date span.total,
   .blog_date span.month {
-    padding:0.1em 0;
-    margin-bottom:5px;
-    font-size:1em;
+    padding:0.2em 0 0.1em 0;
+    /* margin-bottom:4px; */
+    font-size:0.9em;
     line-height:normal;
     font-weight:bold;
-    letter-spacing:-1px;
-    background-color:#b7b7b7;
-    background-color:rgba(0,0,0,0.1);
+    letter-spacing:-0.04em;
+    /* background-color:#b7b7b7;
+    background-color:rgba(0,0,0,0.1); */
+    /* border-bottom:1px dotted rgba(0,0,0,0.3); */
+    color:rgba(0,0,0,0.3);
   }
+    /* a.blog_date:hover span.month {
+      background-color:rgba(90,0,0,0.1)
+    } */
 
 /* Footer */
 .content_bottom {
@@ -401,6 +406,69 @@
         text-shadow: 0 0 0 rgba(0,0,0,0.2);
       }
 
+/* Twitter */
+#block-victoriac-custom-5 div.tweets-pulled-listing {
+  width:230px;
+  float:right;
+  background-color:rgba(255,255,255,0.3);
+  background-color:rgba(0,0,0,0.1);
+  padding:0 15px;
+
+  -moz-border-radius: 14px;
+  -webkit-border-radius: 14px;
+  -khtml-border-radius: 14px;
+  border-radius: 14px;  
+}
+  #block-victoriac-custom-4 .tweets-pulled-listing h3,
+  #block-victoriac-custom-5 .tweets-pulled-listing h3 {
+    display:none;
+  }
+  .tweets-pulled-listing ul.tweets-pulled-listing {
+    margin:0;
+    padding:0 0 10px 0;
+  }
+  .tweets-pulled-listing ul.tweets-pulled-listing li {
+    margin:-5px 0 0 0;
+    padding:0 0 0 10px;
+    list-style-image:none;
+    list-style-type:none;
+    background: url(../images/blockquote_left.png) no-repeat -25px 0;
+  }
+    .tweets-pulled-listing ul.tweets-pulled-listing li .tweet-body {
+      padding:27px 0 0 0;
+      text-indent:60px;
+    }
+      .tweets-pulled-listing .tweet-text {
+        font-size:1.2em;
+        font-style:italic;
+        font-family: Georgia, "Times New Roman", Times, serif;
+        letter-spacing:0.03em;
+        line-height:1.7em;
+        color:rgba(0,0,0,0.6);
+      }
+      .tweets-pulled-listing .tweet-author {
+        font-size:1.3em;
+        padding:0 0 0.7em 0;
+        font-weight:bold;
+        display:block;
+      }
+        .tweets-pulled-listing .tweet-author a {
+          text-decoration:none;
+          color:#ff3300; 
+        }
+        .tweets-pulled-listing .tweet-author a:hover {
+          color:rgba(0,0,0,0.3);
+        }
+  .tweets-pulled-listing .tweet-time a {
+    line-height:normal;    
+    text-decoration:none;
+    text-shadow: 0 0 2px rgba(0,0,0,0.3);
+    color:rgba(0,0,0,0.4);
+  }
+    .tweets-pulled-listing .tweet-time a:hover {
+      color:#ff3300; 
+    }
+    
 /* Secondary menu */
 #block-menu-secondary-links{
   clear:both;
@@ -604,6 +672,19 @@ body.user-edit #admin_tabs_top {
 div.view div.views-admin-links li a {
   color:#ff3300;
 }
+
+/* Stars */
+div.fivestar-widget-static .star {
+  width:23px;
+  height:25px;
+  background-image:none;
+}
+  div.fivestar-widget-static .star span.on {
+    background:transparent url(../images/ratings.png) no-repeat scroll 0 bottom;
+  }
+  div.fivestar-widget-static .star span.off {
+    background:transparent url(../images/ratings.png) no-repeat scroll 0 0;
+  }
 
 /* Search */
 body.page-search #admin_tabs_top ul.primary {
