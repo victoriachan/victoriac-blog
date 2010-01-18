@@ -155,8 +155,12 @@ function _leggy_output_ago_date($date_raw, $show_date='true') {
 function _leggy_get_today_title($node, $orig_title, $link_to_node=false, $show_as_today=false, $output_as_dl=false) {
 
   // Get prefix for today's title eg. 'Today', 'Yesterday'..
-  $prefix = _leggy_output_ago_date($node->created);
-  $title = $orig_title;
+  if (!$show_as_today) {
+    $prefix = _leggy_output_ago_date($node->created);
+  } else {
+    // Prefix with Today if this is a node page
+    $prefix = 'Today';
+  }
 
   // Replace the title with the body or present tense text
   global $language ;
@@ -165,24 +169,26 @@ function _leggy_get_today_title($node, $orig_title, $link_to_node=false, $show_a
     $title = $node->field_today_japanese[0]['safe'];
   } elseif (($lang_name == 'zh-hans') && $node->field_today_chinese[0]['safe']) {
     $title = $node->field_today_chinese[0]['safe'];
-  } elseif (($prefix == 'Today') && $node->field_today[0]['safe']) {
-    $title = $node->field_today[0]['safe'];
   } elseif ($node->field_today_html[0]['safe']) {
-    $title = $node->field_today_html[0]['safe'];
+    $title = 'Today '.$node->field_today_html[0]['safe'];
+  } else {
+    $title = 'Today '.$orig_title;
   }
-  
-  // Always prefix with Today
-  if ($show_as_today) {
-    $prefix = 'Today';
+
+  // Remove 'Today' in title which already have Today in prefix..
+  if ($prefix == 'Today') {
+    $title = str_replace('Today ', '', $title);
   }
     
-  // Optional link in prefix
+  // Create prefix
   if (strlen($prefix) && $link_to_node) {
+    // Optional link in prefix
     $prefix = l($prefix, 'node/'.$node->nid, array(html=>true, attributes=>array('class' => 'prefix' . ($prefix=='Today' ? ' prefix-today':''), 'title' => format_date($node->created, 'long'))));
-  } else {
+  } elseif(strlen($prefix)) {
     $prefix = '<span class="prefix'. ($prefix=='Today' ? ' prefix-today':'') .'">'.$prefix . '</span>';
   }
   
+  // Add wrappers
   if (strlen($prefix)) {
     if (!$output_as_dl) {
       return $prefix . ' <span class="title">' . str_replace('p>', 'span>', $title) . '</span>';
