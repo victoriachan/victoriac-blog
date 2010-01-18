@@ -199,8 +199,10 @@ body.node-type-homepage .node-homepage {
   width:920px;
   padding:30px 0;
   margin:0 0 0 20px;
-  border-bottom:2px dashed rgba(0,0,0,0.4);
 }
+  #homepage_row_1 {
+    border-bottom:2px dashed rgba(0,0,0,0.4);
+  }
   .homepage_row .block {
     width:27%;
     margin-left:3%;
@@ -217,10 +219,10 @@ body.node-type-homepage .node-homepage {
   }
     .homepage_row h3 a {
       text-decoration:none;
-      color:#EF483B;
+      color:rgba(0,0,0,0.4);
     }
     .homepage_row h3 a:hover {
-      color:rgba(0,0,0,0.4);
+      color:#EF483B;
     }
     
   .homepage_row .field-teaser-summary-value {
@@ -253,7 +255,7 @@ body.node-type-homepage .node-homepage {
   margin:5px 0;
 }
   .homepage_row .nid a img {
-    border:1px solid rgba(0,0,0,0.2);
+    border:1px solid rgba(0,0,0,0.4);
     padding:5px;
     background-color:rgba(255,255,255,0.5);
   }
@@ -273,6 +275,11 @@ body.node-type-homepage .node-homepage {
 .homepage_row  .title {
   font-size:1.3em;
   padding:10px 0 0 0;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  letter-spacing:0.01em;
+  line-height:normal;
+  font-style:italic;
+  
 }
   .homepage_row  .title a{
     color:#EF483B;
@@ -432,6 +439,7 @@ body.node-type-homepage .node-homepage {
     float:left;
     background-color:rgba(0,0,0,0.2);
     font-weight:normal;
+    font-style:normal;
     color:#13343E;
   }
     #block-views-section-listing-block-4 .view .title a:hover {
