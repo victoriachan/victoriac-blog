@@ -195,7 +195,7 @@ body.page-node .field-file-image-multiple {
     text-decoration:underline;
   }
     .node .terms a:hover {
-      color:#ff3300;
+      color:#EF483B;
       text-decoration:none;
     }
 
@@ -284,7 +284,7 @@ body.page-node .field-file-image-multiple {
       text-decoration:none;
     }
       .node h2.title a:hover{
-        color:#ff3300;
+        color:#EF483B;
         text-shadow: none;
       }
     .node-teaser .node_content {
