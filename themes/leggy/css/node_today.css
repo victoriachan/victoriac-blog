@@ -21,6 +21,13 @@
       font-size:1em;
       font-weight:normal;
     }
+    .attachment .node-teaser h2.title span.title a {
+      text-decoration:none;
+      color:#EF483B;
+    }
+    .attachment .node-teaser h2.title span.title a:hover {
+      color:#000;
+    }
   .attachment .node-teaser .comments {
     margin-left:0;
     font-size:1.2em;
