@@ -309,6 +309,12 @@ function leggy_preprocess_page(&$vars) {
   // Title
   $vars['head_title'] = _get_page_head_title($vars);
   
+  // Set lang for KanjiKanji
+  if (($_GET['q'] == '漢字感じ') || ($vars['node']->type == 'kanjikanji')) {
+    //$vars['html_language'] = 'ja';
+    $vars['is_kanjikanji'] = True;
+  }
+  
 }
 
 function leggy_preprocess_node(&$vars) {
@@ -417,6 +423,7 @@ function leggy_preprocess_node_kanjikanji(&$vars) {
   }
   
   drupal_add_css(path_to_theme() . '/css/node_kanjikanji.css', 'theme');
+  $vars['is_kanjikanji'] = True;
 }
 
 function leggy_preprocess_node_today(&$vars) {
@@ -553,3 +560,14 @@ function leggy_links($links, $attributes = array('class' => 'links')) {
   
   return theme_links($links, $attributes);
 }
+
+function leggy_menu_item_link($link) {
+  if (empty($link['localized_options'])) {
+    $link['localized_options'] = array();
+  }
+  if ($link['title']=='漢字感じ') {
+    $link['localized_options']['attributes']['lang'] = 'ja';
+  }
+  return l($link['title'], $link['href'], $link['localized_options']);
+}
+

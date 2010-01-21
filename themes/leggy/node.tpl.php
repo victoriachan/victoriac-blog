@@ -75,7 +75,7 @@
   <?php endif; ?>
 
   <?php if (!$page): ?>
-    <h2 class="title">
+    <h2 class="title" <?php $is_kanjikanji ? print 'lang="ja"' : ''  ?>>
       <a href="<?php print $node_url; ?>" title="<?php print $title ?>"><?php print $title; ?></a>
     </h2>
   <?php endif; ?>
@@ -96,7 +96,7 @@
     <?php print $node_top; ?>
   <?php endif; ?>  
   
-  <div class="node_content">
+  <div class="node_content" <?php $is_kanjikanji ? print 'lang="ja"' : ''  ?>>
     <?php print $content; ?>
     
     <?php if($page && ($field_internal_link[0]['nid'] || $field_useful_link[0]['nid'])): ?>
