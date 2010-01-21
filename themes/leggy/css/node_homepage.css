@@ -39,7 +39,7 @@ body.node-type-homepage .node-homepage {
   margin:0;
   padding: 15px 0 40px 90px;
   width:425px;
-  height:420px;
+  min-height:420px;
   font-size:1.5em;
   line-height:1.6em;
   color:rgba(0,0,0,0.8);
@@ -91,7 +91,7 @@ body.node-type-homepage .node-homepage {
 .field-intro-en,
 .field-intro-ja,
 .field-intro-zh {
-  height:300px;
+  min-height:300px;
 }
   .field-intro-ja p{
     padding-left:10px;

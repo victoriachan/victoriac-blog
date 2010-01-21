@@ -52,10 +52,10 @@ function victoriac_custom_block($op = 'list', $delta = 0, $edit = array()) {
     case 'list':
     
       $blocks[0]['info'] = t('VictoriaC greeting');
-      $blocks[0]['cache'] = BLOCK_CACHE_PER_USER;      
+      $blocks[0]['cache'] = BLOCK_NO_CACHE;      
     
       $blocks[1]['info'] = t('VictoriaC greeting 2');
-      $blocks[1]['cache'] = BLOCK_CACHE_PER_PAGE;
+      $blocks[1]['cache'] = BLOCK_NO_CACHE;
     
       $blocks[2]['info'] = t('VictoriaC Author info');
       $blocks[2]['cache'] = BLOCK_CACHE_GLOBAL;
