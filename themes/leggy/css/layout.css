@@ -5,11 +5,11 @@
 body {
   margin:0; 
   padding:0 0 10px 0;
-  background:#f7f7f7 url(../images/tile.png) ;
+  background:#000;
 }
   #second_body{
     width:100%;
-    /* background:url(../images/legs_background2.png) 50% -30px no-repeat; */
+    background:#f7f7f7 url(../images/tile.png);
   }
   #top_bar{
     width:100%;
@@ -25,9 +25,9 @@ body {
     }
   #site_wrapper {
     margin:0 auto;
-    padding:0 0 75px 0;
+    padding: 0;
     width:970px;
-    min-height:515px;
+    min-height:415px;
   }
   
 #main_wrapper {
@@ -58,12 +58,11 @@ body {
     
   .secondary_content {
     width:30%;
-    margin-bottom:30px;
     float:right;
   }
 
 #content_bottom {
-  margin:0 auto 130px auto;
+  margin:0 auto 30px auto;
   width:970px;
 }
 
@@ -72,9 +71,8 @@ body {
   width:100%;
   height:30px;
   overflow:hidden;
-  position:absolute; 
   bottom:0;
-  padding-top:110px;
+  padding-top:95px;
 }
   #footer .inner{
     margin:0 auto;

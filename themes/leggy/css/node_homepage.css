@@ -3,9 +3,9 @@
  */
 
 /* Overrides */ 
-#second_body{
-  width:100%;
+#home_banner{
   background:url(../images/home_bg.png) 50% 45px no-repeat;
+  width:100%;
 }
 #top_bar #site-name a,
 #top_bar #site-name a:hover {

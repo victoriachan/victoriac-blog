@@ -22,5 +22,6 @@
     <?php endif; ?>  
    
   <?php print $closure; ?>
-</div></body>
+  <?php $is_front? print('</div>') : '' //closes home_banner ?>
+</div><!-- /second_body --></body>
 </html>

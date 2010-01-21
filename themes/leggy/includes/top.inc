@@ -12,7 +12,7 @@
   <?php print $scripts; ?>
 </head>
 
-<body class="<?php print trim($body_classes); ?>"><div id="second_body">
+<body class="<?php print trim($body_classes); ?>"><div id="second_body"><?php $is_front? print('<div id="home_banner">') : '' ?>
   <div id="top_bar"><div class="inner">
     <?php // print site name (h1 or div) ?>
     <<?php print $site_name_element; ?> id="site-name">
