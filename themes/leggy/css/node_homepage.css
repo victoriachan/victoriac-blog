@@ -28,6 +28,7 @@
 }
 #block-search:hover {
   border:1px dashed #888;
+  background-color:#b3b3b3;
   background-color:rgba(255,255,255,0.7);
 }
 
@@ -42,6 +43,7 @@ body.node-type-homepage .node-homepage {
   min-height:420px;
   font-size:1.5em;
   line-height:1.6em;
+  color:#333;
   color:rgba(0,0,0,0.8);
 }
   body.node-type-homepage .node-homepage h2 {
@@ -67,17 +69,20 @@ body.node-type-homepage .node-homepage {
       letter-spacing:normal;
       margin:0.8em 0;
       padding:0;
+      color:#443f36;
       color:rgba(0,0,0,0.6);
       width:300px;
     }
     .node-homepage .field-intro-en p.first-line {
       margin-top:-10px;
       font-size:1em;
+      color:#333;
       color:rgba(0,0,0,0.8);
       width:400px;
     }
     .node-homepage .field-intro-en p:nth-of-type(2) {
      font-size:0.8em;
+     color:#4c4c4c;
      color:rgba(0,0,0,0.7);
      margin-left:-15px;
      width:380px;
@@ -242,8 +247,9 @@ body.node-type-homepage .node-homepage {
   .view-topics li a {
     text-decoration:none;
     padding:0 0.5em 0.1em 0.5em;
-    background-color:#ccc;
+    background-color:#a69d81;
     background-color:rgba(0,0,0,0.2);
+    color:#333128;
     color:rgba(0,0,0,0.7);
   }
     .view-topics li a:hover {
@@ -261,6 +267,7 @@ body.node-type-homepage .node-homepage {
   margin:0 0 0 20px;
 }
   #homepage_row_1 {
+    border-bottom:2px dashed #bab5af;
     border-bottom:2px dashed rgba(0,0,0,0.4);
   }
   .homepage_row .block {
@@ -275,10 +282,12 @@ body.node-type-homepage .node-homepage {
     margin:0 0 0.5em 0;
     padding:0 0 0.4em 0;
     text-shadow: 0 0 3px rgba(0,0,0,0.2);
+    border-bottom:3px solid #bab5af;
     border-bottom:3px solid rgba(0,0,0,0.2);
   }
     .homepage_row h3 a {
       text-decoration:none;
+      color:#7d7971;
       color:rgba(0,0,0,0.4);
     }
     .homepage_row h3 a:hover {
@@ -315,8 +324,10 @@ body.node-type-homepage .node-homepage {
   margin:5px 0;
 }
   .homepage_row .nid a img {
+    border:1px solid #999;
     border:1px solid rgba(0,0,0,0.4);
     padding:5px;
+    background-color:#eee9e2;
     background-color:rgba(255,255,255,0.5);
   }
     .homepage_row .block .nid a:hover img {
@@ -326,6 +337,7 @@ body.node-type-homepage .node-homepage {
     
 /* Dates */
 .homepage_row .created {
+  color:#999;
   color:rgba(0,0,0,0.4);
   text-shadow: 0 0 2px rgba(0,0,0,0.3);
   line-height:normal;
@@ -355,6 +367,7 @@ body.node-type-homepage .node-homepage {
   margin-top:-10px;
 }
 .view-review {
+  background-color:#cabfae;
   background-color:rgba(0,0,0,0.1);
   width:240px;
   padding:10px 0;
@@ -375,8 +388,10 @@ body.node-type-homepage .node-homepage {
     text-shadow: none;
     padding:5px 15px;
     margin:0;
+    color:#787067;
     color:rgba(0,0,0,0.4);
     font-size:1.4em;
+    border-bottom:3px solid #999388;
     border-bottom:3px solid rgba(0,0,0,0.2);
   }  
   .homepage_row .block .view-review .nid {
@@ -388,6 +403,7 @@ body.node-type-homepage .node-homepage {
       padding:1px 0 4px 0;
       width:240px;
       overflow:hidden;
+      background:#999388;
       background:rgba(0,0,0,0.2);
     }
     .homepage_row .block .view-review .nid a img {
@@ -449,7 +465,7 @@ body.node-type-homepage .node-homepage {
         letter-spacing:0;
         font-weight:bold;
         text-decoration:none;
-        color:#666;
+        color:#9a9287;
         color:rgba(0,0,0,0.3);
       }
         #block-views-section-listing-block-1 .view-content .node .prefix:hover {
@@ -497,6 +513,7 @@ body.node-type-homepage .node-homepage {
     padding:0.2em 0.3em;
     margin:0.2em;
     float:left;
+    background-color:#6d6a61;
     background-color:rgba(0,0,0,0.2);
     font-weight:normal;
     font-style:normal;

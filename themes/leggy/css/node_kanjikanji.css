@@ -33,6 +33,7 @@ body.page-node .node {
 #glossary_terms .inner{
   border-top:1px solid #ccc;
   border-bottom:1px solid #ccc;
+  background-color:#e5e5e5;
   background-color:rgba(0,0,0,0.1);
   padding:10px 30px;
 }
@@ -62,7 +63,7 @@ body.page-node .node {
       padding:0;
     }
   #glossary_terms .term {
-    background-color:#999;
+    background-color:#b7b7b7;
     background-color:rgba(0,0,0,0.2); 
     color:#fff;
     font-size:1.1em;

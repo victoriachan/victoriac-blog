@@ -37,6 +37,7 @@
     padding:0;
     font-size:0.8em;
     line-height:normal;
+    color:#76726b;
     color:rgba(0,0,0,0.5);
   }
     .intro dl:last-of-type {
@@ -138,7 +139,7 @@
   .view-topics li a {
     text-decoration:none;
     padding:0 0.5em 0.1em 0.5em;
-    background-color:#ccc;
+    background-color:#b0aa9d;
     background-color:rgba(0,0,0,0.2);
     color:#000;
   }

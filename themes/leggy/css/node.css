@@ -171,7 +171,7 @@ body.page-node .field-file-image-multiple {
   padding:3px 20px 5px 20px;
   line-height:normal;
   width:630px;
-  background-color: #000;
+  background-color: #ccc;
   background-color: rgba(0, 0, 0, 0.2);
 }
   .node .terms h3{
@@ -234,6 +234,7 @@ body.page-node .field-file-image-multiple {
       font-size:1.2em;
       font-weight:bold;
       text-decoration:none;
+      color:#7f7f7f;
       color:rgba(0, 0, 0, 0.5);
     }
       .block-custom-pagers li a:hover{
@@ -245,6 +246,7 @@ body.page-node .field-file-image-multiple {
   min-height:30px;
   margin:0 0 20px -20px;
   padding:10px 30px 10px 100px;
+  background: #e5e5e5 url(../images/blockquote_left.png) no-repeat 0 0;
   background: rgba(0, 0, 0, 0.1) url(../images/blockquote_left.png) no-repeat 0 0;
   line-height:1.6em;
   font-family: Georgia, "Times New Roman", Times, serif;

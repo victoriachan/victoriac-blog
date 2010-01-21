@@ -8,7 +8,7 @@ ul.links .comment_forbidden {
 body.page-node .comment_forbidden,
 #comments {
   clear:both;
-  background-color:#ccc;
+  background-color:#fcf9f4;
   background-color: rgba(255, 255, 255, 0.6);
   color:#666;
   padding:10px 30px;
@@ -29,12 +29,12 @@ body.page-node .comment_forbidden,
     margin-bottom:10px;
   }
   #comments h2{
-    color:#666;
+    color:#92908d;
     color:rgba(0,0,0,0.4);
     font-size:2em;
     padding-bottom:10px;
     margin-bottom:0;
-    border-bottom:4px solid #ccc;
+    border-bottom:4px solid #d5d0c9;
     border-bottom:4px solid rgba(0,0,0,0.1);
   }
   .comment a{
@@ -50,13 +50,14 @@ body.page-node .comment_forbidden,
     /* #comments .comment:nth-of-type(odd), */
     #comments .author_comment,
     #comments .comment:hover {
-      background-color: #dddbd5;
+      background-color: #eee9e5;
       background-color: rgba(90, 40, 0, 0.1);
       width:640px;
       margin-left:-30px;
       padding-left:30px;
     }
       #comments .comment:hover {
+        background-color: #d5d0c9;
         background-color: rgba(0, 0, 0, 0.1);
       }
   .comment .comment_avatar {
@@ -72,7 +73,7 @@ body.page-node .comment_forbidden,
     .comment .comment_text blockquote {
       border-left:3px solid #666;
       padding:1px 10px;
-      background-color:#333;
+      background-color:#dad5cf;
       background-color:rgba(0, 0, 0, 0.1);
       color:#222;
       width:440px;
@@ -110,7 +111,7 @@ body.page-node .comment_forbidden,
 #comment-form {
   padding:10px 20px 20px 25px;
   margin:20px 0 20px 0;
-  background: #ccc;
+  background: #7d756a;
   background: rgba(0,0,0,0.3);
   color:#fff;
   -moz-border-radius: 10px;
@@ -129,10 +130,8 @@ body.page-node .comment_forbidden,
     margin:20px 0 10px -25px;
     border-top:1px solid #fff;
     border-bottom:1px solid #fff;
-    background-color:#ccc;
+    background-color:#4d4d4d;
     background-color:rgba(255,255,255,0.3);
-    /* background-color:#777;
-    color:#ccc; */
   }
     #comment-form .comment .content{
       color:#333;
@@ -200,7 +199,7 @@ body.page-node .comment_forbidden,
 
 body.page-comment #comment-confirm-delete,
 body.page-comment #comment-form {
-  background-color:#666;
+  background-color:#81796f;
   background-color: rgba(0, 0, 0, 0.4);
 }
   body.page-comment h1.title{
