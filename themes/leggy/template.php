@@ -304,6 +304,10 @@ function leggy_preprocess_page(&$vars) {
   // Remove node.css if this is homepage
   if ($vars['is_front']) {
     $vars['styles'] = _leggy_remove_css(path_to_theme().'/css/node.css', $vars['styles']);
+    //if (!strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE')) {
+    //  $vars['message'] = t('This page looks much better in Firefox, Chrome or Safari!');
+    //}
+    
   }
   
   // Title

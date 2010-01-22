@@ -513,7 +513,7 @@ body.node-type-homepage .node-homepage {
     padding:0.2em 0.3em;
     margin:0.2em;
     float:left;
-    background-color:#6d6a61;
+    background-color:#fff;
     background-color:rgba(0,0,0,0.2);
     font-weight:normal;
     font-style:normal;
@@ -522,7 +522,7 @@ body.node-type-homepage .node-homepage {
     #block-views-section-listing-block-4 .view .title a:hover {
       background-color:#222;
       color:#fff;
-    }
+    }    
   #block-views-section-listing-block-4 blockquote p,
   #block-views-section-listing-block-4 blockquote {
     margin-top:3px;
