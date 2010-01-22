@@ -64,7 +64,7 @@ body.node-type-review .node-body {
 .node .node_content .group-review-intro {
   margin:0;
   padding:0 0 1.5em 0;
-  width: 225px;
+  width: 220px;
   overflow:hidden;
   float:left;
   border-top:1px dotted #ccc;
@@ -136,10 +136,10 @@ body.page-node .field-file-image-multiple {
   overflow:hidden;
   text-align:center;
 }
-  body.page-node .field-file-image-multiple img {
+  .field-file-image-multiple img {
     border:3px solid #000;
   }
-  body.page-node .field-file-image-multiple a:hover img{
+  .field-file-image-multiple a:hover img{
     opacity:0.7;
     filter:alpha(opacity=70);
   }  
@@ -274,12 +274,12 @@ body.page-node .field-file-image-multiple {
   width:640px;
 }
   .node h2.title {
-    font-size:2em;
+    font-size:1.8em;
     margin: 0 0 10px 70px;
     padding-top:0;
   }
     .node h2.title a {
-      color:#222;
+      color:#35565F;
       text-decoration:none;
     }
       .node h2.title a:hover{

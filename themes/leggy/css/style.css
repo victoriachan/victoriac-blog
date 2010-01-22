@@ -815,3 +815,19 @@ body.page-search #search-form {
     filter:alpha(opacity=70)
   }
   
+.field-file-image .lightbox-processed {
+  border:1px dashed #000;
+  display: block;
+  padding:3px;
+  line-height:0;
+}
+  .field-file-image .lightbox-processed img{
+    border:1px solid #000;
+  } 
+.field-file-image .lightbox-processed:hover {
+  border:1px dashed #666;
+}
+  .field-file-image .lightbox-processed:hover img {
+    opacity:0.6;
+    filter:alpha(opacity=60)
+  }
