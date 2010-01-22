@@ -8,7 +8,7 @@
 /**
  * Format a date field to nice blog-style date
  */
-function _phptemplate_make_blog_date($datefield, $link = null) {
+function _leggy_make_blog_date($datefield, $link = null) {
 
   $arr_created_date_parts = explode('-', format_date($datefield, 'custom', 'D-d-F-Y'));
   $ret .= '<span class="month">'.$arr_created_date_parts[2].'</span><span class="delimiter"> - </span>';
@@ -25,7 +25,7 @@ function _phptemplate_make_blog_date($datefield, $link = null) {
   return $ret;
 }
 
-function _phptemplate_make_day_count($datefield, $link = null) {
+function _leggy_make_day_count($datefield, $link = null) {
 
   $arr_created_date_parts = explode(' ', format_date($datefield, 'custom', 'z Y'));
   $ret = '<span class="label">Day</span><span class="delimiter"> </span><span class="count">'.($arr_created_date_parts[0]+1).'</span>';
@@ -43,7 +43,7 @@ function _phptemplate_make_day_count($datefield, $link = null) {
 /**
  * Return a avatar thumb with link
  */
-function _phptemplate_make_avatar_thumb($username, $userpicture = null) {
+function _leggy_make_avatar_thumb($username, $userpicture = null) {
   if (! strlen($username)) {
     $username = anonymous_numpty;
   }
@@ -66,7 +66,7 @@ function _phptemplate_make_avatar_thumb($username, $userpicture = null) {
 /**
  * Remove tab
  */
-function _phptemplate_removetab($label, &$vars) {
+function _leggy_removetab($label, &$vars) {
   $tabs = explode("\n", $vars['tabs']);
   $vars['tabs'] = '';
 
@@ -80,7 +80,7 @@ function _phptemplate_removetab($label, &$vars) {
 /**
  * Check if current user is admin
  */
-function _phptemplate_is_admin() {
+function _leggy_is_admin() {
   global $user;
   if (in_array('administrator', array_values($user->roles))) {
     return true;
@@ -92,7 +92,7 @@ function _phptemplate_is_admin() {
 /**
  * Take in results of term node count, and return output for tag cloud
  */
-function _phptemplate_tag_cloud($result, $max_count=10) {
+function _leggy_tag_cloud($result, $max_count=10) {
   $terms_output = '';
   foreach($result as $key => $value) {
     if ($value->term_node_count_node_count != 0) {
@@ -123,7 +123,7 @@ function _phptemplate_tag_cloud($result, $max_count=10) {
 /**
  * Take in date in format d-m-Y, and raw date, and returns Today, Yesterday or medium date
  */
-function _phptemplate_output_ago_date($date_raw, $show_date='true') {
+function _leggy_output_ago_date($date_raw, $show_date='true') {
   
   /**
    * Show Today, Yesterday or full date
@@ -152,11 +152,11 @@ function _phptemplate_output_ago_date($date_raw, $show_date='true') {
 /**
  * Take in node and original title, and return 'Today xxx' title if applicable
  */
-function _phptemplate_get_today_title($node, $orig_title, $link_to_node=false, $show_as_today=false, $output_as_dl=false) {
+function _leggy_get_today_title($node, $orig_title, $link_to_node=false, $show_as_today=false, $output_as_dl=false) {
 
   // Get prefix for today's title eg. 'Today', 'Yesterday'..
   if (!$show_as_today) {
-    $prefix = _phptemplate_output_ago_date($node->created);
+    $prefix = _leggy_output_ago_date($node->created);
   } else {
     // Prefix with Today if this is a node page
     $prefix = 'Today';
@@ -231,8 +231,8 @@ function _format_glossary_term($node) {
   }
 }
 
-function _phptemplate_get_section_name($node) {
-  if (isset($node->node_section)) { //$node->node_section is set here in phptemplate_preprocess_node_default()
+function _leggy_get_section_name($node) {
+  if (isset($node->node_section)) { //$node->node_section is set here in leggy_preprocess_node_default()
     return 'in '.$node->node_section;
   } else if ($node->type == 'kanjikanji') {
     return ' 漢字感じ:';
@@ -240,7 +240,7 @@ function _phptemplate_get_section_name($node) {
   return null;
 }
 
-function _phptemplate_remove_css($filepath, $styles) {
+function _leggy_remove_css($filepath, $styles) {
   $arr_styles = explode("\n",$styles);
   foreach ($arr_styles as $rownum => $css_string) {
     if (strstr($css_string, $filepath)) {
@@ -265,7 +265,7 @@ function _get_page_head_title($vars) {
  * Preprocess page templates
  */
 
-function phptemplate_preprocess(&$vars, $hook) {
+function leggy_preprocess(&$vars, $hook) {
   if($hook == 'page') {
     // Add a 'page-node' class if this is a node that is rendered as page
     if (isset($vars['node']) && $vars['node']->type) {
@@ -275,7 +275,7 @@ function phptemplate_preprocess(&$vars, $hook) {
     // remove 'Notification settings' tab from user page
     $array_q = explode('/', $_GET['q']);
     if($array_q[0] == 'user'){
-      _phptemplate_removetab('Notification settings', $vars);
+      _leggy_removetab('Notification settings', $vars);
     }
   }
   
@@ -283,14 +283,14 @@ function phptemplate_preprocess(&$vars, $hook) {
   $vars['body_classes'] = str_replace('-e6-bc-a2-e5-ad-97-e6-84-9f-e3-81-98', 'kanjikanji', $vars['body_classes']);
 }
 
-function phptemplate_preprocess_page(&$vars) {
+function leggy_preprocess_page(&$vars) {
 
   // Assign section name as subtitle
-  $vars['page_subtitle'] = _phptemplate_get_section_name($vars['node']);
+  $vars['page_subtitle'] = _leggy_get_section_name($vars['node']);
   
   // Format Today titles
   if ($vars['node']->type == 'today') {
-    $vars['page_title'] = _phptemplate_get_today_title($vars['node'], $vars['title'], false, true);
+    $vars['page_title'] = _leggy_get_today_title($vars['node'], $vars['title'], false, true);
     $vars['page_date'] = '<p class="date">'.format_date($vars['node']->created, 'custom', 'l, jS M Y').':</p>';
     $vars['title'] = 'Today: '. format_date($vars['node']->created, 'custom', 'l, jS M Y');
   }
@@ -303,7 +303,7 @@ function phptemplate_preprocess_page(&$vars) {
   
   // Remove node.css if this is homepage
   if ($vars['is_front']) {
-    $vars['styles'] = _phptemplate_remove_css(path_to_theme().'/css/node.css', $vars['styles']);
+    $vars['styles'] = _leggy_remove_css(path_to_theme().'/css/node.css', $vars['styles']);
     //if (!strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE')) {
     //  $vars['message'] = t('This page looks much better in Firefox, Chrome or Safari!');
     //}
@@ -321,24 +321,24 @@ function phptemplate_preprocess_page(&$vars) {
   
 }
 
-function phptemplate_preprocess_node(&$vars) {
+function leggy_preprocess_node(&$vars) {
   
   // To access regions in nodes
   $vars['node_top'] = theme('blocks', 'node_top');
   $vars['node_bottom'] = theme('blocks', 'node_bottom');
   
   // Load node type-specific preprocess functions (if they exist)
-  $function = 'phptemplate_preprocess_node'.'_'. $vars['node']->type;
+  $function = 'leggy_preprocess_node'.'_'. $vars['node']->type;
   if (function_exists($function)) {
     $function(&$vars);
   } else {
   
   // Load the usual node stuff
-    phptemplate_preprocess_node_default($vars);
+    leggy_preprocess_node_default($vars);
   }  
 }
 
-function phptemplate_preprocess_node_default(&$vars) {
+function leggy_preprocess_node_default(&$vars) {
   /**
    * load usual node stuff
    */
@@ -346,9 +346,9 @@ function phptemplate_preprocess_node_default(&$vars) {
    
   // Format nice blog calendar style dates
   if ($vars['page']) {
-    $vars['blog_date'] = _phptemplate_make_blog_date($vars['node']->created);
+    $vars['blog_date'] = _leggy_make_blog_date($vars['node']->created);
   } else {
-    $vars['blog_date'] = _phptemplate_make_blog_date($vars['node']->created, 'node/'.$vars['node']->nid);
+    $vars['blog_date'] = _leggy_make_blog_date($vars['node']->created, 'node/'.$vars['node']->nid);
   }
   
 
@@ -377,12 +377,12 @@ function phptemplate_preprocess_node_default(&$vars) {
     $vars['terms'] = theme('links', taxonomy_link('taxonomy terms', $vars['node']));   
 }
 
-function phptemplate_preprocess_node_webform(&$vars) {
+function leggy_preprocess_node_webform(&$vars) {
   drupal_add_css(path_to_theme() . '/css/node.css', 'theme');
   drupal_add_css(path_to_theme() . '/css/node_webform.css', 'theme');
 }
 
-function phptemplate_preprocess_node_homepage(&$vars) {
+function leggy_preprocess_node_homepage(&$vars) {
   drupal_add_css(path_to_theme() . '/css/node_homepage.css', 'theme');
   
   // To access regions in nodes
@@ -401,7 +401,7 @@ function phptemplate_preprocess_node_homepage(&$vars) {
   }
 }
 
-function phptemplate_preprocess_node_page(&$vars) {
+function leggy_preprocess_node_page(&$vars) {
   // usual node stuff
   drupal_add_css(path_to_theme() . '/css/node.css', 'theme');
   if ($vars['page']){
@@ -409,17 +409,17 @@ function phptemplate_preprocess_node_page(&$vars) {
   }
 }
 
-function phptemplate_preprocess_node_recipe(&$vars) {
+function leggy_preprocess_node_recipe(&$vars) {
   // usual node stuff
-  phptemplate_preprocess_node_default($vars);
+  leggy_preprocess_node_default($vars);
   if ($vars['page']){
     drupal_add_css(path_to_theme() . '/css/node_recipe.css', 'theme');
   }
 }
 
-function phptemplate_preprocess_node_kanjikanji(&$vars) {
+function leggy_preprocess_node_kanjikanji(&$vars) {
   // usual node stuff
-  phptemplate_preprocess_node_default($vars);
+  leggy_preprocess_node_default($vars);
 
   // glossary terms
   if ($vars['page'] && $vars['node']->field_glossary_term[0]['value']) {
@@ -430,15 +430,15 @@ function phptemplate_preprocess_node_kanjikanji(&$vars) {
   $vars['is_kanjikanji'] = True;
 }
 
-function phptemplate_preprocess_node_today(&$vars) {
+function leggy_preprocess_node_today(&$vars) {
   if (!$vars['is_front']) {
     
     drupal_add_css(path_to_theme() . '/css/node.css', 'theme');
     $vars['terms'] = null;
 
     if (!$vars['page']) {
-      $vars['blog_date'] = _phptemplate_make_blog_date($vars['node']->created, 'node/'.$vars['node']->nid);
-      $vars['title'] = _phptemplate_get_today_title($vars['node'], $vars['title'], true);
+      $vars['blog_date'] = _leggy_make_blog_date($vars['node']->created, 'node/'.$vars['node']->nid);
+      $vars['title'] = _leggy_get_today_title($vars['node'], $vars['title'], true);
     } else {
       $vars['more_links'] = theme('links', array('more' => array( 'title' => 'Back to Today »', 'href' => 'today' )));
       drupal_add_css(path_to_theme() . '/css/node_today.css', 'theme');
@@ -446,7 +446,7 @@ function phptemplate_preprocess_node_today(&$vars) {
 
   } else {
     // for front page
-    $vars['title'] = _phptemplate_get_today_title($vars['node'], $vars['title'], true, false, true);
+    $vars['title'] = _leggy_get_today_title($vars['node'], $vars['title'], true, false, true);
   }
 
   unset($vars['content']);
@@ -458,13 +458,13 @@ function phptemplate_preprocess_node_today(&$vars) {
  * Views
  */
 
-function phptemplate_preprocess_views_view__section_listing(&$vars) {
+function leggy_preprocess_views_view__section_listing(&$vars) {
   if (substr($vars['view']->current_display,0,5)  == 'page_') {
     drupal_add_css(path_to_theme() . '/css/section_index.css', 'theme');
   }
 }
 
-function phptemplate_preprocess_views_view__section_listing__page_4(&$vars) {  
+function leggy_preprocess_views_view__section_listing__page_4(&$vars) {  
   drupal_add_css(path_to_theme() . '/css/section_index.css', 'theme');
   drupal_add_css(path_to_theme() . '/css/node_today.css', 'theme');
   
@@ -480,11 +480,11 @@ function phptemplate_preprocess_views_view__section_listing__page_4(&$vars) {
   
 }
 
-function phptemplate_preprocess_views_view__topics(&$vars) {  
+function leggy_preprocess_views_view__topics(&$vars) {  
   if ($vars['view']->current_display == 'page_1') {
     drupal_add_css(path_to_theme() . '/css/section_index.css', 'theme');
   }
-  $vars['rows'] = _phptemplate_tag_cloud($vars['view']->result);
+  $vars['rows'] = _leggy_tag_cloud($vars['view']->result);
 }
 
 /**
@@ -516,10 +516,10 @@ function node_link_alter(&$links, $node) {
 /**
  * Preprocess comments
  */
-function phptemplate_preprocess_comment(&$vars) {
+function leggy_preprocess_comment(&$vars) {
 
   // sets avatar image
-   $vars['picture'] = _phptemplate_make_avatar_thumb($vars['comment']->name, $vars['comment']->picture);
+   $vars['picture'] = _leggy_make_avatar_thumb($vars['comment']->name, $vars['comment']->picture);
    $site_author = user_load(variable_get('victoriac_custom_site_author_id','1'));
    if ($vars['comment']->name == $site_author->name) { 
      //$victoriac_custom_site_author_id is set by Victoria Custom module
@@ -538,10 +538,10 @@ function phptemplate_preprocess_comment(&$vars) {
  * Remove annoying HTML filter input type tips at the Comments form and elsewhere
  */
 
-function phptemplate_filter_tips($tips, $long = FALSE, $extra = '') {
+function leggy_filter_tips($tips, $long = FALSE, $extra = '') {
   return '';
 }
-function phptemplate_filter_tips_more_info () {
+function leggy_filter_tips_more_info () {
   return '';
 }
 
@@ -552,7 +552,7 @@ function phptemplate_filter_tips_more_info () {
 * @param $attributes
 * @return unknown_type
 */
-// Can't name as phptemplate_links() as mothership is using that
+// Can't name as leggy_links() as mothership is using that
 function leggy_links($links, $attributes = array('class' => 'links')) {
   
   // Link 'Add a comment' link to node page instead of comments reply page
@@ -566,7 +566,7 @@ function leggy_links($links, $attributes = array('class' => 'links')) {
   return theme_links($links, $attributes);
 }
 
-function phptemplate_menu_item_link($link) {
+function leggy_menu_item_link($link) {
   if (empty($link['localized_options'])) {
     $link['localized_options'] = array();
   }
