@@ -257,7 +257,7 @@ function victoriac_custom_author_info_block_content () {
   $site_author = user_load(variable_get('victoriac_custom_site_author_id','1'));
   if ($site_author) {  
     // calling function in template.php, not sure how else to do this
-    $site_author_avatar = _leggy_make_avatar_thumb($site_author->name, $site_author->picture);  
+    $site_author_avatar = _phptemplate_make_avatar_thumb($site_author->name, $site_author->picture);  
     $link_to = variable_get('victoriac_custom_block_author_link','');
     
     $output = $site_author_avatar;

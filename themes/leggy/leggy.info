@@ -1,5 +1,5 @@
-name        = Leggy
-description = motherships little kid: Leggy.
+name        = Rich
+description = This theme uses the latest CSS and HTML features, and is best viewed with Firefox 3+, Safari 4+, and Google Chrome browsers. Choose the Lean theme if you are using IE or other browsers.
 screenshot  = screenshot.png
 core        = 6.x
 engine      = phptemplate
