@@ -276,6 +276,7 @@ function leggy_preprocess(&$vars, $hook) {
     $array_q = explode('/', $_GET['q']);
     if($array_q[0] == 'user'){
       _leggy_removetab('Notification settings', $vars);
+      _leggy_removetab('Track', $vars);
     }
   }
   
@@ -567,6 +568,7 @@ function leggy_links($links, $attributes = array('class' => 'links')) {
 }
 
 function leggy_menu_item_link($link) {
+  // Add 'lang=ja' to the kanjikanji primary menu item
   if (empty($link['localized_options'])) {
     $link['localized_options'] = array();
   }
