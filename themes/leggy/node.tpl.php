@@ -128,6 +128,7 @@
   <?php endif; ?>
   
   <?php if ($terms): ?>
+  <?php if ($page): ?><hr class="end-node" /><?php endif; ?>
   <div class="terms">
     <h3><?php print t('Topics:'); ?></h3> 
     <?php print $terms; ?>

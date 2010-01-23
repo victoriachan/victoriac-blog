@@ -28,6 +28,11 @@
     padding:40px 0 10px 0;
     margin-bottom:40px;
   }
+  hr.end-node {
+    clear:both;
+    border: 0;
+    width: 100%;
+  }
   .node p {
     margin:1.5em 0;
   }
@@ -164,7 +169,7 @@ body.page-node .field-file-image-multiple {
   clear:both;
   overflow:hidden;
   font-size:0.9em;
-  margin:40px 0 10px -10px;
+  margin:20px 0 10px -10px;
   padding:3px 20px 5px 20px;
   line-height:normal;
   width:630px;
@@ -275,7 +280,7 @@ body.page-node .field-file-image-multiple {
 }
   .node h2.title {
     font-size:1.8em;
-    margin: 0 0 10px 70px;
+    margin: 0 0 20px 70px;
     padding-top:0;
   }
     .node h2.title a {
