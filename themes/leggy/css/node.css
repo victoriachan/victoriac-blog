@@ -271,6 +271,32 @@ body.page-node .field-file-image-multiple {
   margin:30px 0 20px 0;
 }
 
+/* Dl */
+.node-body dl {
+  margin:0;
+  padding:0 0 1em 0;
+}
+.node-body dl dt{
+  font-weight:bold;
+  padding:0 1em 0 1em;
+}
+  .node-body dl dt a {
+    text-decoration:none;
+    color:#EF483B;
+  }
+  .node-body dl dt a:hover {
+    color:#35565F;
+  }
+.node-body dl dd {
+  padding:0.5em 1em;
+  margin:0 0 1em 0;
+  background-color:#EFEFEF;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+  -khtml-border-radius: 7px;
+  border-radius: 7px;    
+}
+
 /* Node when displayed as teaser */
 
 .node-teaser {
