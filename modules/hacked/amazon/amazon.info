@@ -1,0 +1,12 @@
+name = Amazon API
+description = Provides integration with the Amazon Ecommerce APIs.
+package = Amazon
+core = 6.x
+php = 5.2
+
+; Information added by drupal.org packaging script on 2010-01-12
+version = "6.x-1.0-rc3"
+core = "6.x"
+project = "amazon"
+datestamp = "1263312903"
+

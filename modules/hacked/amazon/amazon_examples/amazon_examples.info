@@ -1,0 +1,21 @@
+core = "6.x"
+dependencies[] = "amazon"
+dependencies[] = "amazon_media"
+dependencies[] = "asin"
+dependencies[] = "features"
+dependencies[] = "views"
+description = "Provides Amazon module CCK type and view as a demo"
+features[content][] = "amazon_example-field_asin"
+features[node][] = "amazon_example"
+features[views][] = "amazon_example_view"
+name = "Amazon Examples"
+package = "Amazon"
+project = "amazon_examples"
+version = "6.x-1.0-beta9"
+
+; Information added by drupal.org packaging script on 2010-01-12
+version = "6.x-1.0-rc3"
+core = "6.x"
+project = "amazon"
+datestamp = "1263312903"
+

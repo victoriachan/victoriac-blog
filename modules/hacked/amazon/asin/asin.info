@@ -1,0 +1,14 @@
+name = Amazon field
+description = Provides a CCK field type for Amazon products.
+package = Amazon
+dependencies[] = amazon
+dependencies[] = content
+core = 6.x
+php = 5.2
+
+; Information added by drupal.org packaging script on 2010-01-12
+version = "6.x-1.0-rc3"
+core = "6.x"
+project = "amazon"
+datestamp = "1263312904"
+
