@@ -164,11 +164,15 @@ function _leggy_get_today_title($node, $orig_title, $link_to_node=false, $show_a
 
   // Replace the title with the body or present tense text
   global $language ;
-  $lang_name = $language->language ;
+  $lang_name = $language->language;
+  $effective_lang = 'en'; // marker to take note of what lang this is..
+  
   if (($lang_name == 'ja') && $node->field_today_japanese[0]['safe']) {
     $title = $node->field_today_japanese[0]['safe'];
+    $effective_lang = 'ja';
   } elseif (($lang_name == 'zh-hans') && $node->field_today_chinese[0]['safe']) {
     $title = $node->field_today_chinese[0]['safe'];
+    $effective_lang = 'zh-hans';
   } elseif ($node->field_today_html[0]['safe']) {
     $title = 'Today '.$node->field_today_html[0]['safe'];
   } else {
@@ -191,12 +195,12 @@ function _leggy_get_today_title($node, $orig_title, $link_to_node=false, $show_a
   // Add wrappers
   if (strlen($prefix)) {
     if (!$output_as_dl) {
-      return $prefix . ' <span class="title">' . str_replace('p>', 'span>', $title) . '</span>';
+      return $prefix . ' <span class="title" lang="'.$effective_lang.'">' . str_replace('p>', 'span>', $title) . '</span>';
     } else {
-      return '<dl><dt>'.$prefix . '</dt><dd class="title">' . str_replace('p>', 'span>', $title) . '</dd></dl>';
+      return '<dl><dt>'.$prefix . '</dt><dd class="title" lang="'.$effective_lang.'">' . str_replace('p>', 'span>', $title) . '</dd></dl>';
     }
   } else {
-      return '<span class="title title_no_prefix">' . str_replace('p>', 'span>', $title) . '</span>';
+      return '<span class="title title_no_prefix" lang="'.$effective_lang.'">' . str_replace('p>', 'span>', $title) . '</span>';
   }
   
 }
