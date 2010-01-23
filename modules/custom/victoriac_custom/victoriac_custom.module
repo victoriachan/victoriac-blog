@@ -281,5 +281,5 @@ function victoriac_custom_twitter_others_block_content () {
   module_load_include('module', 'twitter_pull', 'twitter_pull');
   $twitter_username = variable_get('victoriac_custom_block_twitter_username','');
   $twitter_block_title = variable_get('victoriac_custom_block_twitter_title_2','');
-  return twitter_pull_render('#'.$twitter_username, $twitter_block_title, 5);
+  return twitter_pull_render('#'.$twitter_username, $twitter_block_title, 6);
 }

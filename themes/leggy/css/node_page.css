@@ -1,26 +1,50 @@
 /* 
  * CSS for page node-type
  */
-body.page-node .page_content {
-  padding:10px 0;
+body.page-node .node ul {
+  margin:0;
+  padding:0;
+  border-top:1px dotted #cecece;
 }
-body.page-node .node {
-  background-color:transparent;
-  -moz-box-shadow: none;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  
-  width:580px;
-  padding:0 40px 20px 40px;
-  margin:0 15px;
-  color:#444;
-  font-size:1.2em;
-  text-shadow: 1px 0 1px rgba(0,0,0,0.1);
-  font-family: Georgia, "Times New Roman", Times, serif;
-  /* letter-spacing:normal; */
+body.page-node .node li {
+  margin:0;
+  padding:0.3em 1em;
+  font-size:0.9em;
+  list-style-type:none;
+  list-style-image:none;
+  border-bottom:1px dotted #cecece;
+  background-color:#EFEFEF;
+  color:#8f8f8f;
+  font-family:Georgia,"Times New Roman",Times,serif;
+  font-style:italic;
+  letter-spacing:0.03em;
 }
-  body.page-node .node .node_content {
+  body.page-node .node li:hover {
+    background-color:#222;
+  }
+  body.page-node .node li em {
+    font-style:normal;
+  }
+
+#content_bottom .tweets-pulled-listing p {
+  margin:0;
+  padding:0;
+}
+  #content_bottom .tweets-pulled-listing ul.tweets-pulled-listing {
+    overflow:hidden;
     width:100%;
+  }
+  #content_bottom .tweets-pulled-listing ul.tweets-pulled-listing li {
+    background:url(../images/blockquote_small.png) 0 0 no-repeat;
+    padding:10px 0 30px 0;
+    margin:0 3% 0 0;
+    width:47%;
+    min-height:100px;
+    float:left;
+  }
+  #content_bottom .tweets-pulled-listing .tweet-author {
     padding:0;
-    margin:0;
+  }
+  #content_bottom .tweets-pulled-listing ul.tweets-pulled-listing li .tweet-body {
+    text-indent:50px;
   }
