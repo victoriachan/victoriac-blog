@@ -1,0 +1,101 @@
+.page_title h1 {
+  padding-left:10px;
+}
+body.page-node .page_title h1.title{
+  font-family: Tahoma, Verdana, Arial, Helvetica, "Bitstream Vera Sans", sans-serif;
+  font-style:normal; 
+  padding-top:10px;
+}
+    body.page-node .page_title .subtitle span {
+      font-size:1.3em;
+      font-style:italic;
+    }
+
+.node-teaser-kanjikanji h2.title {
+  font-family:Georgia,"Times New Roman",Times,serif;
+  letter-spacing:0.03em;
+  font-size:1.8em;
+  margin-bottom:0.5em;
+}
+body.page-node .node {
+  padding:40px 0 30px 0;
+}
+.node .terms {
+  margin-top:30px;
+}
+
+#glossary_terms {
+  clear:both;
+  padding:20px 0 0 0;
+  margin:0 0 0 -70px;
+  width:650px;
+}
+#glossary_terms .inner{
+  border-top:1px solid #ccc;
+  border-bottom:1px solid #ccc;
+  background-color:#e5e5e5;
+  background-color:rgba(0,0,0,0.1);
+  padding:10px 30px;
+}
+  #glossary_terms h3 {
+    margin:0;
+    padding:0 0 5px 0;
+  }
+  #glossary_terms ul {
+    margin:0;
+    padding:0;
+  }
+  #glossary_terms li {
+    list-style-image:none;
+    list-style-type:none;
+    padding:3px 0;
+    margin:0;
+  }
+  
+  #glossary_terms dl {
+    margin:0;
+    padding:0;
+  }
+    #glossary_terms dl dd,
+    #glossary_terms dl dt {
+      display:inline;
+      margin:0;
+      padding:0;
+    }
+  #glossary_terms .term {
+    background-color:#b7b7b7;
+    background-color:rgba(0,0,0,0.2); 
+    color:#fff;
+    font-size:1.1em;
+    padding:1px 3px 2px 3px;
+  }
+  #glossary_terms .phonetic {
+    font-size:0.9em;
+  }
+  #glossary_terms .definition {
+    border-bottom: 1px dotted #666;
+    font-size:0.9em;
+    font-family: Georgia, "Times New Roman", Times, serif;
+  }
+  
+/* field-kanjikanji-english */
+.field-kanjikanji-english {
+  color:#999;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  letter-spacing:0.01;
+}
+  .node .node_content .field-kanjikanji-english p:first-of-type {
+    font-weight:normal;
+  }
+  .field-kanjikanji-english h3 {
+    font-size:1.5em;
+    font-style:italic;
+  }
+
+/* embedded image
+body.page-node .field-embedded-image {
+  float:none;
+  display:block;
+  padding:0 0 20px 0;
+}
+ */

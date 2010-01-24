@@ -1,0 +1,177 @@
+/** 
+ * Profile content
+ */
+
+body.page-user #user-pass,
+body.page-user #user-login,
+body.page-user #user-register,
+body.page-user #tracker,
+body.page-user #user-profile-form,
+body.page-user #notify-user-settings-form,
+body.page-user .userprofile{
+  margin:0 0 20px 20px;
+  padding:30px;
+  background-color:#fff;
+  overflow:hidden;
+  
+  -moz-box-shadow: 2px 2px 10px rgba(0,0,0,0.4);
+  -webkit-box-shadow: 2px 2px 10px rgba(0,0,0,0.4);
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.4); 
+}
+body.page-user #user-profile-form{
+  margin-top:-34px;
+}
+
+body.view-other-user .userprofile{
+  margin-top:15px;
+}
+
+  body.page-user .userprofile .user_picture {
+    width:240px;
+    float:left;
+  }
+  body.page-user .userprofile .user_picture img{
+    border:1px solid #222;
+  }
+
+body.page-user .userprofile dl{
+  width:100%;
+  clear:both;
+  margin:0;
+  padding:0 0 5px 0;
+}
+  body.page-user .userprofile dl a{
+    text-decoration:none;
+  }
+  body.page-user .userprofile dt {
+    display:inline;
+    padding:0 5px 0 0;
+    margin:0;
+  }
+  body.page-user .userprofile dd {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    letter-spacing:0.01em;
+    display:inline;
+    margin:0;
+    padding:0;
+    border-bottom:1px dotted #666;
+    font-weight:bold;
+  }  
+
+body.page-user .userprofile h2{
+  margin:0 0 1em 0;
+  padding:0;
+}
+
+body.page-user .userprofile .fieldset{
+  margin:0 0 20px 0;
+  width:320px;
+  float:right;
+}
+body.page-user .userprofile .fieldset_3{
+  clear:both;
+  float:left;
+  display:none;
+}
+
+/** 
+ * Form
+ */
+#user-register label,
+#user-profile-form label{
+  font-weight:normal;
+}
+#user-register legend,
+#user-profile-form legend{
+  font-size:1.4em;
+  font-weight:bold;
+  line-height:1.3em;
+  padding:10px 0;
+  margin:0;
+}
+#user-register fieldset,
+#user-profile-form fieldset{
+  padding:0;
+}
+#user-register .form-button,
+#user-profile-form .form-button{
+  display:inline;
+}
+  #user-register .form-item input,
+  #user-profile-form .form-item input{
+    margin:0.5em 0.5em 0.5em 0;
+  }
+  #user-register .form-description,
+  #user-profile-form .form-description{
+    font-size:0.8em;
+    color:#666;
+  }
+  #user-register .form-item-checkboxes,
+  #user-register .form-item-radios,
+  #user-profile-form .form-item-checkboxes,
+  #user-profile-form .form-item-radios{
+    clear:both;
+    overflow:hidden;
+  }
+  #user-register .form-item-radio,
+  #user-profile-form .form-item-radio {
+    width:auto;
+    display:inline;
+    float:left;
+    padding-right:20px;
+  }
+  #user-register .form-radios,
+  #user-register .form-checkboxes,
+  #user-profile-form .form-radios,
+  #user-profile-form .form-checkboxes {
+    margin:0;
+  }
+    #user-register .form-item-checkboxes .form-option,
+    #user-profile-form .form-item-checkboxes .form-option{
+      font-size:0.9em;
+    }
+    #user-register .form-item-checkbox,
+    #user-profile-form .form-item-checkbox {
+      margin:0;
+    }
+  
+  #user-register .form-item-radios,
+  #user-profile-form .form-item-radios{
+    margin:0;
+  } 
+  #user-register .form-item-radios label,
+  #user-register .form-item-radios .form-description,
+  #user-profile-form .form-item-radios label,
+  #user-profile-form .form-item-radios .form-description {
+    display:none;
+  }
+   #user-register .form-item-radios .form-radios label,
+   #user-profile-form .form-item-radios .form-radios label{
+     display:inline;
+   }
+  #user-register .user_picture,
+  #user-profile-form .user_picture{
+    float:left;
+    margin-right:30px;
+  }
+
+  
+/** 
+ * Track
+ */
+#tracker tr.even, 
+#tracker tr.odd{
+  border:0;
+  background:transparent;
+}
+  #tracker tr th,
+  #tracker tr td{
+    padding:8px 10px 8px 5px;
+    font-size:0.9em;
+    vertical-align:top;
+  }
+  #tracker tr.odd{
+    border-top:1px solid #ccc;
+    border-bottom:1px solid #ccc;
+    background-color:#f3f3f3;
+  }

@@ -1,0 +1,47 @@
+name        = Lean
+description = This is a lean theme with minimalist design. It is optimal for IE or other old browsers. If you want a more exciting design, try the Rich theme.
+screenshot  = screenshot.png
+core        = 6.x
+engine      = phptemplate
+base theme = mothership
+;--------------------- regions -----------------------------
+regions[top_bar]        = top bar
+regions[content_top]    = content top
+regions[node_top]       = node top
+regions[node_bottom]    = node bottom
+regions[homepage_row_1] = homepage row 1
+regions[homepage_row_2] = homepage row 2
+regions[content_bottom] = content bottom
+regions[right]          = right sidebar
+regions[footer]         = footer
+
+;--------------------- features ----------------------------
+features[] = logo
+features[] = name
+features[] = node_user_picture
+features[] = comment_user_picture
+features[] = search
+features[] = favicon
+features[] = slogan
+features[] = primary_links
+features[] = secondary_links
+
+;--------------------- styles ------------------------------
+stylesheets[all][]    = css/html.css
+stylesheets[all][]    = css/layout.css
+stylesheets[all][]    = css/style.css
+stylesheets[all][]    = css/form.css
+stylesheets[all][]    = css/user_profile.css
+stylesheets[all][]    = css/comments.css
+stylesheets[print][]    = css/print.css
+ie stylesheets[ condition ][all][] = css/ie.css
+
+;--------------------- javascript ------------------------------
+scripts[] = javascript/site.js
+
+; Information added by drupal.org packaging script on 2009-11-16
+version = "6.x-1.1"
+core = "6.x"
+project = "mothership"
+datestamp = "1258340476"
+
