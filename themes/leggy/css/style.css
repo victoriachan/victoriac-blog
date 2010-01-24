@@ -528,7 +528,34 @@
     .tweets-pulled-listing .tweet-time a:hover {
       color:#EF483B; 
     }
-    
+
+/* Right Column Amazon */
+#block-views-amazon-block-1 {
+  width:200px;
+  float:right;
+}
+  #block-views-amazon-block-1 h3 {
+    margin-top:0;
+    font-family: Tahoma,Verdana,Arial,Helvetica,"Bitstream Vera Sans",sans-serif;
+    letter-spacing:0.03em;
+    font-size:1.4em;
+    color:#666;
+    color:rgba(0,0,0,0.3);
+    font-weight:bold;
+  }
+  #block-views-amazon-block-1 a img {
+    border:10px solid #999;
+    border:10px solid rgba(0,0,0,0.2);
+    margin:0;
+    padding:0;
+    -webkit-transform: rotate(4deg) ;
+    -moz-transform: rotate(4deg) ;
+    transform: rotate(4deg) ;   
+  }
+    #block-views-amazon-block-1 a:hover img {
+      border:10px solid #EF483B;
+    }
+
 /* Secondary menu */
 #block-menu-secondary-links{
   clear:both;
