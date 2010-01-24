@@ -278,6 +278,22 @@ function leggy_preprocess(&$vars, $hook) {
       _leggy_removetab('Notification settings', $vars);
       _leggy_removetab('Track', $vars);
     }
+    
+    // Add Feed icon
+    if($array_q[0] == 'geek'){
+      drupal_add_feed(url('geek/feed', array('absolute' => TRUE)), 'VictoriaC RSS | Geek');
+    } elseif($array_q[0] == 'life') {
+      drupal_add_feed(url('life/feed', array('absolute' => TRUE)), 'VictoriaC RSS | Life');
+    } elseif($array_q[0] == 'today') {
+      drupal_add_feed(url('today/feed', array('absolute' => TRUE)), 'VictoriaC RSS | Today');
+    } elseif($array_q[0] == '漢字感じ') {
+      drupal_add_feed(url('漢字感じ/feed', array('absolute' => TRUE)), 'VictoriaC RSS | 漢字感じ');
+    } else {
+      drupal_add_feed(url('feed', array('absolute' => TRUE)), 'VictoriaC RSS | All');
+    }
+    $vars['head'] = drupal_get_html_head();   // Refresh $head variable
+    $vars['feed_icons'] = drupal_get_feeds();  // Refresh $feed_icons variable
+
   }
   
   // Replace funny kanji characters in section name
@@ -318,6 +334,15 @@ function leggy_preprocess_page(&$vars) {
   if (($_GET['q'] == '漢字感じ') || ($vars['node']->type == 'kanjikanji')) {
     //$vars['html_language'] = 'ja';
     $vars['is_kanjikanji'] = True;
+  }
+  
+  // Add css for search
+  $array_q = explode('/', $_GET['q']);
+  if ($array_q[0] == 'search') {
+    drupal_add_css(path_to_theme() . '/css/search.css', 'theme');
+    //Reload css/js. This is needed for preprocess_page since css/js is already loaded.
+    $vars['styles'] = drupal_get_css();
+    $vars['tabs'] = null; // don't show search tabs
   }
   
 }
