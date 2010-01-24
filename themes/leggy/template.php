@@ -152,7 +152,7 @@ function _leggy_output_ago_date($date_raw, $show_date='true') {
 /**
  * Take in node and original title, and return 'Today xxx' title if applicable
  */
-function _leggy_get_today_title($node, $orig_title, $link_to_node=false, $show_as_today=false, $output_as_dl=false) {
+function _leggy_get_today_title($node, $link_to_node=false, $show_as_today=false, $output_as_dl=false) {
 
   // Get prefix for today's title eg. 'Today', 'Yesterday'..
   if (!$show_as_today) {
@@ -173,16 +173,12 @@ function _leggy_get_today_title($node, $orig_title, $link_to_node=false, $show_a
   } elseif (($lang_name == 'zh-hans') && $node->field_today_chinese[0]['safe']) {
     $title = $node->field_today_chinese[0]['safe'];
     $effective_lang = 'zh-hans';
-  } elseif ($node->field_today_html[0]['safe']) {
-    $title = 'Today '.$node->field_today_html[0]['safe'];
   } else {
-    $title = 'Today '.$orig_title;
+    $title = $node->field_today_html[0]['safe'];
   }
 
   // Remove 'Today' in title which already have Today in prefix..
-  if ($prefix == 'Today') {
-    $title = str_replace('Today ', '', $title);
-  }
+  $title = str_replace('<p>Today ', '<p>', $title);
     
   // Create prefix
   if (strlen($prefix) && $link_to_node) {
@@ -295,7 +291,7 @@ function leggy_preprocess_page(&$vars) {
   
   // Format Today titles
   if ($vars['node']->type == 'today') {
-    $vars['page_title'] = _leggy_get_today_title($vars['node'], $vars['title'], false, true);
+    $vars['page_title'] = _leggy_get_today_title($vars['node'], false, true);
     $vars['page_date'] = '<p class="date">'.format_date($vars['node']->created, 'custom', 'l, jS M Y').':</p>';
     $vars['title'] = 'Today: '. format_date($vars['node']->created, 'custom', 'l, jS M Y');
   }
@@ -340,7 +336,7 @@ function leggy_preprocess_node(&$vars) {
   
   // Load the usual node stuff
     leggy_preprocess_node_default($vars);
-  }  
+  }
 }
 
 function leggy_preprocess_node_default(&$vars) {
@@ -443,7 +439,7 @@ function leggy_preprocess_node_today(&$vars) {
 
     if (!$vars['page']) {
       $vars['blog_date'] = _leggy_make_blog_date($vars['node']->created, 'node/'.$vars['node']->nid);
-      $vars['title'] = _leggy_get_today_title($vars['node'], $vars['title'], true);
+      $vars['title'] = _leggy_get_today_title($vars['node'], true);
     } else {
       $vars['more_links'] = theme('links', array('more' => array( 'title' => 'Back to Today »', 'href' => 'today' )));
       drupal_add_css(path_to_theme() . '/css/node_today.css', 'theme');
@@ -451,7 +447,7 @@ function leggy_preprocess_node_today(&$vars) {
 
   } else {
     // for front page
-    $vars['title'] = _leggy_get_today_title($vars['node'], $vars['title'], true, false, true);
+    $vars['title'] = _leggy_get_today_title($vars['node'], true, false, true);
   }
 
   unset($vars['content']);
@@ -491,6 +487,7 @@ function leggy_preprocess_views_view__topics(&$vars) {
   }
   $vars['rows'] = _leggy_tag_cloud($vars['view']->result);
 }
+
 
 /**
  * Implementation of hook_link_alter() for node_link() in node module to always show 'Read More' link.
