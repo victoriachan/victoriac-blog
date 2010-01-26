@@ -103,12 +103,12 @@
     <div class="see_also">
       <h3><?php print t('See also'); ?></h3>
       <ul>
-       <?php foreach ($field_internal_link as $link): ?>
+       <?php foreach ($field_internal_link as $link): if ($link['nid']): ?>
            <li class="internal_link"><?php print content_format('field_internal_link', $link) ?></li>
-        <?php endforeach; ?>
-       <?php foreach ($field_useful_link as $link): ?>
+       <?php endif; endforeach; ?>
+       <?php foreach ($field_useful_link as $link): if ($link['url']): ?>
            <li class="external_link"><?php print content_format('field_useful_link', $link) ?></li>
-        <?php endforeach; ?>      
+        <?php endif; endforeach; ?>      
       </ul>
     </div>
     <?php endif; ?>
