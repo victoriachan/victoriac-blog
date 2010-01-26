@@ -33,6 +33,13 @@ body.node-type-recipe .node-body {
     list-style-image:none;
     border-bottom:1px dotted #ccc;
   }
+    .field-ingredient ul li p {
+      margin:0;
+      padding:0;
+    }
+    .node .node_content .field-ingredient ul li p:first-of-type {
+      font-weight:normal;
+    }
   
 .field-file-image {
   float:right;
