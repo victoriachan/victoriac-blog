@@ -273,7 +273,7 @@ function leggy_preprocess(&$vars, $hook) {
     }
     
     // remove 'Notification settings' tab from user page
-    $array_q = explode('/', $_GET['q']);
+    $array_q = explode('/', $_REQUEST['q']);
     if($array_q[0] == 'user'){
       _leggy_removetab('Notification settings', $vars);
       _leggy_removetab('Track', $vars);
@@ -301,7 +301,7 @@ function leggy_preprocess(&$vars, $hook) {
 }
 
 function leggy_preprocess_page(&$vars) {
-
+  
   // Assign section name as subtitle
   $vars['page_subtitle'] = _leggy_get_section_name($vars['node']);
   
