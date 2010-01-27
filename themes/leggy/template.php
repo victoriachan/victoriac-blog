@@ -43,24 +43,35 @@ function _leggy_make_day_count($datefield, $link = null) {
 /**
  * Return a avatar thumb with link
  */
-function _leggy_make_avatar_thumb($username, $userpicture = null) {
-  if (! strlen($username)) {
-    $username = anonymous_numpty;
-  }
-  $this_link = 'user/'.$username;
-  $site_author = user_load(variable_get('victoriac_custom_site_author_id','1'));
-  if($username == $site_author->name) {
+function _leggy_make_avatar_thumb($uid) {
+  $this_user = user_load($uid); 
+  $site_author_uid = variable_get('victoriac_custom_site_author_id','1');
+
+  if ($uid == $site_author_uid) {
+    // This is me
     $this_link = 'about';
-  }
+    $this_img = theme('imagecache','avatar',$this_user->picture, $this_user->name, $this_user->name);
+    return l($this_img, $this_link, array(html=>true, attributes=>array('class' => 'avatar_thumb')));
+    
+  } elseif ($uid == 0) {
+    // This is anon user
+    $this_img = theme('image', path_to_theme().'/images/avatar_thumb.png' , 'Anonymous user', 'Anonymous user');
+    return '<span class="avatar_thumb">'.$this_img.'</span>';
   
-  if($userpicture){
-    $this_img = theme('imagecache','avatar',$userpicture, $username, $username);
-  }else{
-    $this_img = theme('image', path_to_theme().'/images/avatar_thumb.png' , $username, $username);
+  } else {
+    // Registered user
+    $this_link = 'user/'.$this_user->name;
+    if($this_user->picture){
+      $this_img = theme('imagecache','avatar',$this_user->picture, $this_user->name, $this_user->name);
+    }else{
+      $this_img = theme('image', path_to_theme().'/images/avatar_thumb.png' , $this_user->name, $this_user->name);
+    }
+    return l($this_img, $this_link, array(html=>true, attributes=>array('class' => 'avatar_thumb')));
   }
-  $ret = l($this_img, $this_link, array(html=>true, attributes=>array('class' => 'avatar_thumb')));
-  
-  return $ret;
+}
+// wrapping up the private function to be called by victoriac_custom module
+function phptemplate_make_avatar_thumb($uid) {
+  return _leggy_make_avatar_thumb($uid);
 }
 
 /**
@@ -546,7 +557,7 @@ function node_link_alter(&$links, $node) {
 function leggy_preprocess_comment(&$vars) {
 
   // sets avatar image
-   $vars['picture'] = _leggy_make_avatar_thumb($vars['comment']->name, $vars['comment']->picture);
+   $vars['picture'] = _leggy_make_avatar_thumb($vars['comment']->uid);
    $site_author = user_load(variable_get('victoriac_custom_site_author_id','1'));
    if ($vars['comment']->name == $site_author->name) { 
      //$victoriac_custom_site_author_id is set by Victoria Custom module
@@ -560,6 +571,7 @@ function leggy_preprocess_comment(&$vars) {
   }
   
 }
+
 
 /**
  * Remove annoying HTML filter input type tips at the Comments form and elsewhere

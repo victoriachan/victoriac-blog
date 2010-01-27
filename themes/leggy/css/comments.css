@@ -136,6 +136,23 @@ body.page-node .comment_forbidden,
     #comment-form .comment .content{
       color:#333;
     }
+  
+  #comment-form #edit-mail-wrapper .form-item {
+    clear:both;
+    overflow:hidden;
+  }
+  #comment-form #edit-mail-wrapper label,
+  #comment-form #edit-mail-wrapper input {
+    float:left;
+  }
+    #comment-form #edit-mail-wrapper .form-description {
+      float:left;
+      width:230px;
+      padding-left:10px;
+      font-size:0.9em;
+      line-height:normal;
+      font-style:italic;
+    }
   #comment-form .form-item label {
     display:inline;
   }
@@ -164,7 +181,10 @@ body.page-node .comment_forbidden,
     margin-top:10px;
     float:left;
   }
-
+  #comment-form #edit-homepage-wrapper {
+    display:none;
+  }
+  
   #comment-form p {
     margin:0;
     padding:5px 0;
