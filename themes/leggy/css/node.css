@@ -203,7 +203,7 @@ body.page-node .field-file-image-multiple {
     text-decoration:underline;
   }
     .node .terms a:hover {
-      color:#E00D4F;
+      color:#D00D4F;
       text-decoration:none;
     }
 
@@ -289,7 +289,7 @@ body.page-node .field-file-image-multiple {
 }
   .node-body dl dt a {
     text-decoration:none;
-    color:#E00D4F;
+    color:#D00D4F;
   }
   .node-body dl dt a:hover {
     color:#35565F;
@@ -325,7 +325,7 @@ body.page-node .field-file-image-multiple {
       text-decoration:none;
     }
       .node h2.title a:hover{
-        color:#E00D4F;
+        color:#D00D4F;
         text-shadow: none;
       }
     .node-teaser .node_content {
