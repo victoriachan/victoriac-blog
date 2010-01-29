@@ -99,7 +99,7 @@
   <div class="node_content" <?php $is_kanjikanji ? print 'lang="ja"' : ''  ?>>
     <?php print $content; ?>
     
-    <?php if($page && ($field_internal_link[0]['nid'] || $field_useful_link[0]['nid'])): ?>
+    <?php if($page && ($field_internal_link[0]['nid'] || $field_useful_link[0]['url'])): ?>
     <div class="see_also">
       <h3><?php print t('See also'); ?></h3>
       <ul>

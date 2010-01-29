@@ -58,6 +58,12 @@
     border:1px solid #222;
   }
   
+/* DL image */
+.inline_thumb_link {
+  float:left;
+  margin:0 20px 0 0;
+}
+
 /* Review */
 .node-teaser-review .node-body,
 body.node-type-review .node-body {
@@ -278,7 +284,8 @@ body.page-node .field-file-image-multiple {
 }
 .node-body dl dt{
   font-weight:bold;
-  padding:0 1em 0 1em;
+  padding:0 1em 0 0;
+  font-size:1.1em;
 }
   .node-body dl dt a {
     text-decoration:none;
@@ -288,15 +295,19 @@ body.page-node .field-file-image-multiple {
     color:#35565F;
   }
 .node-body dl dd {
-  padding:0.5em 1em;
-  margin:0 0 1em 0;
+  overflow:hidden;
+  padding:20px;
+  margin:0 0 1.5em 0;
   background-color:#EFEFEF;
   -moz-border-radius: 7px;
   -webkit-border-radius: 7px;
   -khtml-border-radius: 7px;
   border-radius: 7px;    
 }
-
+  .node-body dl dd p:last-of-type {
+    margin-bottom:0;
+  }
+  
 /* Node when displayed as teaser */
 
 .node-teaser {
