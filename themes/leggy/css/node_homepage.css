@@ -28,8 +28,8 @@
 }
 #block-search:hover {
   border:1px dashed #888;
-  background-color:#b3b3b3;
-  background-color:rgba(255,255,255,0.7);
+  background-color:#222;
+  background-color:rgba(50,50,50,0.5);
 }
 
 /* Intro */
@@ -291,7 +291,7 @@ body.node-type-homepage .node-homepage {
       color:rgba(0,0,0,0.4);
     }
     .homepage_row h3 a:hover {
-      color:#EF483B;
+      color:#CF1052;
     }
     
   .homepage_row .field-teaser-summary-value {
@@ -354,7 +354,7 @@ body.node-type-homepage .node-homepage {
   
 }
   .homepage_row  .title a{
-    color:#EF483B;
+    color:#CF1052;
     font-weight:bold;
     text-decoration:none;
   }
@@ -428,7 +428,7 @@ body.node-type-homepage .node-homepage {
       color:#13343E;
     }
       .view-review  .title a:hover {
-        color:#EF483B;
+        color:#CF1052;
       }
   .view-review .field-stars-rating {
     padding:5px 10px 0 10px;
@@ -469,7 +469,7 @@ body.node-type-homepage .node-homepage {
         color:rgba(0,0,0,0.3);
       }
         #block-views-section-listing-block-1 .view-content .node .prefix:hover {
-          color:#EF483B;
+          color:#CF1052;
           text-decoration:none;
         }
       #block-views-section-listing-block-1 .view-content .node dd.title {
@@ -486,7 +486,7 @@ body.node-type-homepage .node-homepage {
         text-decoration:underline;
       }
         #block-views-section-listing-block-1 .view-content .node dd.title a:hover {
-          color:#EF483B;
+          color:#CF1052;
           text-decoration:none;
         }
 

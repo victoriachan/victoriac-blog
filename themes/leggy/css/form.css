@@ -41,7 +41,7 @@ form input.form-submit {
   
   form input.form-button:hover, 
   form input.form-submit:hover {
-    background: #ff3300;
+    background: #Cf0C4A;
     cursor: pointer;
     }
 
@@ -64,7 +64,7 @@ form input.form-submit {
   border-radius: 4px;
 }
   #comment-form #wysiwyg-toggle-edit-comment:hover{
-    background-color:#EF483B;
+    background-color:#CF1052;
   }
 
 /* TinyMCE */
