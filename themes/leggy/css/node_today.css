@@ -23,7 +23,7 @@
     }
     .attachment .node-teaser h2.title span.title a {
       text-decoration:none;
-      color:#CF1052;
+      color:#E00D4F;
     }
     .attachment .node-teaser h2.title span.title a:hover {
       color:#000;
@@ -168,7 +168,7 @@ body.page-node .page_title {
       text-decoration:underline;
     }
     .node-teaser-today h2.title span.title a:hover {
-      color:#CF1052;
+      color:#E00D4F;
       text-decoration:none;
     }
     

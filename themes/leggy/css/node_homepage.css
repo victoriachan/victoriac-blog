@@ -291,7 +291,7 @@ body.node-type-homepage .node-homepage {
       color:rgba(0,0,0,0.4);
     }
     .homepage_row h3 a:hover {
-      color:#CF1052;
+      color:#E00D4F;
     }
     
   .homepage_row .field-teaser-summary-value {
@@ -354,7 +354,7 @@ body.node-type-homepage .node-homepage {
   
 }
   .homepage_row  .title a{
-    color:#CF1052;
+    color:#E00D4F;
     font-weight:bold;
     text-decoration:none;
   }
@@ -428,7 +428,7 @@ body.node-type-homepage .node-homepage {
       color:#13343E;
     }
       .view-review  .title a:hover {
-        color:#CF1052;
+        color:#E00D4F;
       }
   .view-review .field-stars-rating {
     padding:5px 10px 0 10px;
@@ -469,7 +469,7 @@ body.node-type-homepage .node-homepage {
         color:rgba(0,0,0,0.3);
       }
         #block-views-section-listing-block-1 .view-content .node .prefix:hover {
-          color:#CF1052;
+          color:#E00D4F;
           text-decoration:none;
         }
       #block-views-section-listing-block-1 .view-content .node dd.title {
@@ -486,7 +486,7 @@ body.node-type-homepage .node-homepage {
         text-decoration:underline;
       }
         #block-views-section-listing-block-1 .view-content .node dd.title a:hover {
-          color:#CF1052;
+          color:#E00D4F;
           text-decoration:none;
         }
 

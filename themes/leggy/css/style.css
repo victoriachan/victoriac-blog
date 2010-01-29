@@ -143,9 +143,9 @@
   text-align:center;
 }
   a.blog_date:hover {
-    background-color: #bab0a2;
-    background-color: rgba(90, 0, 0, 0.2); 
-    color:#3f3733;
+    background-color: #E00D4F;
+    background-color: rgba(100, 0, 20, 0.3);
+    color:#5F2C37;
     color:rgba(0, 0, 0, 0.7);
   }
   .node .blog_date{
@@ -295,7 +295,7 @@
     text-decoration:none;
   }
     #footer a:hover{
-      color:#CF1052;
+      color:#E00D4F;
     }
     
 /* images */  
@@ -463,7 +463,7 @@
         text-decoration:none;
       }
       #author_info .more_link a:hover{
-        color:#CF1052;
+        color:#E00D4F;
         text-shadow: 0 0 0 rgba(0,0,0,0.2);
       }
 
@@ -516,7 +516,7 @@
       }
         .tweets-pulled-listing .tweet-author a {
           text-decoration:none;
-          color:#CF1052; 
+          color:#E00D4F; 
         }
         .tweets-pulled-listing .tweet-author a:hover {
           color:#898176;
@@ -530,7 +530,7 @@
     color:rgba(0,0,0,0.4);
   }
     .tweets-pulled-listing .tweet-time a:hover {
-      color:#CF1052; 
+      color:#E00D4F; 
     }
 
 /* Right Column Amazon */
@@ -768,7 +768,7 @@ body.user-edit #admin_tabs_top {
   padding:5px 0;
 }
 div.view div.views-admin-links li a {
-  color:#CF1052;
+  color:#E00D4F;
 }
 
 /* Stars */
