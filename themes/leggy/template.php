@@ -327,6 +327,22 @@ function leggy_preprocess_page(&$vars) {
   if ($_GET['q'] == 'today') {
     $vars['page_title'] = $vars['title'].'<span class="date"> '.format_date(time(), 'custom', 'l, jS M Y').'</span>';
     $vars['body_classes'] .= ' view-today';
+  } elseif (strstr($_GET[q], 'today/')) {
+    $vars['body_classes'] .= ' view-today';   
+    $q_parts = explode('/', $_GET[q]);
+    $date_parts = explode('-', $q_parts[1]);
+    if (!is_numeric($date_parts[0])) {
+      unset($date_parts);
+    } elseif (!is_numeric($date_parts[1])) {
+      unset($date_parts[1]);
+    }
+    
+    if (count($date_parts)==2 && checkdate($date_parts[1], 1, $date_parts[0])) {
+      $vars['page_title'] = $vars['title'].'<span class="date"> in '.format_date(strtotime($q_parts[1]), 'custom', 'F Y').'</span>';
+    } elseif (is_numeric($date_parts[0]) && checkdate(1, 1, $date_parts[0])) {
+      $vars['page_title'] = $vars['title'].'<span class="date"> in '.check_plain($date_parts[0]).'</span>';
+    }
+    
   }
   
   // Remove node.css if this is homepage
@@ -504,7 +520,7 @@ function leggy_preprocess_views_view__section_listing(&$vars) {
 function leggy_preprocess_views_view__section_listing__page_4(&$vars) {  
   drupal_add_css(path_to_theme() . '/css/section_index.css', 'theme');
   drupal_add_css(path_to_theme() . '/css/node_today.css', 'theme');
-  
+
   // hide attachment for inner pages
   if ($vars['view']->pager['current_page'] > 0) {
      unset($vars['attachment_before']);
