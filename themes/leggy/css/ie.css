@@ -1,0 +1,8 @@
+#second_body {
+  display:none !Important;
+}
+body {
+  background: #000 url(../images/ie_diediedie.gif) 50% 0 no-repeat !important;
+  height:1000px;
+  width:960px;
+}
