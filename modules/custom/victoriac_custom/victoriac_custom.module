@@ -31,6 +31,12 @@ function victoriac_custom_menu() {
  * See http://capellic.com/blog/theming-the-node-body-field
  */
 function victoriac_custom_nodeapi(&$node, $op, $teaser, $page) {
+  
+  // Add date to title in Today
+  if (($node->type == 'today') && ($op == 'prepare') && !$node->title) {
+    $node->title = 'Today: '. format_date(time(), 'custom', 'j F Y');
+  }
+  
   // Add wrapper class to node body field
   if ($op == 'view') {
     $node->content['body']['#value'] = "<div class=\"node-body\">" . 
