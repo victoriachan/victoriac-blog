@@ -35,7 +35,7 @@
       <li>
         <p class="tweet-body">
         <span class="tweet-author"><?php print l($tweet->username, 'http://twitter.com/' . $tweet->username); ?></span>      
-        <span class="tweet-text"><?php print twitter_pull_add_links($tweet->text); ?></span>
+        <span class="tweet-text"><?php print strip_tags(check_markup(twitter_pull_add_links($tweet->text)), '<a>'); ?></span>
         </p>
         <p class="tweet-time"><?php print l(format_interval(time() - $tweet->timestamp) . ' ' . t('ago') . ' from Twitter »', 'http://twitter.com/' . $tweet->username . '/status/' . $tweet->id);?></p>
       </li>
