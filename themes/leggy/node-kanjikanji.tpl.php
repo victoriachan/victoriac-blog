@@ -59,6 +59,9 @@
  * print $FIELD_NAME_rendered;
  */
  $has_fullwidth_image = $page && ($fullwidth_image OR $embedded_video) ? TRUE : FALSE;
+ if ($has_fullwidth_image) {
+   $classes = $classes . ' ' . 'node_has_fullwidth_image';
+ }
 ?>
 
 
