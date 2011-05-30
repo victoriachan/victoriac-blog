@@ -27,19 +27,14 @@ body.page-node .node {
   position: absolute;
   margin-left: 0;
 }
-body.page-node .field-fullwidth-image-upload-fid, 
-body.page-node .field-fullwidth-image-embed {
-  margin-left: 0;
-}
 body.page-node .field-fullwidth-image-upload-fid img, 
 body.page-node .field-fullwidth-image-embed img{
-  border: 1px solid #222;
+  border: 1px solid #FFF;
   webkit-box-shadow: 0px 0px 5px rgba(0,0,0,0.5);
   -moz-box-shadow: 0px 0px 5px rgba(0,0,0,0.5);
   box-shadow: 0px 0px 5px rgba(0,0,0,0.5);
 }
 body.page-node .node_has_fullwidth_image {
-  padding: 0 0 10px 0;
 }
 
 #glossary_terms {
