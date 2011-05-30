@@ -1,5 +1,4 @@
 <?php
-// $Id: i18n.pages.inc,v 1.1.2.5 2009/09/21 23:11:33 jareyero Exp $
 
 /**
  * @file
@@ -87,6 +86,7 @@ function i18n_node_select_translation($form_state, $node, $translations) {
       $form['translations']['language'][$language->language] = array('#value' => $language->name);
       $form['translations']['node'][$language->language] = array(
         '#type' => 'textfield',
+        '#maxlength' => 255,
         '#autocomplete_path' => 'i18n/node/autocomplete/' . $node->type . '/' . $language->language,
         '#default_value' => $trans_nid ? i18n_node_nid2autocomplete($trans_nid) : '',
       );
@@ -259,7 +259,7 @@ function _i18n_node_references($string, $match = 'contains', $params = array(), 
  * Theme select translation form
  * @ingroup themeable
  */
-function theme_i18n_node_select_translation(&$elements) {
+function theme_i18n_node_select_translation($elements) {
   $output = '';
   if (isset($elements['nid'])) {
     $rows = array();
