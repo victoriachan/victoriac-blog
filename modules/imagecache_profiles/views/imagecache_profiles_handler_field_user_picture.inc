@@ -1,18 +1,22 @@
 <?php
-// $Id: imagecache_profiles_handler_field_user_picture.inc,v 1.1.2.2 2009/08/29 14:02:17 andypost Exp $
+// $Id: imagecache_profiles_handler_field_user_picture.inc,v 1.1.2.7 2010/03/24 15:28:43 andypost Exp $
 
 class imagecache_profiles_handler_field_user_picture extends views_handler_field_user_picture {
-  function options(&$options) {
-    parent::options($options);
-    $options['imagecache_preset'] = variable_get('user_picture_imagecache_profiles_default', '');
+  function option_definition() {
+    $options = parent::option_definition();
+    $options['imagecache_preset'] = array(
+      'default' => variable_get('user_picture_imagecache_profiles_default', ''),
+      'translatable' => FALSE
+    );
+    return $options;
   }
 
   function options_form(&$form, &$form_state) {
     parent::options_form($form, $form_state);
     $presets = imagecache_presets();
     $opt = array('' => '');
-    foreach ($presets as $key => $preset) {
-      $opt[$key] = check_plain($preset['presetname']);
+    foreach ($presets as $preset) {
+      $opt[$preset['presetname']] = check_plain($preset['presetname']);
     }
     $options = $this->options;
     $form['imagecache_preset'] = array(
@@ -29,6 +33,7 @@ class imagecache_profiles_handler_field_user_picture extends views_handler_field
     $account = new stdClass();
     $account->uid = $values->{$this->aliases['uid']};
     $account->name = $values->{$this->aliases['name']};
+    $account->mail = isset($values->{$this->aliases['mail']}) ? $values->{$this->aliases['mail']} : '';
     $account->picture = $values->{$this->field_alias};
 
     if ($options['imagecache_preset']) {
