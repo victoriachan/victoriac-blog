@@ -16,6 +16,7 @@
   <!--[if IE]>
     <?php print '<link rel="stylesheet" href="'.path_to_theme().'/css/ie.css" />' ?>
 	<![endif]-->
+	<meta name="google-site-verification" content="0hwMuMZwmLOjcfG5iS0KIH3dVQ1fb5T-Wai1rzfByR8" />
 </head>
 
 <body class="<?php print trim($body_classes); ?>"><div id="second_body"><?php $is_front? print('<div id="home_banner">') : '' ?>
