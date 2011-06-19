@@ -238,6 +238,10 @@ function victoriac_custom_user_greeting_block_content () {
 
 function victoriac_custom_breadcrumb_block_content () {
   $breadcrumb = drupal_get_breadcrumb();
+  // Fix odd broken breadcrumb eg. <a href="/node549">Sun, 29 May 2011</a>
+  foreach ($breadcrumb as $key => $value) {
+    $breadcrumb[$key] = preg_replace('/(href="\/node)([^\/])/', '$1/$2', $value);
+  }
   if ($breadcrumb) {
     return theme_breadcrumb($breadcrumb);
   } else {
