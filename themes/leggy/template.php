@@ -381,9 +381,9 @@ function leggy_preprocess_node(&$vars) {
   $vars['node_bottom'] = theme('blocks', 'node_bottom');
   
   // Load node type-specific preprocess functions (if they exist)
-  $function = 'leggy_preprocess_node'.'_'. $vars['node']->type;
+  $function = __FUNCTION__ . '_' . $vars['node']->type;
   if (function_exists($function)) {
-    $function(&$vars);
+    $function($vars);
   } else {
   
   // Load the usual node stuff
