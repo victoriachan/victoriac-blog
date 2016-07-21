@@ -1,0 +1,11 @@
+name = myDropWizard
+description = Get accurate update status from Drupal 6 Long-Term Support vendors (by myDropWizard.com)
+core = 6.x
+package = Support
+
+; Information added by Drupal.org packaging script on 2016-05-26
+version = "6.x-1.5"
+core = "6.x"
+project = "mydropwizard"
+datestamp = "1464266416"
+
